@@ -1,0 +1,870 @@
+cluster build doc
+---------------------------------
+
+
+Cluster Build Doc:
+
+
+1. Create symlink
+2. install java
+3. place the cloudera.repo on all nodes (6.2)
+4. install krb5-workstation and krb5-libs.
+5. install CM server and CM Agent
+6. install mysql
+7. install jdbc driver
+8. create the databases required for the Cloudera Manager in MySQL
+9. Certs gerneration - Refer SSL Certs generation document of Avinash.
+
+-------------------------------------------------
+
+# Symlink (1)
+mkdir -p /apps/opt/cloudera
+ln -s /apps/opt/cloudera/ /opt/cloudera
+
+# install Java (2)
+mkdir /apps/java
+cd /usr
+ln -s /apps/java /usr/java
+cp /home/asingh57/jdk-8u74-linux-x64.tar.gz /apps/java/.
+cd /usr/java
+tar -xvzf jdk-8u74-linux-x64.tar.gz
+cd /usr/java/jdk1.8.0_74/
+alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_74/bin/java 2
+java -version
+cd ..
+chown root:root jdk-8u74-linux-x64.tar.gz
+chown -R root:root jdk1.8.0_74
+ln -s /apps/java/jdk1.8.0_74/ /usr/java/latest
+ls -al 
+java -version 
+
+
+Step 3 : 
+wget https://archive.cloudera.com/cm6/6.2.0/redhat7/yum/cloudera-manager.repo
+
+
+step 4 : 
+yum install krb5-workstation
+
+yum install krb5-libs  
+
+
+step 5 : 
+y
+yum install cloudera-manager-agent
+yum install cloudera-manager-server
+
+
+Step 6 : 
+
+Go to Mysql node : and place below files in ur home direcory: 
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz 
+ 
+wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm 
+ 
+
+rpm -ivh mysql-community-release-el7-5.noarch.rpm
+
+yum update 
+
+yum install mysql-server 
+----------------------------------------------------------------------
+
+ln -s /var/lib/mysql to /apps/mysql
+
+ln -s /apps/mysql  /var/lib/mysql
+
+
+Bring back deafult my.cnf
+
+All read permssion
+
+Start mysql 
+/usr/bin/mysql_secure_installation 
+Blank
+Set root password
+Cloudera@6
+Remove anaymous users yes
+Everything yes
+
+===============================mysql setup ====================
+
+install mysql
+create symlink for /var/lib/mysql to /app/mysql
+chown mysql:mysql
+chmod 775 -R /app/mysql
+create dir /apps/mysql_tmp
+chown mysql:mysql
+chmod 775 -R /apps/mysql_tmp
+start mysql
+stop mysql
+Move old InnoDB log files /var/lib/mysql/ib_logfile0 and /var/lib/mysql/ib_logfile1 out of /var/lib/mysql/ to a backup location.
+copy /etc/my.cnf from DEV
+run secure mysql
+restart mysql
+
+
+
+-----------------------------------------------------
+rpm -ivh mysql-community-release-el7-5.noarch.rpm
+   11  yum update yum
+   12  yum update
+   13  yum install mysql-server
+   14  history
+[root@ITSUSRALSP08777:/home/asingh57
+---------------------------------------------------------------------------
+
+step - 7
+
+installing jdbc driver :
+
+tar zxvf mysql-connector-java-5.1.46.tar.gz
+mkdir /usr/share/java/
+cd mysql-connector-java-5.1.46
+cp mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar
+chmod 755 /usr/share/java/mysql-connector-java.jar 
+
+
+------------------------------------------------------------------------------
+
+Step - 8 :
+
+-- Create the databases required for the Cloudera Manager in MySQL
+
+create database scm DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on scm.* TO 'scm'@'%' IDENTIFIED BY 'scm_ClouderaEDL_6';
+
+create database amon DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on amon.* TO 'amon'@'%' IDENTIFIED BY 'amon_ClouderaEDL_6';
+
+create database rman DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+grant all on rman.* TO 'rman'@'%' IDENTIFIED BY 'rman_ClouderaEDL_6';
+
+create database nav DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on nav.* TO 'nav'@'%' IDENTIFIED BY 'nav_ClouderaEDL_6';
+
+create database metastore DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on metastore.* TO 'hive'@'%' IDENTIFIED BY 'metastore_ClouderaEDL_6';
+
+create database sentry DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on sentry.* TO 'sentry'@'%' IDENTIFIED BY 'sentry_ClouderaEDL_6';
+
+create database navms DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on navms.* TO 'navms'@'%' IDENTIFIED BY 'navms_ClouderaEDL_6';
+
+create database hue DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on hue.* to 'hue'@'%' identified by 'hue_ClouderaEDL_6';
+
+create database oozie DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on oozie.* to 'oozie'@'%' identified by 'oozie_ClouderaEDL_6';
+
+-- Run the script to create the tables required for CM
+-- This command needs to be run from the Cloudera Manager Server
+-- we need to install the MySQL JDBC driver on the CM server node. Use the below commands to install on the CM server node. 
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz
+tar zxvf mysql-connector-java-5.1.46.tar.gz
+mkdir -p /usr/share/java/
+cd mysql-connector-java-5.1.46
+cp mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar
+chmod 755 -R /usr/share/java
+-- Copy the /etc/cloudera-scm-server/db.properties from the DEV server and change the connection options to the mysql server. 
+EXAMPLE:
+
+#-> cat /etc/cloudera-scm-server/db.properties
+# Auto-generated by scm_prepare_database.sh on Mon Apr 29 23:15:09 EDT 2019
+#
+# For information describing how to configure the Cloudera Manager Server
+# to connect to databases, see the "Cloudera Manager Installation Guide."
+#
+com.cloudera.cmf.db.type=mysql
+com.cloudera.cmf.db.host=ITSUSRALSP08777.jnj.com   <----------- change this hostname to the Mysql hostname
+com.cloudera.cmf.db.name=scm
+com.cloudera.cmf.db.user=scm
+com.cloudera.cmf.db.setupType=EXTERNAL
+com.cloudera.cmf.db.password=scm_ClouderaEDL_6
+[root@ITSUSRALSP08774:/usr/share]#
+
+-----------------------------------
+-- Now run the below command on the Cloudera manager server to create the tables in the scm database. this script will run
+-- from cloudera scm server and connect to the mysql server using the db.properties
+
+/opt/cloudera/cm/schema/scm_prepare_database.sh -h ITSUSRALSP08777.jnj.com  mysql scm scm scm_ClouderaEDL_6
+
+--Make sure all the Cloudera manager agent config.ini files are pointing to the right cloudera manager server
+-- verify whether the certificates mentioned in the config.ini file for cloudera mangaer agent is right
+
+=============================
+
+JCE - 
+
+-- Install JCE
+-- download, unzip and upload the US_export_policy.jar files to all the servers from https://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
+cp /home/asingh57/US_export_policy.jar /apps/java/jdk1.8.0_181/jre/lib/security/US_export_policy.jar
+cp /home/asingh57/local_policy.jar /apps/java/jdk1.8.0_181/jre/lib/security/local_policy.jar
+chmod 775 /apps/java/jdk1.8.0_181/jre/lib/security/US_export_policy.jar
+chmod 775 /apps/java/jdk1.8.0_181/jre/lib/security/local_policy.jar
+
+
+
+cp /home/asingh57/jdk-8u181-linux-x64.tar.gz /usr/java/
+cd /usr/java/
+tar -xvf jdk-8u181-linux-x64.tar.gz
+chmod -R 775 /apps/java
+chmod -R 775 /usr/java/jdk1.8.0_181
+ln -s /apps/java/jdk1.8.0_181/ /usr/java/latest
+ln -s /apps/java/jdk1.8.0_181/ /usr/java/default
+alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_181/bin/java 2
+update-alternatives --config java 
+
+
+
+
+export JAVA_HOME="/usr/java/latest"
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+CM is up and running, working on CDH install and security setup.
+Updated Java version in all nodes.
+Created databases required for the Cloudera Manager in Mysql.
+
+
+
+===========================hbase
+
+  187  hdfs dfs -ls /
+  188  hdfs dfs -mkdir /hbase
+  189  hdfs dfs -chown hbase:hbase /hbase
+  190  hdfs dfs -ls /
+  191  hdfs dfs -chmod 700 /hbase
+  192  hdfs dfs -ls /
+
+
+--------------------------------------------------------------
+
+
+Install steps doc:
+
+-----------------------
+
+
+-- Create the databases required for the Cloudera Manager in MySQL
+
+create database scm DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on scm.* TO 'scm'@'%' IDENTIFIED BY 'scm_ClouderaEDL_6';
+
+
+create database amon DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on amon.* TO 'amon'@'%' IDENTIFIED BY 'amon_ClouderaEDL_6';
+
+create database rman DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+grant all on rman.* TO 'rman'@'%' IDENTIFIED BY 'rman_ClouderaEDL_6';
+
+create database nav DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on nav.* TO 'nav'@'%' IDENTIFIED BY 'nav_ClouderaEDL_6';
+
+create database metastore DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on metastore.* TO 'hive'@'%' IDENTIFIED BY 'metastore_ClouderaEDL_6';
+
+create database sentry DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on sentry.* TO 'sentry'@'%' IDENTIFIED BY 'sentry_ClouderaEDL_6';
+
+create database navms DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on navms.* TO 'navms'@'%' IDENTIFIED BY 'navms_ClouderaEDL_6';
+
+create database hue DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on hue.* to 'hue'@'%' identified by 'hue_ClouderaEDL_6';
+
+create database oozie DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on oozie.* to 'oozie'@'%' identified by 'oozie_ClouderaEDL_6';
+
+
+-- Run the script to create the tables required for CM
+-- This command needs to be run from the Cloudera Manager Server
+-- we need to install the MySQL JDBC driver on the CM server node. Use the below commands to install on the CM server node. 
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz
+tar zxvf mysql-connector-java-5.1.46.tar.gz
+mkdir -p /usr/share/java/
+cd mysql-connector-java-5.1.46
+cp mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar
+chmod 755 -R /usr/share/java
+-- Copy the /etc/cloudera-scm-server/db.properties from the DEV server and change the connection options to the mysql server. 
+EXAMPLE:
+
+#-> cat /etc/cloudera-scm-server/db.properties
+# Auto-generated by scm_prepare_database.sh on Mon Apr 29 23:15:09 EDT 2019
+#
+# For information describing how to configure the Cloudera Manager Server
+# to connect to databases, see the "Cloudera Manager Installation Guide."
+#
+com.cloudera.cmf.db.type=mysql
+com.cloudera.cmf.db.host=ITSUSRALSP08777.jnj.com   <----------- change this hostname to the Mysql hostname
+com.cloudera.cmf.db.name=scm
+com.cloudera.cmf.db.user=scm
+com.cloudera.cmf.db.setupType=EXTERNAL
+com.cloudera.cmf.db.password=scm_ClouderaEDL_6
+[root@ITSUSRALSP08774:/usr/share]#
+
+
+-----------------------------------
+-- Now run the below command on the Cloudera manager server to create the tables in the scm database. this script will run
+-- from cloudera scm server and connect to the mysql server using the db.properties
+
+/opt/cloudera/cm/schema/scm_prepare_database.sh -h ITSUSRALSP08777.jnj.com  mysql scm scm scm_ClouderaEDL_6
+
+--Make sure all the Cloudera manager agent config.ini files are pointing to the right cloudera manager server
+-- verify whether the certificates mentioned in the config.ini file for cloudera mangaer agent is right
+
+
+-------------------------------------------
+-- April 30
+
+-- upgrade Java to 181 (jdk-8u181-linux-x64.tar.gz)
+-- download Java from # https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html or copy from dev node
+-- Run the below commands
+cp /home/asingh57/jdk-8u181-linux-x64.tar.gz /usr/java/
+cd /usr/java/
+tar -xvf jdk-8u181-linux-x64.tar.gz
+chmod -R 775 /apps/java
+chmod -R 775 /usr/java/jdk1.8.0_181
+ln -s /apps/java/jdk1.8.0_181/ /usr/java/latest
+ln -s /apps/java/jdk1.8.0_181/ /usr/java/default
+alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_181/bin/java 2
+update-alternatives --config java 
+-- select the number that shows "/usr/java/jdk1.8.0_181/bin/java". It would be mostly 2.
+
+-- permanantly add JAVA_HOME
+-- add the below lines to "/etc/profile" at the end of the file1
+export JAVA_HOME="/usr/java/latest"
+export PATH=$JAVA_HOME/bin:$PATH
+
+-- save and exit vi
+-- run the below commands to make it active. 
+source /etc/profile
+--command  "echo $JAVA_HOME" should show "/usr/java/latest"
+
+-- Install JCE or copy from other servers
+
+-- download, unzip and upload the US_export_policy.jar files to all the servers from https://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
+cp /home/asingh57/US_export_policy.jar /apps/java/jdk1.8.0_181/jre/lib/security/US_export_policy.jar
+cp /home/asingh57/local_policy.jar /apps/java/jdk1.8.0_181/jre/lib/security/local_policy.jar
+chmod 775 /apps/java/jdk1.8.0_181/jre/lib/security/US_export_policy.jar
+chmod 775 /apps/java/jdk1.8.0_181/jre/lib/security/local_policy.jar
+
+-------------------------------------
+-- Restart the Cloudera Manager
+http://<cm-servername>:7810
+-- Not Turn on the SSL 
+-- CM -> "Administartion" -> Settings -> search "ssl"
+-- 1. Cloudera Manager TLS/SSL Server JKS Keystore File Location =>  "/opt/cloudera/security/jks/server.keystore"
+-- 2. Cloudera Manager TLS/SSL Server JKS Keystore File Password => "Cloudea@6"
+-- 3. Cloudera Manager TLS/SSL Client Trust Store File => "/opt/cloudera/security/jks/truststore.jks"
+-- 4. Cloudera Manager TLS/SSL Client Trust Store Password => "changeit"
+-- 5. Check "Use TLS Encryption for Admin Console"
+
+-- Execute below command 
+chmod 755 -R /opt/cloudera/security
+-- Restart the Cloudera Manager
+https://<cm-servername>:7813
+
+-- At this point of time you should see all the hosts hearbeating to the Cloudera manager. If not make sure all are heart beating before you move ahead. 
+-- Now, go to CM, select cluster -> add cluster -> name it "JnJ_RND_DEVCluster" and click next. 
+
+--- it will show up the page where it asks for SSH/password. you should see a tab with name "unmanaged hosts" -> go to this tab and select all servers -> click next. 
+-- Now it will ask for which parcels to install.
+
+
+
+trustore.jks copy from other servers and put in all nodes
+
+copy server.keystore as hdfs.keystore and httpfs.keystore and put all nodes.
+
+
+
+
+------------------------------------------
+
+
+
+cd /opt/cloudera/security/x509
+cp server.key impala.key
+chown impala:impala impala.key
+chmod a+r impala.key
+cp server.pem impala.cert
+chown impala:impala impala.cert
+chmod a+r impala.*
+
+
+rm impalacombined.cert
+cat server.pem ../CAcerts/combinedtrust.pem server.key > impalacombined.cert
+chown impala:impala impalacombined.cert
+chmod a+r impalacombined.cert 
+
+
+
+----------------
+
+
+cp server.pem hueserver.cert
+chown hue:hue hueserver.cert
+chmod a+r hueserver.cert
+
+---------------------
+
+
+cp server.key hueserver.key
+chown hue:hue hueserver.key
+chmod a+r hueserver.key
+
+
+--------------------------------
+
+drafts commands doc:
+
+root@ITSUSRALSP08774:/var/log]#
+#-> ls -l /var/log/cloudera-scm-
+cloudera-scm-agent/          cloudera-scm-eventserver/    cloudera-scm-headlamp/       cloudera-scm-server/
+cloudera-scm-alertpublisher/ cloudera-scm-firehose/       cloudera-scm-navigator/
+[root@ITSUSRALSP08774:/var/log]#
+#-> mv cloudera-scm-eventserver /apps/log/.
+
+ln -s /apps/lib /var/lib
+ln -s /apps/log /var/log
+
+
+mv /var/lib/zookeeper /apps/var/lib/.
+ln -s /apps/var/lib/zookeeper /var/lib/zookeeper
+
+mv /var/log/zookeeper /apps/log/.
+ln -s /apps/log/zookeeper /var/log/zookeeper
+
+
+unlink /var/lib
+unlink /var/log
+
+ls -l /apps/lib
+ls -l /apps/log
+
+
+cd /var/lib
+unlink lib
+
+cd /var/log
+unlink log
+
+
+796 transfer on all other
+
+hdfs keytsotre
+
+[root@ITSUSRALSP08796:/opt/cloudera/security/jks]#
+#-> ll
+total 148
+-rwxrwxr-x 1 root         root           5129 May  6 14:59 hdfs.keystore
+-rwxrwxr-x 1 root         root           5129 May  6 15:01 httpfs.keystore
+-rwxrwxr-x 1 cloudera-scm cloudera-scm   5129 Apr 23 16:46 server.keystore
+-rwxrwxr-x 1 root         root         120116 May  6 14:30 truststore.jks
+[root@ITSUSRALSP08796:/opt/cloudera/security/jks]# 
+
+
+*ITSRNDDEV*
+
+-----------------------------------------
+
+SPN doc:
+
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08774
+Registered ServicePrincipalNames for CN=ITSUSRALSP08774,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08774
+        http/itsusralsp08774.jnj.com
+       
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08796
+Registered ServicePrincipalNames for CN=ITSUSRALSP08796,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08796
+        http/itsusralsp08796.jnj.com
+       
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08773
+Registered ServicePrincipalNames for CN=ITSUSRALSP08773,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08773
+        http/itsusralsp08773.jnj.com
+    
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08776
+Registered ServicePrincipalNames for CN=ITSUSRALSP08776,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08776
+        http/itsusralsp08776.jnj.com
+    
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08777
+Registered ServicePrincipalNames for CN=ITSUSRALSP08777,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08777
+        http/itsusralsp08777.jnj.com
+       
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08778
+Registered ServicePrincipalNames for CN=ITSUSRALSP08778,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08778
+        http/itsusralsp08778.jnj.com
+      
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08792
+Registered ServicePrincipalNames for CN=ITSUSRALSP08792,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08792
+        http/itsusralsp08792.jnj.com
+      
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08793
+Registered ServicePrincipalNames for CN=ITSUSRALSP08793,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08793.jnj.com
+        http/itsusralsp08793
+       
+
+
+D:\Users\ABaseerM>setspn -l ITSUSRALSP08795
+Registered ServicePrincipalNames for CN=ITSUSRALSP08795,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08795.jnj.com
+        http/itsusralsp08795
+
+
+
+
+==================================================
+
+history.txt
+
+------------
+
+[root@ITSUSRALSP08796:/usr/lib/python2.7/site-packages]#
+#-> history
+    1  cd /usr/lib/python2.7/site-packages/
+    2  ll
+    3  chmod 755 -R virtualenv-16.4.3.dist-info
+    4  chmod 755 -R virtualenv_support
+    5  history
+--------------------
+
+[root@ITSUSRALSP08773:/data]#
+#-> history
+    1  java -version
+    2  cd /data/data01/dfs/
+    3  cd /data/data01
+    4  ll
+    5  cd dfs
+    6  ll
+    7  pwd
+    8  cd ../..
+    9  pwd
+   10  lsb_release
+   11  lsb-release
+   12  lsb_release
+   13  lsb_release -a
+   14  ln -s /apps/lib 
+   15  ln -s /apps/log /var/log
+unlink /var/lib
+   16  history
+
+-------------------------------
+[root@ITSUSRALSP08777:/root]#
+#-> history
+    1  java -version
+    2  ln -s /apps/lib /var/lib
+    3  ln -s /apps/log /var/log
+    4  history
+-----------------------------------
+
+[root@ITSUSRALSP08795:/root]#
+#-> history
+    1  java -version
+    2  ln -s /apps/lib /var/lib
+    3  ln -s /apps/log /var/log
+    4  history
+
+--------------------------
+
+
+#-> history
+    1  java -version
+    2  ln -s /apps/lib /var/lib
+    3  ln -s /apps/log /var/log
+    4  history
+---------------
+
+[root@ITSUSRALSP08778:/root]#
+#-> history
+    1  java -version
+    2  ln -s /apps/lib /var/lib
+    3  ln -s /apps/log /var/log
+    4  history
+
+----------------
+
+[root@ITSUSRALSP08792:/root]#
+#-> history
+    1  java -version
+    2  ln -s /apps/lib /var/lib
+    3  ln -s /apps/log /var/log
+    4  history
+
+---------------------
+
+#-> history
+    1  java -version
+    2  ln -s /apps/lib /var/lib
+    3  ln -s /apps/log /var/log
+    4  cd /var
+    5  ll
+    6  ln -s /apps/lib /var/lib/
+    7  ln -s /apps/lib /var/lib
+    8  cd var
+    9  cd lib
+   10  ll
+   11  rm -rf lib
+   12  ln -s /apps/lib /var/lib
+   13  ll
+   14  rm -rf lib
+   15  ll
+   16  cd /apps/lib
+   17  history
+
+------------------
+drwx------   2 root root   4096 Mar 13 02:44 virtualenv_support
+drwxrwxr-x   3 root root   4096 Mar 13 02:44 wheel
+drwxrwxr-x   2 root root   4096 May  3 17:52 wheel-0.33.1.dist-info
+drwx------   2 root root   4096 Mar 13 02:44 virtualenv-16.4.3.dist-info
+
+cd /usr/lib/python2.7/site-packages
+chmod 755 -R pip*
+chmod 755 -R virtualenv_support
+chmod 755 -R wheel
+chmod 755 -R wheel-0.33.1.dist-info
+chmod 755 -R virtualenv-16.4.3.dist-info
+
+
+===============================================
+
+commands.txt
+
+----------------
+
+openssl pkcs7 -in AF760E9D786738959B6F233F7B67CA86.p7b -inform DER -print_certs -out ITSUSRALSP08797.pem
+
+
+cat ITSUSRALSP08797.pem entrustintermediate.pem entrustroot.pem > cert-chain.pem
+
+openssl pkcs12 -export -inkey ITSUSRALSP08797_jnj_com.key -in cert-chain.pem -out cert-chain.pkcs12
+
+export PATH=/usr/java/jdk1.8.0_181/bin:$PATH
+
+cp ITSUSRALSP08797_jnj_com.key /opt/cloudera/security/x509/server.key
+cp ITSUSRALSP08797.pem /opt/cloudera/security/x509/server.pem
+
+
+openssl req -new -newkey rsa:2048 -nodes -out ITSUSRALSP08797_jnj_com.txt -keyout ITSUSRALSP08797_jnj_com.key -subj "/C=US/ST=NJ/L=Raritan/O=JNJ/OU=EDL/CN=ITSUSRALSP08797.jnj.com" -config /home/abaseerm/8797_certs_updated/openssl.conf
+
+
+openssl pkcs7 -in 73AB9FFD31B9D6F98B32E5E6A9A876FD.p7b -inform DER -print_certs -out ITSUSRALSP08797.pem
+
+cat ITSUSRALSP08797.pem entrustintermediate.pem entrustroot.pem > cert-chain.pem
+
+openssl pkcs12 -export -inkey ITSUSRALSP08797_jnj_com.key -in cert-chain.pem
+
+
+chown root:hadoop hdfs.keystore
+chmod 0440 hdfs.keystore
+chmod 0444 truststore.jks
+
+--------------
+
+symlinks.txt
+
+--------------
+
+eg:
+
+mv /var/lib/zookeeper /apps/var/lib/.
+ln -s /apps/var/lib/zookeeper /var/lib/zookeeper
+
+mv /var/log/zookeeper /apps/log/.
+ln -s /apps/log/zookeeper /var/log/zookeeper
+
+missed
+
+cloudera management service
+
+mv /var/lib/cloudera-scm-headlamp /apps/var/lib/.
+ln -s /apps/var/lib/cloudera-scm-headlamp /var/lib/cloudera-scm-headlamp
+
+zookeeper:
+
+/var/log/zookeeper
+/var/lib/zookeeper
+
+mv /var/lib/zookeeper /apps/var/lib/.
+ln -s /apps/var/lib/zookeeper /var/lib/zookeeper
+
+mv /var/log/zookeeper /apps/log/.
+ln -s /apps/log/zookeeper /var/log/zookeeper
+
+
+
+yarn/jobhistory server:
+
+/var/log/hadoop-mapreduce
+
+mv /var/log/hadoop-mapreduce /apps/log/.
+ln -s /apps/log/hadoop-mapreduce /var/log/hadoop-mapreduce
+
+
+yarn/nodemanager:
+
+/var/log/hadoop-yarn
+
+mv /var/log/hadoop-yarn /apps/log/.
+ln -s /apps/log/hadoop-yarn /var/log/hadoop-yarn
+
+
+NodeManager Recovery Directory Free Space
+
+/var/lib/hadoop-yarn/yarn-nm-recovery
+
+mv /var/lib/hadoop-yarn/yarn-nm-recovery /apps/var/lib/.
+ln -s /apps/var/lib/hadoop-yarn/yarn-nm-recovery /var/lib/hadoop-yarn/yarn-nm-recovery
+
+Resource Manager:
+
+/var/log/hadoop-yarn
+
+mv /var/log/hadoop-yarn /apps/log/.
+ln -s /apps/log/hadoop-yarn /var/log/hadoop-yarn
+
+
+
+spark
+
+/var/log/spark
+
+mv /var/log/spark /apps/log/.
+ln -s /apps/log/spark /var/log/spark
+
+
+solr:
+
+/var/log/solr 
+
+mv /var/log/solr /apps/log/.
+ln -s /apps/log/solr /var/log/solr
+
+
+
+oozie
+
+/var/log/oozie 
+
+mv /var/log/oozie /apps/log/.
+ln -s /apps/log/oozie /var/log/oozie
+
+
+
+impala
+
+/var/log/statestore
+
+mv /var/log/statestore /apps/log/.
+ln -s /apps/log/statestore /var/log/statestore
+
+
+/var/log/catalogd
+
+mv /var/log/catalogd /apps/log/.
+ln -s /apps/log/catalogd /var/log/catalogd
+
+
+/var/log/impalad 
+
+mv /var/log/impalad  /apps/log/.
+ln -s /apps/log/impalad /var/log/impalad 
+
+Hue
+ /var/log/hue 
+
+mv /var/log/hue /apps/log/.
+ln -s /apps/log/hue /var/log/hue 
+
+
+Hive
+Hive metstore
+
+/var/log/hive 
+
+
+mv /var/log/hive /apps/log/.
+ln -s /apps/log/hive /var/log/hive
+
+
+webhccat itsusralsp08796
+
+ /var/log/hcatalog 
+
+mv /var/log/hcatalog /apps/log/.
+ln -s /apps/log/hcatalog  /var/log/hcatalog
+
+
+HDFS
+
+/var/log/hadoop-hdfs
+
+mv /var/log/hadoop-hdfs /apps/log/.
+ln -s /apps/log/hadoop-hdfs/var/log/hadoop-hdfs
+
+var/log/hadoop-httpfs 
+
+mv var/log/hadoop-httpfs /apps/log/.
+ln -s /apps/log/hadoop-httpfs /var/log/hadoop-httpfs 
+
+
+HBASE
+
+ itsusralsp08773, 796, 778, 793, 792, 776
+   
+/var/log/hbase
+
+mv /var/log/hbase /apps/log/.
+ln -s /apps/log/hbase /var/log/hbase 
+
+/var/log/hadoop-hdfs
+
+mv /var/log/hadoop-hdfs /apps/log/.
+ln -s /apps/log/hadoop-hdfs /var/log/hadoop-hdfs
+
+
+
+/var/log/hadoop-yarn
+
+mv /var/log/hadoop-yarn /apps/log/.
+ln -s /apps/log/hadoop-yarn /var/log/hadoop-yarn
+
+
+ /var/lib/hadoop-yarn/yarn-nm-recovery
+
+mv /var/lib/hadoop-yarn/yarn-nm-recovery /apps/var/lib/.
+ln -s /apps/var/lib/hadoop-yarn/yarn-nm-recovery /var/lib/hadoop-yarn/yarn-nm-recovery
+
+
+
+cd /usr/lib/python2.7/site-packages
+chmod 755 -R pip*
+chmod 755 -R virtualenv_support
+chmod 755 -R wheel
+chmod 755 -R wheel-0.33.1.dist-info
+chmod 755 -R virtualenv-16.4.3.dist-info
+
+=======================================
+
+

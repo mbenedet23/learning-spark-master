@@ -1,0 +1,246 @@
+                #####################
+#Application code: rddp
+#Path: /dev/rndedl/pharma/rnd
+#Project Code: 01
+#####################
+
+#######################
+#Create HDFS Directories
+#######################
+
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp/str
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp/unstr
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp/appcode
+
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp/str/rddp_core
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp/str/rddp_stg
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp/str/rddp_wrk
+
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp/unstr/rddp_core
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp/unstr/rddp_stg
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp/unstr/rddp_wrk
+
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp/appcode/scripts
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp/appcode/configs
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rddp/appcode/logs
+
+hdfs dfs -chmod -R 771 /dev/rndedl/pharma/rnd/rddp
+
+#######################
+#Generating ACL commands
+#######################
+
+#ACL commands for Developer Role
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rddp/appcode/scripts
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rddp/appcode/scripts
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rddp/appcode/configs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rddp/appcode/configs
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rddp/appcode/logs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rddp/appcode/logs
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rddp/unstr/rddp_core
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rddp/unstr/rddp_core
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rddp/unstr/rddp_wrk
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rddp/unstr/rddp_wrk
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rddp/unstr/rddp_stg
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rddp/unstr/rddp_stg
+
+#ACL commands for RPT Role
+
+#ACL commands for ETL Role
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-etl-sa:rwx /dev/rndedl/pharma/rnd/rddp/appcode/configs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-etl-sa:rwx /dev/rndedl/pharma/rnd/rddp/appcode/configs
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-etl-sa:rwx /dev/rndedl/pharma/rnd/rddp/appcode/scripts
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-etl-sa:rwx /dev/rndedl/pharma/rnd/rddp/appcode/scripts
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-etl-sa:rwx /dev/rndedl/pharma/rnd/rddp/appcode/logs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-etl-sa:rwx /dev/rndedl/pharma/rnd/rddp/appcode/logs
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-etl-sa:rwx /dev/rndedl/pharma/rnd/rddp/unstr/rddp_core
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-etl-sa:rwx /dev/rndedl/pharma/rnd/rddp/unstr/rddp_core
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-etl-sa:rwx /dev/rndedl/pharma/rnd/rddp/unstr/rddp_wrk
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-etl-sa:rwx /dev/rndedl/pharma/rnd/rddp/unstr/rddp_wrk
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-etl-sa:rwx /dev/rndedl/pharma/rnd/rddp/unstr/rddp_stg
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-etl-sa:rwx /dev/rndedl/pharma/rnd/rddp/unstr/rddp_stg
+
+#ACL commands for Support Role
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-supp-usr:r-x /dev/rndedl/pharma/rnd/rddp/appcode/scripts
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-supp-usr:r-x /dev/rndedl/pharma/rnd/rddp/appcode/scripts
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-supp-usr:r-x /dev/rndedl/pharma/rnd/rddp/appcode/configs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-supp-usr:r-x /dev/rndedl/pharma/rnd/rddp/appcode/configs
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-supp-usr:r-x /dev/rndedl/pharma/rnd/rddp/appcode/logs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-supp-usr:r-x /dev/rndedl/pharma/rnd/rddp/appcode/logs
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-supp-usr:r-x /dev/rndedl/pharma/rnd/rddp/unstr/rddp_core
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-supp-usr:r-x /dev/rndedl/pharma/rnd/rddp/unstr/rddp_core
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-supp-usr:r-x /dev/rndedl/pharma/rnd/rddp/unstr/rddp_wrk
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-supp-usr:r-x /dev/rndedl/pharma/rnd/rddp/unstr/rddp_wrk
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj01-supp-usr:r-x /dev/rndedl/pharma/rnd/rddp/unstr/rddp_stg
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj01-supp-usr:r-x /dev/rndedl/pharma/rnd/rddp/unstr/rddp_stg
+
+################################################
+#Generating Database Creation and Grant commands
+################################################
+
+#Login via HUE to the respective environment and execute the below commands in HIVE
+
+create database rddp_core location '/dev/rndedl/pharma/rnd/rddp/str/rddp_core';
+create database rddp_wrk location '/dev/rndedl/pharma/rnd/rddp/str/rddp_wrk';
+create database rddp_stg location '/dev/rndedl/pharma/rnd/rddp/str/rddp_stg';
+
+
+##################################
+#Generating Role Creation commands
+##################################
+
+#Login via HUE to the respective environment and execute the below commands in HIVE
+
+create role rddp_proj01_dvlpr_role;
+create role rddp_proj01_etl_role;
+create role rddp_proj01_rpt_role;
+create role rddp_proj01_supp_role;
+
+#URI Grants for Developer Role
+
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rddp/str/rddp_core' to role rddp_proj01_dvlpr_role;
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rddp/str/rddp_wrk' to role rddp_proj01_dvlpr_role;
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rddp/str/rddp_stg' to role rddp_proj01_dvlpr_role;
+#URI Grants for ETL Role
+
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rddp/str/rddp_core' to role rddp_proj01_etl_role;
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rddp/str/rddp_wrk' to role rddp_proj01_etl_role;
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rddp/str/rddp_stg' to role rddp_proj01_etl_role;
+
+#URI Grants for Support Role
+
+grant select on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rddp/str/rddp_core' to role rddp_proj01_supp_role;
+grant select on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rddp/str/rddp_wrk' to role rddp_proj01_supp_role;
+grant select on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rddp/str/rddp_stg' to role rddp_proj01_supp_role;
+
+#URI Grants for RPT Role
+
+grant select on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rddp/str/rddp_core' to role rddp_proj01_rpt_role;
+
+
+##################################
+Assign the roles to the Groups
+##################################
+
+grant role rddp_proj01_dvlpr_role to group its-app-rndedl-dev-proj01-dvlp-usr;
+grant role rddp_proj01_etl_role to group its-app-rndedl-dev-proj01-etl-sa;
+grant role rddp_proj01_rpt_role to group its-app-rndedl-dev-proj01-rpt-sa;
+grant role rddp_proj01_supp_role to group its-app-rndedl-dev-proj01-supp-usr;
+
+######################################
+Grant access to the roles on databases
+######################################
+
+
+grant all on database rddp_core to role rddp_proj01_dvlpr_role;
+grant all on database rddp_wrk to role rddp_proj01_dvlpr_role;
+grant all on database rddp_stg to role rddp_proj01_dvlpr_role;
+
+
+
+grant all on database rddp_core to role rddp_proj01_etl_role;
+grant all on database rddp_wrk to role rddp_proj01_etl_role;
+grant all on database rddp_stg to role rddp_proj01_etl_role;
+
+
+grant select on database rddp_core to role rddp_proj01_rpt_role;
+
+
+grant select on database rddp_core to role rddp_proj01_supp_role;
+grant select on database rddp_wrk to role rddp_proj01_supp_role;
+grant select on database rddp_stg to role rddp_proj01_supp_role;
+
+#################################################
+Generating the commands for the Edge node folders
+Execute these Linux commands on the Edge node
+#################################################
+
+mkdir /data/data01/dev/rndedl/pharma/rnd/rddp
+mkdir /data/data01/dev/rndedl/pharma/rnd/rddp/appcode
+mkdir /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/scripts
+mkdir /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/logs
+mkdir /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/configs
+mkdir /data/data01/dev/rndedl/pharma/rnd/rddp/landing
+chmod -R 771 /data/data01/dev/rndedl/pharma/rnd/rddp
+
+##################################
+Assign the extended ACL commands
+##################################
+
+#Local ACL commands for Developer Role
+
+setfacl -R -dm group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/scripts
+setfacl -R -Rm group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/scripts
+
+setfacl -R -dm group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/logs
+setfacl -R -Rm group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/logs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/configs
+setfacl -R -Rm group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/configs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/landing
+setfacl -R -Rm group:its-app-rndedl-dev-proj01-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/landing
+
+#Local ACL commands for RPT Role
+
+
+#Local ACL commands for ETL Role
+
+setfacl -R -dm group:its-app-rndedl-dev-proj01-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/scripts
+setfacl -R -Rm group:its-app-rndedl-dev-proj01-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/scripts
+
+setfacl -R -dm group:its-app-rndedl-dev-proj01-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/logs
+setfacl -R -Rm group:its-app-rndedl-dev-proj01-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/logs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj01-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/configs
+setfacl -R -Rm group:its-app-rndedl-dev-proj01-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/configs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj01-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/landing
+setfacl -R -Rm group:its-app-rndedl-dev-proj01-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rddp/landing
+
+#Local ACL commands for Support Role
+
+setfacl -R -dm group:its-app-rndedl-dev-proj01-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/scripts
+setfacl -R -Rm group:its-app-rndedl-dev-proj01-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/scripts
+
+setfacl -R -dm group:its-app-rndedl-dev-proj01-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/logs
+setfacl -R -Rm group:its-app-rndedl-dev-proj01-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/logs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj01-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/configs
+setfacl -R -Rm group:its-app-rndedl-dev-proj01-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rddp/appcode/configs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj01-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rddp/landing
+setfacl -R -Rm group:its-app-rndedl-dev-proj01-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rddp/landing
+
+
+---------------===============
+
+Add container info in sentry, hive, hdfs safety valve setting:
+
+/dev/rndedl/pharma/rnd/rddp/str/rddp_core
+/dev/rndedl/pharma/rnd/rddp/str/rddp_wrk
+/dev/rndedl/pharma/rnd/rddp/str/rddp_stg
+
+Hive: Hive Metastore Server Advanced Configuration Snippet (Safety Valve) for hive-site.xml
+
+HDFS: Sentry Synchronization Path Prefixes, sentry.hdfs.integration.path.prefixes
+
+SENTRY: Sentry Service Advanced Configuration Snippet (Safety Valve) for sentry-site.xml
+

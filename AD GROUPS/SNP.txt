@@ -1,0 +1,76 @@
+D:\Users\MKetinen>setspn -l ITSUSRALSP08774
+Registered ServicePrincipalNames for CN=ITSUSRALSP08774,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08774
+        http/itsusralsp08774.jnj.com
+       
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08796
+Registered ServicePrincipalNames for CN=ITSUSRALSP08796,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08796
+        http/itsusralsp08796.jnj.com
+       
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08773
+Registered ServicePrincipalNames for CN=ITSUSRALSP08773,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08773
+        http/itsusralsp08773.jnj.com
+    
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08776
+Registered ServicePrincipalNames for CN=ITSUSRALSP08776,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08776
+        http/itsusralsp08776.jnj.com
+    
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08777
+Registered ServicePrincipalNames for CN=ITSUSRALSP08777,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08777
+        http/itsusralsp08777.jnj.com
+       
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08778
+Registered ServicePrincipalNames for CN=ITSUSRALSP08778,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08778
+        http/itsusralsp08778.jnj.com
+      
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08792
+Registered ServicePrincipalNames for CN=ITSUSRALSP08792,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08792
+        http/itsusralsp08792.jnj.com
+      
+
+D:\Users\MKetinen>setspn -l ITSUSRALSP08793
+Registered ServicePrincipalNames for CN=ITSUSRALSP08793,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08793.jnj.com
+        http/itsusralsp08793
+       
+
+
+D:\Users\ABaseerM>setspn -l ITSUSRALSP08795
+Registered ServicePrincipalNames for CN=ITSUSRALSP08795,OU=SDDCNA,OU=Linux,OU=ApplicationServers,DC=jnj,DC=com:
+        http/itsusralsp08795.jnj.com
+        http/itsusralsp08795
+
+
+ /var/lib/hadoop-yarn/yarn-nm-recovery
+
+
+/var/log/hadoop-yarn
+
+mv /var/log/hadoop-yarn /apps/log/.
+ln -s /apps/log/hadoop-yarn /var/log/hadoop-yarn
+
+
+ /var/lib/hadoop-yarn/yarn-nm-recovery
+
+mv  /var/lib/hadoop-yarn/yarn-nm-recovery /apps/var/lib/.
+ln -s /apps/var/lib/yarn-nm-recovery /var/lib/hadoop-yarn/yarn-nm-recovery
+
+
+mv /var/lib/zookeeper /apps/var/lib/.
+ln -s /apps/var/lib/zookeeper /var/lib/zookeeper
+
+mv /var/lib/cloudera-scm-headlamp /apps/var/lib/.
+ln -s /apps/var/lib/cloudera-scm-headlamp /var/lib/cloudera-scm-headlamp
+

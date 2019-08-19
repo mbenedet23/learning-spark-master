@@ -1,0 +1,22 @@
+[root@ITSUSRALSP08773:/home/mketinen]#
+#-> cat openssl_7806_NN.cnf
+[ req ]
+default_bits       = 2048
+distinguished_name = req_distinguished_name
+req_extensions     = req_ext
+[ req_distinguished_name ]
+countryName                 = US
+stateOrProvinceName         = NJ
+localityName                = RARITAN
+organizationName            = JNJ
+commonName                  = ITSUSRALSP07806
+[ req_ext ]
+subjectAltName = @alt_names
+[alt_names]
+DNS.1   = ITSUSRALSP07806
+DNS.2   = itsusralsp07806
+DNS.3   = itsusralsp07806.jnj.com
+DNS.4   = edlimpaladev.jnj.com
+DNS.5   = itsusraedld01.jnj.com
+DNS.6   = itsusraedld01
+[root@ITSUSRALSP08773:/home/mketinen]#

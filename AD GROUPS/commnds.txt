@@ -1,0 +1,66 @@
+
+
+openssl pkcs7 -in AF760E9D786738959B6F233F7B67CA86.p7b -inform DER -print_certs -out ITSUSRALSP08797.pem
+
+
+cat ITSUSRALSP08797.pem entrustintermediate.pem entrustroot.pem > cert-chain.pem
+
+openssl pkcs12 -export -inkey ITSUSRALSP08797_jnj_com.key -in cert-chain.pem -out cert-chain.pkcs12
+
+export PATH=/usr/java/jdk1.8.0_181/bin:$PATH
+
+cp ITSUSRALSP08797_jnj_com.key /opt/cloudera/security/x509/server.key
+cp ITSUSRALSP08797.pem /opt/cloudera/security/x509/server.pem
+
+
+openssl req -new -newkey rsa:2048 -nodes -out ITSUSRALSP08797_jnj_com.txt -keyout ITSUSRALSP08797_jnj_com.key -subj "/C=US/ST=NJ/L=Raritan/O=JNJ/OU=EDL/CN=ITSUSRALSP08797.jnj.com" -config /home/abaseerm/8797_certs_updated/openssl.conf
+
+
+openssl pkcs7 -in 73AB9FFD31B9D6F98B32E5E6A9A876FD.p7b -inform DER -print_certs -out ITSUSRALSP08797.pem
+
+cat ITSUSRALSP08797.pem entrustintermediate.pem entrustroot.pem > cert-chain.pem
+
+openssl pkcs12 -export -inkey ITSUSRALSP08797_jnj_com.key -in cert-chain.pem
+
+
+ -out cert-chain.pkcs12
+
+
+
+chown root:hadoop hdfs.keystore
+chmod 0440 hdfs.keystore
+chmod 0444 truststore.jks
+
+
+enable tls for hdfs
+
+hive
+for sentry
+create 
+hdfs dfs -ls /dev/rnd/
+
+login to nn
+
+change perm hdfs.keytab
+openfile
+/user/bin/bash heading
+
+
+
+777 sentry server and 795 gateway
+
+install with sentry, test connectivity with username database and password created in mysql
+
+
+make configurations as per cloudera doc and dev cluster
+
+hive and impala
+
+show roles;
+create role its_admin;
+grant all on server server1 to role its_admin;
+grant role its_admin to group hive;
+show grant role its_admin;
+
+
+

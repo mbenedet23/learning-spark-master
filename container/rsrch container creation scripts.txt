@@ -1,0 +1,236 @@
+                #####################
+#Application code: rsrch
+#Path: /dev/rndedl/pharma/rnd
+#Project Code: 03
+#####################
+
+#######################
+#Create HDFS Directories
+#######################
+kinit with hdfs keytab and execute below steps
+
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch/str
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch/unstr
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch/appcode
+
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch/str/rsrch_core
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch/str/rsrch_stg
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch/str/rsrch_wrk
+
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_core
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_stg
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_wrk
+
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch/appcode/configs
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/rsrch/appcode/logs
+
+hdfs dfs -chmod -R 771 /dev/rndedl/pharma/rnd/rsrch
+
+#######################
+#Generating ACL commands
+#######################
+
+#ACL commands for Developer Role
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rsrch/appcode/configs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rsrch/appcode/configs
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rsrch/appcode/logs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rsrch/appcode/logs
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_core
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_core
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_wrk
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_wrk
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_stg
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_stg
+
+#ACL commands for RPT Role
+
+#ACL commands for ETL Role
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-etl-sa:rwx /dev/rndedl/pharma/rnd/rsrch/appcode/configs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-etl-sa:rwx /dev/rndedl/pharma/rnd/rsrch/appcode/configs
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-etl-sa:rwx /dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-etl-sa:rwx /dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-etl-sa:rwx /dev/rndedl/pharma/rnd/rsrch/appcode/logs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-etl-sa:rwx /dev/rndedl/pharma/rnd/rsrch/appcode/logs
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-etl-sa:rwx /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_core
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-etl-sa:rwx /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_core
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-etl-sa:rwx /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_wrk
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-etl-sa:rwx /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_wrk
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-etl-sa:rwx /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_stg
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-etl-sa:rwx /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_stg
+
+#ACL commands for Support Role
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-supp-usr:r-x /dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-supp-usr:r-x /dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-supp-usr:r-x /dev/rndedl/pharma/rnd/rsrch/appcode/configs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-supp-usr:r-x /dev/rndedl/pharma/rnd/rsrch/appcode/configs
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-supp-usr:r-x /dev/rndedl/pharma/rnd/rsrch/appcode/logs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-supp-usr:r-x /dev/rndedl/pharma/rnd/rsrch/appcode/logs
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-supp-usr:r-x /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_core
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-supp-usr:r-x /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_core
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-supp-usr:r-x /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_wrk
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-supp-usr:r-x /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_wrk
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj03-supp-usr:r-x /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_stg
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj03-supp-usr:r-x /dev/rndedl/pharma/rnd/rsrch/unstr/rsrch_stg
+
+################################################
+#Generating Database Creation and Grant commands
+################################################
+
+#Login via HUE to the respective environment and execute the below commands in HIVE
+
+create database rsrch_core location '/dev/rndedl/pharma/rnd/rsrch/str/rsrch_core';
+create database rsrch_wrk location '/dev/rndedl/pharma/rnd/rsrch/str/rsrch_wrk';
+create database rsrch_stg location '/dev/rndedl/pharma/rnd/rsrch/str/rsrch_stg';
+
+
+##################################
+#Generating Role Creation commands
+##################################
+
+#Login via HUE to the respective environment and execute the below commands in HIVE
+
+create role rsrch_proj03_dvlpr_role;
+create role rsrch_proj03_etl_role;
+create role rsrch_proj03_rpt_role;
+create role rsrch_proj03_supp_role;
+
+#URI Grants for Developer Role
+
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rsrch/str/rsrch_core' to role rsrch_proj03_dvlpr_role;
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rsrch/str/rsrch_wrk' to role rsrch_proj03_dvlpr_role;
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rsrch/str/rsrch_stg' to role rsrch_proj03_dvlpr_role;
+#URI Grants for ETL Role
+
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rsrch/str/rsrch_core' to role rsrch_proj03_etl_role;
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rsrch/str/rsrch_wrk' to role rsrch_proj03_etl_role;
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rsrch/str/rsrch_stg' to role rsrch_proj03_etl_role;
+
+#URI Grants for Support Role
+
+grant select on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rsrch/str/rsrch_core' to role rsrch_proj03_supp_role;
+grant select on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rsrch/str/rsrch_wrk' to role rsrch_proj03_supp_role;
+grant select on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rsrch/str/rsrch_stg' to role rsrch_proj03_supp_role;
+
+#URI Grants for RPT Role
+
+grant select on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/rsrch/str/rsrch_core' to role rsrch_proj03_rpt_role;
+
+
+##################################
+Assign the roles to the Groups
+##################################
+
+grant role rsrch_proj03_dvlpr_role to group `its-app-rndedl-dev-proj03-dvlp-usr`;
+grant role rsrch_proj03_etl_role to group `its-app-rndedl-dev-proj03-etl-sa`;
+grant role rsrch_proj03_rpt_role to group `its-app-rndedl-dev-proj03-rpt-sa`;
+grant role rsrch_proj03_supp_role to group `its-app-rndedl-dev-proj03-supp-usr`;
+
+######################################
+Grant access to the roles on databases
+######################################
+
+
+grant all on database rsrch_core to role rsrch_proj03_dvlpr_role;
+grant all on database rsrch_wrk to role rsrch_proj03_dvlpr_role;
+grant all on database rsrch_stg to role rsrch_proj03_dvlpr_role;
+
+
+
+grant all on database rsrch_core to role rsrch_proj03_etl_role;
+grant all on database rsrch_wrk to role rsrch_proj03_etl_role;
+grant all on database rsrch_stg to role rsrch_proj03_etl_role;
+
+
+grant select on database rsrch_core to role rsrch_proj03_rpt_role;
+
+
+grant select on database rsrch_core to role rsrch_proj03_supp_role;
+grant select on database rsrch_wrk to role rsrch_proj03_supp_role;
+grant select on database rsrch_stg to role rsrch_proj03_supp_role;
+
+#################################################
+Generating the commands for the Edge node folders
+Execute these Linux commands on the Edge node
+#################################################
+
+mkdir /data/data01/dev/rndedl/pharma/rnd/rsrch
+mkdir /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode
+mkdir /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+mkdir /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/logs
+mkdir /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/configs
+mkdir /data/data01/dev/rndedl/pharma/rnd/rsrch/landing
+chmod -R 771 /data/data01/dev/rndedl/pharma/rnd/rsrch
+
+##################################
+Assign the extended ACL commands
+##################################
+
+#Local ACL commands for Developer Role
+
+setfacl -R -dm group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+setfacl -R -Rm group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+
+setfacl -R -dm group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/logs
+setfacl -R -Rm group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/logs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/configs
+setfacl -R -Rm group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/configs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/landing
+setfacl -R -Rm group:its-app-rndedl-dev-proj03-dvlp-usr:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/landing
+
+#Local ACL commands for RPT Role
+
+
+#Local ACL commands for ETL Role
+
+setfacl -R -dm group:its-app-rndedl-dev-proj03-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+setfacl -R -Rm group:its-app-rndedl-dev-proj03-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+
+setfacl -R -dm group:its-app-rndedl-dev-proj03-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/logs
+setfacl -R -Rm group:its-app-rndedl-dev-proj03-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/logs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj03-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/configs
+setfacl -R -Rm group:its-app-rndedl-dev-proj03-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/configs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj03-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/landing
+setfacl -R -Rm group:its-app-rndedl-dev-proj03-etl-sa:rwx /data/data01/dev/rndedl/pharma/rnd/rsrch/landing
+
+#Local ACL commands for Support Role
+
+setfacl -R -dm group:its-app-rndedl-dev-proj03-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+setfacl -R -Rm group:its-app-rndedl-dev-proj03-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/scripts
+
+setfacl -R -dm group:its-app-rndedl-dev-proj03-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/logs
+setfacl -R -Rm group:its-app-rndedl-dev-proj03-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/logs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj03-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/configs
+setfacl -R -Rm group:its-app-rndedl-dev-proj03-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rsrch/appcode/configs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj03-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rsrch/landing
+setfacl -R -Rm group:its-app-rndedl-dev-proj03-supp-usr:r-x /data/data01/dev/rndedl/pharma/rnd/rsrch/landing
+
+
+
+sentry, hive, hdfs
+

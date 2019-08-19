@@ -1,0 +1,231 @@
+                #####################
+#Application code: poc
+#Path: /dev/rndedl/pharma/rnd
+#Project Code: 02
+#####################
+
+#######################
+#Create HDFS Directories
+#######################
+kinit with hdfs keytab and execute below steps
+
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc/str
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc/unstr
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc/appcode
+
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc/str/poc_core
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc/str/poc_stg
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc/str/poc_wrk
+
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc/unstr/poc_core
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc/unstr/poc_stg
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc/unstr/poc_wrk
+
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc/appcode/scripts
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc/appcode/configs
+hdfs dfs -mkdir /dev/rndedl/pharma/rnd/poc/appcode/logs
+
+hdfs dfs -chmod -R 771 /dev/rndedl/pharma/rnd/poc
+
+#######################
+#Generating ACL commands
+#######################
+
+#ACL commands for Developer Role
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /dev/rndedl/pharma/rnd/poc/appcode/scripts
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /dev/rndedl/pharma/rnd/poc/appcode/scripts
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /dev/rndedl/pharma/rnd/poc/appcode/configs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /dev/rndedl/pharma/rnd/poc/appcode/configs
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /dev/rndedl/pharma/rnd/poc/appcode/logs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /dev/rndedl/pharma/rnd/poc/appcode/logs
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /dev/rndedl/pharma/rnd/poc/unstr/poc_core
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /dev/rndedl/pharma/rnd/poc/unstr/poc_core
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /dev/rndedl/pharma/rnd/poc/unstr/poc_wrk
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /dev/rndedl/pharma/rnd/poc/unstr/poc_wrk
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /dev/rndedl/pharma/rnd/poc/unstr/poc_stg
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /dev/rndedl/pharma/rnd/poc/unstr/poc_stg
+
+#ACL commands for RPT Role
+
+#ACL commands for ETL Role
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-etl-sa:rwx /dev/rndedl/pharma/rnd/poc/appcode/configs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-etl-sa:rwx /dev/rndedl/pharma/rnd/poc/appcode/configs
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-etl-sa:rwx /dev/rndedl/pharma/rnd/poc/appcode/scripts
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-etl-sa:rwx /dev/rndedl/pharma/rnd/poc/appcode/scripts
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-etl-sa:rwx /dev/rndedl/pharma/rnd/poc/appcode/logs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-etl-sa:rwx /dev/rndedl/pharma/rnd/poc/appcode/logs
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-etl-sa:rwx /dev/rndedl/pharma/rnd/poc/unstr/poc_core
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-etl-sa:rwx /dev/rndedl/pharma/rnd/poc/unstr/poc_core
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-etl-sa:rwx /dev/rndedl/pharma/rnd/poc/unstr/poc_wrk
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-etl-sa:rwx /dev/rndedl/pharma/rnd/poc/unstr/poc_wrk
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-etl-sa:rwx /dev/rndedl/pharma/rnd/poc/unstr/poc_stg
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-etl-sa:rwx /dev/rndedl/pharma/rnd/poc/unstr/poc_stg
+
+#ACL commands for Support Role
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-supp-usr:r-x /dev/rndedl/pharma/rnd/poc/appcode/scripts
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-supp-usr:r-x /dev/rndedl/pharma/rnd/poc/appcode/scripts
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-supp-usr:r-x /dev/rndedl/pharma/rnd/poc/appcode/configs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-supp-usr:r-x /dev/rndedl/pharma/rnd/poc/appcode/configs
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-supp-usr:r-x /dev/rndedl/pharma/rnd/poc/appcode/logs
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-supp-usr:r-x /dev/rndedl/pharma/rnd/poc/appcode/logs
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-supp-usr:r-x /dev/rndedl/pharma/rnd/poc/unstr/poc_core
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-supp-usr:r-x /dev/rndedl/pharma/rnd/poc/unstr/poc_core
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-supp-usr:r-x /dev/rndedl/pharma/rnd/poc/unstr/poc_wrk
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-supp-usr:r-x /dev/rndedl/pharma/rnd/poc/unstr/poc_wrk
+
+hdfs dfs -setfacl -R -m default:group:its-app-rndedl-dev-proj02-supp-usr:r-x /dev/rndedl/pharma/rnd/poc/unstr/poc_stg
+hdfs dfs -setfacl -R -m group:its-app-rndedl-dev-proj02-supp-usr:r-x /dev/rndedl/pharma/rnd/poc/unstr/poc_stg
+
+################################################
+#Generating Database Creation and Grant commands
+################################################
+
+#Login via HUE to the respective environment and execute the below commands in HIVE
+
+create database poc_core location '/dev/rndedl/pharma/rnd/poc/str/poc_core';
+create database poc_wrk location '/dev/rndedl/pharma/rnd/poc/str/poc_wrk';
+create database poc_stg location '/dev/rndedl/pharma/rnd/poc/str/poc_stg';
+
+
+##################################
+#Generating Role Creation commands
+##################################
+
+#Login via HUE to the respective environment and execute the below commands in HIVE
+
+create role poc_proj02_dvlpr_role;
+create role poc_proj02_etl_role;
+create role poc_proj02_rpt_role;
+create role poc_proj02_supp_role;
+
+#URI Grants for Developer Role
+
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/poc/str/poc_core' to role poc_proj02_dvlpr_role;
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/poc/str/poc_wrk' to role poc_proj02_dvlpr_role;
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/poc/str/poc_stg' to role poc_proj02_dvlpr_role;
+#URI Grants for ETL Role
+
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/poc/str/poc_core' to role poc_proj02_etl_role;
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/poc/str/poc_wrk' to role poc_proj02_etl_role;
+grant all on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/poc/str/poc_stg' to role poc_proj02_etl_role;
+
+#URI Grants for Support Role
+
+grant select on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/poc/str/poc_core' to role poc_proj02_supp_role;
+grant select on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/poc/str/poc_wrk' to role poc_proj02_supp_role;
+grant select on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/poc/str/poc_stg' to role poc_proj02_supp_role;
+
+#URI Grants for RPT Role
+
+grant select on uri 'hdfs://nameservice1/dev/rndedl/pharma/rnd/poc/str/poc_core' to role poc_proj02_rpt_role;
+
+
+##################################
+Assign the roles to the Groups
+##################################
+
+grant role poc_proj02_dvlpr_role to group `its-app-rndedl-dev-proj02-dvlp-usr`;
+grant role poc_proj02_etl_role to group `its-app-rndedl-dev-proj02-etl-sa`;
+grant role poc_proj02_rpt_role to group `its-app-rndedl-dev-proj02-rpt-sa`;
+grant role poc_proj02_supp_role to group `its-app-rndedl-dev-proj02-supp-usr`;
+
+######################################
+Grant access to the roles on databases
+######################################
+
+
+grant all on database poc_core to role poc_proj02_dvlpr_role;
+grant all on database poc_wrk to role poc_proj02_dvlpr_role;
+grant all on database poc_stg to role poc_proj02_dvlpr_role;
+
+
+
+grant all on database poc_core to role poc_proj02_etl_role;
+grant all on database poc_wrk to role poc_proj02_etl_role;
+grant all on database poc_stg to role poc_proj02_etl_role;
+
+
+grant select on database poc_core to role poc_proj02_rpt_role;
+
+
+grant select on database poc_core to role poc_proj02_supp_role;
+grant select on database poc_wrk to role poc_proj02_supp_role;
+grant select on database poc_stg to role poc_proj02_supp_role;
+
+#################################################
+Generating the commands for the Edge node folders
+Execute these Linux commands on the Edge node
+#################################################
+
+mkdir /data/data02/dev/rndedl/pharma/rnd/poc
+mkdir /data/data02/dev/rndedl/pharma/rnd/poc/appcode
+mkdir /data/data02/dev/rndedl/pharma/rnd/poc/appcode/scripts
+mkdir /data/data02/dev/rndedl/pharma/rnd/poc/appcode/logs
+mkdir /data/data02/dev/rndedl/pharma/rnd/poc/appcode/configs
+mkdir /data/data02/dev/rndedl/pharma/rnd/poc/landing
+chmod -R 771 /data/data02/dev/rndedl/pharma/rnd/poc
+
+##################################
+Assign the extended ACL commands
+##################################
+
+#Local ACL commands for Developer Role
+
+setfacl -R -dm group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /data/data02/dev/rndedl/pharma/rnd/poc/appcode/scripts
+setfacl -R -Rm group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /data/data02/dev/rndedl/pharma/rnd/poc/appcode/scripts
+
+setfacl -R -dm group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /data/data02/dev/rndedl/pharma/rnd/poc/appcode/logs
+setfacl -R -Rm group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /data/data02/dev/rndedl/pharma/rnd/poc/appcode/logs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /data/data02/dev/rndedl/pharma/rnd/poc/appcode/configs
+setfacl -R -Rm group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /data/data02/dev/rndedl/pharma/rnd/poc/appcode/configs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /data/data02/dev/rndedl/pharma/rnd/poc/landing
+setfacl -R -Rm group:its-app-rndedl-dev-proj02-dvlp-usr:rwx /data/data02/dev/rndedl/pharma/rnd/poc/landing
+
+#Local ACL commands for RPT Role
+
+
+#Local ACL commands for ETL Role
+
+setfacl -R -dm group:its-app-rndedl-dev-proj02-etl-sa:rwx /data/data02/dev/rndedl/pharma/rnd/poc/appcode/scripts
+setfacl -R -Rm group:its-app-rndedl-dev-proj02-etl-sa:rwx /data/data02/dev/rndedl/pharma/rnd/poc/appcode/scripts
+
+setfacl -R -dm group:its-app-rndedl-dev-proj02-etl-sa:rwx /data/data02/dev/rndedl/pharma/rnd/poc/appcode/logs
+setfacl -R -Rm group:its-app-rndedl-dev-proj02-etl-sa:rwx /data/data02/dev/rndedl/pharma/rnd/poc/appcode/logs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj02-etl-sa:rwx /data/data02/dev/rndedl/pharma/rnd/poc/appcode/configs
+setfacl -R -Rm group:its-app-rndedl-dev-proj02-etl-sa:rwx /data/data02/dev/rndedl/pharma/rnd/poc/appcode/configs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj02-etl-sa:rwx /data/data02/dev/rndedl/pharma/rnd/poc/landing
+setfacl -R -Rm group:its-app-rndedl-dev-proj02-etl-sa:rwx /data/data02/dev/rndedl/pharma/rnd/poc/landing
+
+#Local ACL commands for Support Role
+
+setfacl -R -dm group:its-app-rndedl-dev-proj02-supp-usr:r-x /data/data02/dev/rndedl/pharma/rnd/poc/appcode/scripts
+setfacl -R -Rm group:its-app-rndedl-dev-proj02-supp-usr:r-x /data/data02/dev/rndedl/pharma/rnd/poc/appcode/scripts
+
+setfacl -R -dm group:its-app-rndedl-dev-proj02-supp-usr:r-x /data/data02/dev/rndedl/pharma/rnd/poc/appcode/logs
+setfacl -R -Rm group:its-app-rndedl-dev-proj02-supp-usr:r-x /data/data02/dev/rndedl/pharma/rnd/poc/appcode/logs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj02-supp-usr:r-x /data/data02/dev/rndedl/pharma/rnd/poc/appcode/configs
+setfacl -R -Rm group:its-app-rndedl-dev-proj02-supp-usr:r-x /data/data02/dev/rndedl/pharma/rnd/poc/appcode/configs
+
+setfacl -R -dm group:its-app-rndedl-dev-proj02-supp-usr:r-x /data/data02/dev/rndedl/pharma/rnd/poc/landing
+setfacl -R -Rm group:its-app-rndedl-dev-proj02-supp-usr:r-x /data/data02/dev/rndedl/pharma/rnd/poc/landing

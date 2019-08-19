@@ -1,0 +1,293 @@
+unlink /var/lib
+unlink /var/log
+ls -l /apps/lib
+ls -l /apps/log 
+
+cd /var/lib
+unlink lib
+cd /var/log
+unlink log 
+
+
+cd /usr/lib/python2.7/site-packages
+chmod 755 -R pip*
+chmod 755 -R virtualenv_support
+chmod 755 -R wheel
+chmod 755 -R wheel-0.33.1.dist-info
+chmod 755 -R virtualenv-16.4.3.dist-info 
+
+
+
+---------------------------------------------------------------------
+
+mkdir /apps/var/lib
+chmod 771 /apps/var/lib
+mv /var/lib/zookeeper /apps/var/lib/.
+ln -s /apps/var/lib/zookeeper /var/lib/zookeeper
+
+mkdir /apps/log
+chmod 771 /apps/log
+mv /var/log/zookeeper /apps/log/.
+ln -s /apps/log/zookeeper /var/log/zookeeper 
+-----------------------------------------------------------------------------------------------
+
+mv /var/lib/cloudera-scm-headlamp /apps/var/lib/.
+ln -s /apps/var/lib/cloudera-scm-headlamp /var/lib/cloudera-scm-headlamp 
+
+--------------------------------------------------------------------------------------------------
+on Hive Server 2  Hosts 773 and  796:
+cd /var/log/hive 
+
+mv /var/log/hive /apps/log/.
+ln -s /apps/log/hive /var/log/hive 
+
+---------------------------------------------------------------------
+
+mv /var/log/hcatalog /apps/log/.
+ln -s /apps/log/hcatalog  /var/log/hcatalog
+
+--------------------------------------------------------------------------
+on 796 host:
+mv /var/log/hue /apps/log/.
+ln -s /apps/log/hue /var/log/hue  
+--------------------------------------------------------------------------
+
+for Impala on 777 Host:
+mv /var/log/statestore /apps/log/.
+ln -s /apps/log/statestore /var/log/statestore
+
+mv /var/log/catalogd /apps/log/.
+ln -s /apps/log/catalogd /var/log/catalogd 
+
+------------------------------------------------------------------------------
+fro Impala daemon on all datanodes: 778, 793, 792, 776:
+mkdir /apps/log
+chmod 771 /apps/log
+mv /var/log/impalad  /apps/log/.
+ln -s /apps/log/impalad /var/log/impalad  
+
+------------------------------------------------------------------------------------
+oozie on 796 Host:
+mv /var/log/oozie /apps/log/.
+ln -s /apps/log/oozie /var/log/oozie 
+---------------------------------------------------------------------------------------
+SOLR on all datanodes: 778, 793, 792, 776:
+mv /var/log/solr /apps/log/.
+ln -s /apps/log/solr /var/log/solr
+
+----------------------------------------------------------------------------
+
+for Spark on 796 Host:
+mv /var/log/spark /apps/log/.
+ln -s /apps/log/spark /var/log/spark 
+ 
+
+---------------------------------------------------------------------
+for YARN on 777 host
+mv /var/log/hadoop-mapreduce /apps/log/.
+ln -s /apps/log/hadoop-mapreduce /var/log/hadoop-mapreduce 
+-----------------------------------------------------------------------------------
+on all Node Managers on all datanodes: 778, 793, 792, 776:
+
+
+mv /var/log/hadoop-yarn /apps/log/.
+ln -s /apps/log/hadoop-yarn /var/log/hadoop-yarn
+mkdir -p /apps/var/lib
+chmod 771 /apps/var
+chmod 771 /apps/var/lib
+mv /var/lib/hadoop-yarn/yarn-nm-recovery /apps/var/lib/.
+ln -s /apps/var/lib/hadoop-yarn/yarn-nm-recovery /var/lib/hadoop-yarn/yarn-nm-recovery
+
+----------------------------------------------------------------------------------
+on RM 796 host:
+
+mv /var/log/hadoop-yarn /apps/log/.
+ln -s /apps/log/hadoop-yarn /var/log/hadoop-yarn 
+
+----------------------------------------------------------------------------------
+
+for HDFS hosts 778, 792, 793, 776, 795, 796, 773
+
+mv /var/log/hadoop-hdfs /apps/log/.
+ln -s /apps/log/hadoop-hdfs /var/log/hadoop-hdfs 
+
+on 795:
+ mkdir /apps/log
+ chmod 771 /apps/log
+
+on 796 host:
+mv /var/log/hadoop-httpfs /apps/log/.
+ln -s /apps/log/hadoop-httpfs /var/log/hadoop-httpfs 
+
+-----------------------------------------------------------------------------------
+
+for HBase on 773, 796, 776, 778, 792, 793 host
+
+mv /var/log/hbase /apps/log/.
+ln -s /apps/log/hbase /var/log/hbase
+
+-------------------------------------------------------------------------------
+
+CHANGES to REVIEW with ABDUL:
+
+ In folder "CHG000010443246-BuildCR2"
+in document "CR2-ClouderManagerInstall-CHG000010443246" verify if 
+POINT 10 changes were made in /etc/cloudera-scm-agent/config.ini file
+
+
+-----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+--------------------------------------------------------------------------------
+
+
+774 host
+ mkdir /apps/var
+ chmod 771 /apps/var
+mv /var/lib/cloudera-scm-headlamp /apps/var/lib/.
+ln -s /apps/var/lib/cloudera-scm-headlamp /var/lib/cloudera-scm-headlamp
+
+------------------------------------------------------------------
+
+5/6/19:
+
+----------------------------------------------------------------------
+
+goto Master server1 796:
+
+goto folder: /opt/cloudera/security/jks (and copy the below 2 files to all servers, by changing the hostname)
+
+scp hdfs.keystore httpfs.keystore mketinen@ITSUSRALSP08797:/home/mketinen/
+
+
+then in all nodes:
+goto folder:  /home/mketinen 
+ cp hdfs.keystore httpfs.keystore /opt/cloudera/security/jks
+
+goto: /opt/cloudera/security/jks and chnage permission for below 2 files
+ chmod 771 hdfs.keystore httpfs.keystore
+
+------------------------------------------------------------------------------
+Copy this file from Master1 to all hosts (by changing the hostname)
+scp truststore.jks mketinen@ITSUSRALSP08797:/home/mketinen/ 
+
+move it to /opt/cloudera/security/jks    and give 775 permission on all hosts
+cp /home/mketinen/truststore.jks /opt/cloudera/security/jks
+chmod 775 /opt/cloudera/security/jks/truststore.jks
+
+-----------------------------------------------------------------------------------
+
+5/7/19:
+---------------------------------------------------------------------------------
+
+
+on host 777
+mv /var/log/hadoop-hdfs /apps/log/.
+ln -s /apps/log/hadoop-hdfs /var/log/hadoop-hdfs 
+
+
+
+
+---------------------------------------------------------------------------------
+
+session on 5/7/2019 with Cloudera Alvin Dela at 9:30pm
+
+goto /opt/cloudera/security/jks
+then do these changes on both master nodes and all datanodes:
+
+chown root:hadoop hdfs.keystore
+chmod 0440 hdfs.keystore
+chmod 0440 truststore.jks
+
+other commands used:
+goto /var/run/cloudera-scm-agent/process
+ls -ltrd *NAME*  (look for latest file... like 858-hdfs-NAMENODE)
+cd 858-hdfs-NAMENODE
+klist -kt hdfs.keytab 
+kinit -kt hdfs.keytab  hdfs/itsusralsp08773.jnj.com@JNJ.COM
+curl --negotiate -u : http://itsusralsp08773.jnj.com:8480/getJournal
+-------------------------------------------------------------------------------
+
+ session with   5/8/19 with Cloudera w/Mark 
+
+Cloudera Chat window:
+There are two recommended configurations: (1) DataNode Transceiver Port and Secure DataNode Web UI Port (TLS/SSL) both >= 1024, DataNode Data Transfer Protection set, Hadoop TLS/SSL enabled; (2) DataNode Transceiver Port and DataNode HTTP Web UI Port both < 1024, DataNode Data Transfer Protection not set, Hadoop TLS/SSL disabled
+from Mark Loughman (internal) to everyone:
+we need to find "DataNode HTTP Web UI Port"
+from Mark Loughman (internal) to everyone:
+/etc/krb5.conf
+
+ - changed HDFS-Cofig---Datanode Tranceiver Protection to default (no box checked)
+ - changed HDFS-Cofig---Datanode Tranceiver Port (to 1023 from 1024)
+
+copy krb5 from DEV to all servers in RND
+
+goto DEV7805 host 
+scp /etc/krb5.conf aomtri@ITSUSRALSP08774:/home/aomtri
+(since above didnt work because of lost root access we used sftp)
+$ ITSUSRALSP0896 (home/abaseerm path):$ sftp abaseerm@ITSUSRALSP08774 
+sftp> get krb5.conf
+sftp> bye
+
+mv /etc/krb5.conf /home/abaseerm/krb5.conf_ITSUSRALSP08797_orig   (save the file as orig before moving the new krb5.conf)
+then move krb5.conf from home dir to /etc/folder
+move to /etc folder
+chmod a+r /etc/krb5.conf
+
+
+on all servers
+cd /opt/cloudera/security/jks
+rm  hdfs.keystore httpfs.keystore
+cp server.keystore hdfs.keystore
+cp server.keystore httpfs.keystore
+chmod 775 h* 
+chown cloudera-scm:cloudera-scm h*
+
+
+HBASE Issues: (Ajai copied these to a notepad)
+hdfs dfs -ls /
+hdfs dfs  -mkdir /hbase
+hdfs dfs -chown hbase:hbase /hbase
+hdfs dfs -chmod 700 /hbase
+ hdfs dfs -ls /
+
+
+after all services are green ajai ran
+hdfs fsck /
+hdfs fsck / -list-corruptblocks
+
+------------------------------------------------------------------------------
+
+cloudera meeting on 5/9/19 on Hive 6:50PM
+-------------------------------------------------------------------------------
+
+changed a parameter that was copied from schema tool in cloudera documentation
+deleted the hive metstore tables
+deleted the hive tables and recreated them from CM-->Hive-->Actions--> Create Hive Metastore Database tables
+
+
+----------------------------------------------------------------------------------------------------------
+
+ when enabling tls/ssl in CM the PW for truststore.jks is "changeit" and for others ist "CLoudera@6"
+
+----------------------------------------------------------------------------
+

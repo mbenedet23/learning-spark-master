@@ -1,0 +1,801 @@
+
+=================================
+Cluster Build Doc:
+=================================
+
+
+1.  Create symlink
+2.  Install java
+3.  Place the cloudera.repo on all nodes (6.2)
+4.  Install krb5-workstation and krb5-libs.
+5.  Install CM server and CM Agent
+6.  Install mysql
+7.  Install jdbc driver
+8.  Create the databases required for the Cloudera Manager in MySQL
+9.  Install JCE files.
+10. Certs gerneration - Refer SSL Certs generation document of Avinash.
+11. Change permissions for (python2.7/site-packages) packages to resolve Hue databases connection verification issue.
+12. Cloudera Manager install setup.
+13. Create directory for Hbase.
+14. Enable HA.
+15. Enabling Kerberos.
+
+-------------------------------------------------
+STEP 1:
+-----------------
+# Symlink (1)
+
+
+Make sure this is done at the very beginning
+
+
+mkdir -p /apps/opt/cloudera
+ln -s /apps/opt/cloudera/ /opt/cloudera
+
+===================
+For zookeeper servers:
+
+mkdir -p /apps/var/lib
+chmod 771 -R /apps/var
+chmod 771 /apps/var/lib
+mv /var/lib/zookeeper /apps/var/lib/.
+ln -s /apps/var/lib/zookeeper /var/lib/zookeeper
+
+mkdir /apps/log
+chmod 771 /apps/log
+mv /var/log/zookeeper /apps/log/.
+ln -s /apps/log/zookeeper /var/log/zookeeper 
+-----------------------------------------------------------------------------------------------
+For CM server:
+
+/var/log/cloudera-scm-headlamp
+
+mv /var/log/cloudera-scm-headlamp /apps/log/.
+ln -s /apps/log/cloudera-scm-headlamp /var/log/cloudera-scm-headlamp 
+
+
+
+
+mv /var/lib/cloudera-scm-headlamp /apps/var/lib/.
+ln -s /apps/var/lib/cloudera-scm-headlamp /var/lib/cloudera-scm-headlamp 
+
+
+
+mv /var/log/cloudera-scm-firehose /apps/log/.
+ln -s /apps/log/cloudera-scm-firehose /var/log/cloudera-scm-firehose
+
+
+mv /var/lib/cloudera-scm-eventserver  /apps/var/lib/.
+ln -s /apps/var/lib/cloudera-scm-eventserver /var/lib/cloudera-scm-eventserver 
+
+
+
+mv /var/log/cloudera-scm-alertpublisher /apps/log/.
+ln -s /apps/log/cloudera-scm-alertpublisher /var/log/cloudera-scm-alertpublisher
+
+
+
+
+mv /var/lib/cloudera-service-monitor /apps/var/lib/.
+ln -s /apps/var/lib/cloudera-service-monitor  /var/lib/cloudera-service-monitor
+
+
+mv /var/lib/cloudera-host-monitor /apps/var/lib/.
+ln -s /apps/var/lib/cloudera-host-monitor  /var/lib/cloudera-host-monitor
+
+
+
+
+mv /var/lib/cloudera-scm-navigator /apps/var/lib/.
+ln -s /apps/var/lib/cloudera-scm-navigator /var/lib/cloudera-scm-navigator
+
+
+--------------------------------------------------------------------------------------------------
+on Hive Server 2  Hosts 773 and  796:
+cd /var/log/hive 
+
+mv /var/log/hive /apps/log/.
+ln -s /apps/log/hive /var/log/hive 
+
+---------------------------------------------------------------------
+
+mv /var/log/hcatalog /apps/log/.
+ln -s /apps/log/hcatalog  /var/log/hcatalog
+
+--------------------------------------------------------------------------
+For Hue servers:
+
+on 796 host:
+
+mkdir /apps/log
+chmod 771 /apps/log
+
+mv /var/log/hue /apps/log/.
+ln -s /apps/log/hue /var/log/hue  
+--------------------------------------------------------------------------
+
+for Impala on 777 Host:
+
+mv /var/log/statestore /apps/log/.
+ln -s /apps/log/statestore /var/log/statestore
+
+mv /var/log/catalogd /apps/log/.
+ln -s /apps/log/catalogd /var/log/catalogd 
+
+------------------------------------------------------------------------------
+fro Impala daemon on all datanodes: 778, 793, 792, 776:
+
+mkdir /apps/log
+chmod 771 /apps/log
+mv /var/log/impalad  /apps/log/.
+ln -s /apps/log/impalad /var/log/impalad  
+
+------------------------------------------------------------------------------------
+
+oozie on 796 Host:
+
+mv /var/log/oozie /apps/log/.
+ln -s /apps/log/oozie /var/log/oozie 
+---------------------------------------------------------------------------------------
+
+SOLR on all datanodes: 778, 793, 792, 776, 777, 797:
+
+mv /var/log/solr /apps/log/.
+ln -s /apps/log/solr /var/log/solr
+
+----------------------------------------------------------------------------
+
+for Spark on 796 Host:
+
+mv /var/log/spark /apps/log/.
+ln -s /apps/log/spark /var/log/spark 
+ 
+---------------------------------------------------------------------
+for YARN on 777 host
+
+mv /var/log/hadoop-mapreduce /apps/log/.
+ln -s /apps/log/hadoop-mapreduce /var/log/hadoop-mapreduce 
+-----------------------------------------------------------------------------------
+on all Node Managers on all datanodes: 778, 793, 792, 776, 797:
+
+mv /var/log/hadoop-yarn /apps/log/.
+ln -s /apps/log/hadoop-yarn /var/log/hadoop-yarn
+mkdir -p /apps/var/lib
+chmod 771 /apps/var
+chmod 771 /apps/var/lib
+
+
+/var/lib/hadoop-yarn/yarn-nm-recovery
+
+mv /var/lib/hadoop-yarn/yarn-nm-recovery /apps/var/lib/.
+ln -s /apps/var/lib/yarn-nm-recovery /var/lib/hadoop-yarn/yarn-nm-recovery
+
+
+-----------------------------------------------------
+
+[root@ITSUSRALSP09416:/apps/var/lib]#
+#-> mv /var/lib/hadoop-yarn/yarn-nm-recovery /apps/var/lib/.
+[root@ITSUSRALSP09416:/apps/var/lib]#
+#-> ln -s /apps/var/lib/yarn-nm-recovery /var/lib/hadoop-yarn/yarn-nm-recovery
+
+
+----------------------------------------------------------------------------------
+on RM 796 host:
+
+mv /var/log/hadoop-yarn /apps/log/.
+ln -s /apps/log/hadoop-yarn /var/log/hadoop-yarn 
+
+
+/var/log/hadoop-yarn
+----------------------------------------------------------------------------------
+
+
+KUDU:
+
+/var/log/kudu
+
+
+mv /var/log/kudu /apps/log/.
+ln -s /apps/log/kudu /var/log/kudu
+
+
+
+
+
+
+for HDFS hosts 778, 792, 793, 776, 795, 796, 773
+
+mv /var/log/hadoop-hdfs /apps/log/.
+ln -s /apps/log/hadoop-hdfs /var/log/hadoop-hdfs 
+
+on 795:
+mkdir /apps/log
+chmod 771 /apps/log
+
+on 796 host:
+mv /var/log/hadoop-httpfs /apps/log/.
+ln -s /apps/log/hadoop-httpfs /var/log/hadoop-httpfs 
+
+
+-----------------------------------------------------------------------------------
+
+for HBase on 773, 796, 776, 778, 792, 793 host
+
+mv /var/log/hbase /apps/log/.
+ln -s /apps/log/hbase /var/log/hbase
+
+-------------------------------------------------------------------------------
+
+774 host
+
+CM
+
+mkdir -p /apps/var/lib
+chmod 771 /apps/var
+mv /var/lib/cloudera-scm-headlamp /apps/var/lib/.
+ln -s /apps/var/lib/cloudera-scm-headlamp /var/lib/cloudera-scm-headlamp
+
+---------------------------------------
+
+/var/log/cloudera-scm-agent 
+
+mv /var/log/cloudera-scm-agent  /apps/log/.
+ln -s /apps/log/cloudera-scm-agent /var/log/cloudera-scm-agent 
+
+
+SENTRY:
+
+mv /var/log/sentry /apps/log/.
+ln -s /apps/log/sentry /var/log/sentry 
+
+=====================================================
+Step 2:
+----------------
+# install Java (2)
+
+scp jdk-8u181-linux-x64.tar.gz to all the nodes.
+
+Login as root user:
+
+mkdir /apps/java
+cd /usr
+ln -s /apps/java /usr/java
+cp /home/abaseerm/jdk-8u181-linux-x64.tar.gz /usr/java/
+cd /usr/java/
+tar -xvf jdk-8u181-linux-x64.tar.gz
+chmod -R 775 /apps/java
+chmod -R 775 /usr/java/jdk1.8.0_181
+chown root:root jdk-8u181-linux-x64.tar.gz
+chown -R root:root jdk-8u181
+ln -s /apps/java/jdk1.8.0_181/ /usr/java/latest
+ln -s /apps/java/jdk1.8.0_181/ /usr/java/default
+alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_181/bin/java 2
+update-alternatives --config java 
+
+	(enter alternative 1)
+
+export JAVA_HOME="/usr/java/latest"
+export PATH=$JAVA_HOME/bin:$PATH
+source /etc/profile
+java -version 
+---------------------------------------------
+
+STEP 9:
+-------
+
+JCE - 
+
+-- Install JCE
+-- download, unzip and upload the US_export_policy.jar files to all the servers from https://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
+or scp from dev server.
+
+cp /home/abaseerm/US_export_policy.jar /apps/java/jdk1.8.0_181/jre/lib/security/US_export_policy.jar
+cp /home/abaseerm/local_policy.jar /apps/java/jdk1.8.0_181/jre/lib/security/local_policy.jar
+chmod 775 /apps/java/jdk1.8.0_181/jre/lib/security/US_export_policy.jar
+chmod 775 /apps/java/jdk1.8.0_181/jre/lib/security/local_policy.jar
+
+--------------------------------------
+
+Upgrade Java if version is less than below.
+
+-- upgrade Java to 181 (jdk-8u181-linux-x64.tar.gz)
+-- download Java from # https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html or copy from dev node
+-- Run the below commands
+cp /home/asingh57/jdk-8u181-linux-x64.tar.gz /usr/java/
+cd /usr/java/
+tar -xvf jdk-8u181-linux-x64.tar.gz
+chmod -R 775 /apps/java
+chmod -R 775 /usr/java/jdk1.8.0_181
+ln -s /apps/java/jdk1.8.0_181/ /usr/java/latest
+ln -s /apps/java/jdk1.8.0_181/ /usr/java/default
+alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_181/bin/java 2
+update-alternatives --config java 
+-- select the number that shows "/usr/java/jdk1.8.0_181/bin/java". It would be mostly 2.
+
+-- permanantly add JAVA_HOME
+-- add the below lines to "/etc/profile" at the end of the file1
+export JAVA_HOME="/usr/java/latest"
+export PATH=$JAVA_HOME/bin:$PATH
+
+-- save and exit vi
+-- run the below commands to make it active. 
+source /etc/profile
+--command  "echo $JAVA_HOME" should show "/usr/java/latest"
+
+=========================================================================================
+
+Step 3 :
+----------------- 
+wget https://archive.cloudera.com/cm6/6.2.0/redhat7/yum/cloudera-manager.repo
+
+[root@ITSUSRALSP08792:/etc/yum.repos.d]#
+#-> cat cloudera-manager.repo
+[cloudera-manager]
+name=Cloudera Manager 6.2.0
+baseurl=https://archive.cloudera.com/cm6/6.2.0/redhat7/yum/
+gpgkey=https://archive.cloudera.com/cm6/6.2.0/redhat7/yum/RPM-GPG-KEY-cloudera
+gpgcheck=1
+enabled=1
+autorefresh=0
+
+==================================================================================================
+step 4 : 
+-----------------
+yum install krb5-workstation
+
+yum install krb5-libs  
+
+===========================================================================================================
+step 5 : 
+
+yum install cloudera-manager-agent ( on all servers)
+yum install cloudera-manager-server  ( on CM server)
+
+===========================================================================================================
+
+Step 6 : 
+===============================mysql setup ====================
+MYSQL Installation:
+
+Go to Mysql node : and place below files in ur home direcory: 
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz
+ 
+wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm 
+ 
+rpm -ivh mysql-community-release-el7-5.noarch.rpm
+
+yum update yum
+yum update
+yum install mysql-server 
+
+create symlink for /var/lib/mysql to /app/mysql
+
+
+
+correct steps:
+
+install mysql
+create symlink for /var/lib/mysql to /app/mysql
+
+mv /var/lib/mysql /apps/.
+ln -s /apps/mysql  /var/lib/mysql
+
+chown mysql:mysql mysql
+chmod 775 -R /app/mysql
+mkdir /apps/mysql_tmp
+chown mysql:mysql /apps/mysql_tmp
+chmod 775 -R /apps/mysql_tmp
+start mysql
+stop mysql
+
+Move old InnoDB log files 
+
+mv /var/lib/mysql/ib_logfile0 /apps/mysql_tmp
+mv /var/lib/mysql/ib_logfile1 /apps/mysql_tmp
+
+copy /etc/my.cnf from DEV
+run secure mysql
+restart mysql
+
+
+run secure mysql -->  /usr/bin/mysql_secure_installation
+
+[...]
+Enter current password for root (enter for none): Blank
+OK, successfully used password, moving on...
+[...]
+Set root password? [Y/n] Y
+New password: Cloudera@6
+Re-enter new password:Cloudera@6
+Remove anonymous users? [Y/n] Y
+[...]
+Disallow root login remotely? [Y/n] N
+[...]
+Remove test database and access to it [Y/n] Y
+[...]
+Reload privilege tables now? [Y/n] Y
+All done!
+
+systemctl restart mysqld
+
+===============================================
+troubleshoot steps
+---------------------
+
+
+cd /apps
+chown mysql:mysql mysql
+chmod 775 -R /app/mysql
+
+mkdir /apps/mysql_tmp
+chown mysql:mysql mysql_tmp
+chmod 775 -R /apps/mysql_tmp
+
+create symlink for /var/lib/mysql to /app/mysql
+
+mv /var/lib/mysql /apps/.
+ln -s /apps/mysql  /var/lib/mysql
+
+systemctl start mysqld
+systemctl stop mysqld
+
+Move old InnoDB log files /var/lib/mysql/ib_logfile0 and /var/lib/mysql/ib_logfile1 out of /var/lib/mysql/ to a backup location.
+mv /var/lib/mysql/ib_logfile0 /tmp
+mv /var/lib/mysql/ib_logfile1  /tmp
+
+copy /etc/my.cnf from DEV and place it in /etc location, also set all read permissions to the file.
+
+run secure mysql -->  /usr/bin/mysql_secure_installation
+
+[...]
+Enter current password for root (enter for none): Blank
+OK, successfully used password, moving on...
+[...]
+Set root password? [Y/n] Y
+New password: Cloudera@6
+Re-enter new password:Cloudera@6
+Remove anonymous users? [Y/n] Y
+[...]
+Disallow root login remotely? [Y/n] N
+[...]
+Remove test database and access to it [Y/n] Y
+[...]
+Reload privilege tables now? [Y/n] Y
+All done!
+
+systemctl restart mysqld
+
+
+
+
+=================================
+---------------------------------------------------------------------------
+step - 7
+-------------------
+installing jdbc driver :
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz
+tar zxvf mysql-connector-java-5.1.46.tar.gz
+mkdir /usr/share/java/
+cd mysql-connector-java-5.1.46
+cp mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar
+chmod 755 /usr/share/java/mysql-connector-java.jar 
+
+------------------------------------------------------------------------------
+
+
+OOZIE: JDBC ISSUE execute on oozie servers
+
+copy from mysql node to all oozie servers
+
+mkdir /usr/share/java/
+chmod 775 /usr/share/java
+cp /usr/share/java/mysql-connector-java.jar /usr/share/java/
+chmod 755 -R /usr/share/java/mysql-connector-java.jar
+
+
+==================
+Step - 8 :
+==============
+-- Create the databases required for the Cloudera Manager in MySQL
+
+mysql -uroot -pCloudera@6
+
+create database scm DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on scm.* TO 'scm'@'%' IDENTIFIED BY 'scm_ClouderaEDL_6';
+
+create database amon DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on amon.* TO 'amon'@'%' IDENTIFIED BY 'amon_ClouderaEDL_6';
+
+create database rman DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+grant all on rman.* TO 'rman'@'%' IDENTIFIED BY 'rman_ClouderaEDL_6';
+
+create database nav DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on nav.* TO 'nav'@'%' IDENTIFIED BY 'nav_ClouderaEDL_6';
+
+create database metastore DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on metastore.* TO 'hive'@'%' IDENTIFIED BY 'metastore_ClouderaEDL_6';
+
+create database sentry DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on sentry.* TO 'sentry'@'%' IDENTIFIED BY 'sentry_ClouderaEDL_6';
+
+create database navms DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on navms.* TO 'navms'@'%' IDENTIFIED BY 'navms_ClouderaEDL_6';
+
+create database hue DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on hue.* to 'hue'@'%' identified by 'hue_ClouderaEDL_6';
+
+create database oozie DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on oozie.* to 'oozie'@'%' identified by 'oozie_ClouderaEDL_6';
+
+-- Run the script to create the tables required for CM
+-- This command needs to be run from the Cloudera Manager Server
+-- we need to install the MySQL JDBC driver on the CM server node. Use the below commands to install on the CM server node. 
+
+-- Backup default db.properties file and Copy the /etc/cloudera-scm-server/db.properties from the DEV CM server and change the connection HOSTNAME options to the mysql server. 
+
+
+#-> scp /etc/cloudera-scm-server/db.properties abaseerm@ITSUSRALSP09386:/home/abaseerm/                                                                      
+
+EXAMPLE:
+
+#-> cat /etc/cloudera-scm-server/db.properties 
+# Auto-generated by scm_prepare_database.sh on Mon Apr 29 23:15:09 EDT 2019
+#
+# For information describing how to configure the Cloudera Manager Server
+# to connect to databases, see the "Cloudera Manager Installation Guide."
+#
+com.cloudera.cmf.db.type=mysql
+com.cloudera.cmf.db.host=ITSUSRALSP08777.jnj.com   <----------- change this hostname to the Mysql hostname
+com.cloudera.cmf.db.name=scm
+com.cloudera.cmf.db.user=scm
+com.cloudera.cmf.db.setupType=EXTERNAL
+com.cloudera.cmf.db.password=scm_ClouderaEDL_6
+
+-----------------------------------
+-- Now run the below command on the Cloudera manager server to create the tables in the scm database. this script will run
+-- from cloudera scm server and connect to the mysql server using the db.properties
+
+/opt/cloudera/cm/schema/scm_prepare_database.sh -h ITSUSRALSP09386.jnj.com  mysql scm scm scm_ClouderaEDL_6
+
+--Make sure all the Cloudera manager agent /etc/cloudera-scm-agent/config.ini files in all nodes are pointing to the right cloudera manager server
+-- verify whether the certificates mentioned in the config.ini file for cloudera mangaer agent is right
+
+=============================
+
+STEP 9:
+-------
+
+JCE - 
+
+-- Install JCE
+-- download, unzip and upload the US_export_policy.jar files to all the servers from https://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
+or scp from dev server.
+
+cp /home/abaseerm/US_export_policy.jar /apps/java/jdk1.8.0_181/jre/lib/security/US_export_policy.jar
+cp /home/abaseerm/local_policy.jar /apps/java/jdk1.8.0_181/jre/lib/security/local_policy.jar
+chmod 775 /apps/java/jdk1.8.0_181/jre/lib/security/US_export_policy.jar
+chmod 775 /apps/java/jdk1.8.0_181/jre/lib/security/local_policy.jar
+
+===============================================================================
+
+STEP 10:
+----------------
+Install Certificates as per Avinash document and then do the following for remaining certificates
+
+scp truststore.jks from Dev server to all nodes and move to /opt/cloudera/security/jks and also give permissions 0440.
+
+scp /opt/cloudera/security/jks/truststore.jks /opt/cloudera/security/jks/
+chmod 0440 truststore.jk
+
+copy server.keystore as hdfs.keystore and httpfs.keystore in each individual node. Repeat this in all nodes.
+
+cp server.keystore hdfs.keystore
+cp server.keystore httpfs.keystore
+chmod 775 h* 
+chown cloudera-scm:cloudera-scm h*
+chmod 0440 truststore.jks
+
+change permissions 
+
+-- Execute below command 
+chmod 755 -R /opt/cloudera/security
+
+Example:
+
+[root@ITSUSRALSP08797:/opt/cloudera/security/jks]#
+#-> ll
+total 148
+-rwxrwxr-x 1 cloudera-scm cloudera-scm   5130 May  8 16:18 hdfs.keystore
+-rwxrwxr-x 1 cloudera-scm cloudera-scm   5130 May  8 16:19 httpfs.keystore
+-rwxrwxr-x 1 cloudera-scm cloudera-scm   5130 May  7 17:52 server.keystore
+-r--r--r-- 1 root         root         120116 May  6 17:08 truststore.jks
+
+------------------------------------------
+
+copy server.key as impala.key and server.pem as impala.cert as in below
+
+cd /opt/cloudera/security/x509
+cp server.key impala.key
+chown impala:impala impala.key
+chmod a+r impala.key
+
+cp server.pem impala.cert
+chown impala:impala impala.cert
+chmod a+r impala.cert
+
+
+rm impalacombined.cert
+cat server.pem ../CAcerts/combinedtrust.pem server.key > impalacombined.cert
+chown impala:impala impalacombined.cert
+chmod a+r impalacombined.cert 
+
+
+----------------
+copy server.pem as hueserver.cert and server.key as hueserver.key as in below
+
+cd /opt/cloudera/security/x509
+
+cp server.pem hueserver.cert
+chown hue:hue hueserver.cert
+chmod a+r hueserver.cert
+
+---------------------
+
+cp server.key hueserver.key
+chown hue:hue hueserver.key
+chmod a+r hueserver.key
+
+==================================================================================
+STEP 11:
+--------------
+
+Change permissions in all servers as in below where Hue is being installed.
+
+cd /usr/lib/python2.7/site-packages
+chmod 755 -R pip*
+chmod 755 -R virtualenv_support
+chmod 755 -R wheel*
+chmod 755 -R wheel-0.33.1.dist-info
+chmod 755 -R virtualenv-16.4.3.dist-info
+
+===============================================================================================
+
+STEP 12:
+----------------
+
+Cloudera Manager Setup 
+
+-- Restart the Cloudera Manager
+
+Use below url only to log into CM Administration UI and enable tls/ss for agents and CM.
+
+http://itsusralsp09394:7180/cmf
+
+http://<cm-servername>:7810
+
+-- Now Turn on the SSL 
+-- CM -> "Administartion" -> Settings -> search "ssl"
+-- 1. Cloudera Manager TLS/SSL Server JKS Keystore File Location =>  "/opt/cloudera/security/jks/server.keystore"
+-- 2. Cloudera Manager TLS/SSL Server JKS Keystore File Password => "Cloudera@6"
+-- 3. Cloudera Manager TLS/SSL Client Trust Store File => "/opt/cloudera/security/jks/truststore.jks"
+-- 4. Cloudera Manager TLS/SSL Client Trust Store Password => "changeit"
+-- 5. Check "Use TLS Encryption for Admin Console"
+
+
+
+ 
+6. Use TLS Encryption for Agents
+ Requires Server Restart
+
+ 
+7. Use TLS Authentication of Agents to Server
+ Requires Server Restart
+
+
+
+
+-- Execute below command 
+chmod 755 -R /opt/cloudera/security
+-- Restart the Cloudera Manager
+https://<cm-servername>:7813
+
+-- At this point of time you should see all the hosts hearbeating to the Cloudera manager. If not make sure all are heart beating before you move ahead. 
+-- Now, go to CM, select cluster -> add cluster -> name it "JnJ_RND_DEVCluster" and click next. 
+
+--- it will show up the page where it asks for SSH/password. you should see a tab with name "unmanaged hosts" -> go to this tab and select all servers -> click next. 
+-- Now it will ask for which parcels to install.
+
+
+Follow the CM UI on further installation, planning on having screenshots of cluster installation while creating QA Cluster. 
+Once the CM is up and running, copy all configurations from Dev cluster to the new cluster.
+
+===============================================================
+
+STEP 13:
+-----------------
+
+Create Hbase Directory in HDFS and give permissions as per below commands
+
+hdfs dfs -ls /
+hdfs dfs -mkdir /hbase
+hdfs dfs -chown hbase:hbase /hbase
+hdfs dfs -chmod 700 /hbase
+hdfs dfs -ls /
+
+====================================
+Step 14:
+---------------------
+
+Enabling HA:
+
+For enabling HA, we followed Cloudera Documentations as per below link.
+
+---> We have selected the namenode servers, the namenode (/apps/dfs/nn) and journal nodes (/apps/dfs/jn) directories while enabling HA in CM. 
+----> After enabling HA, it prompted that we must do some enabling in Hive metastore server, when we stop hive metastore server that option will appear. 
+
+https://www.cloudera.com/documentation/enterprise/latest/topics/cdh_hag_hdfs_ha_intro.html
+
+
+==============================================================
+Step: 15
+-----------------
+
+Enabling Kerberos.
+
+We followed the Cloudera instructions as per the below link to enable kerberos in RND Cluster.
+
+Before that we have verified that we have installed krb5-workstation and krb5-libs on all servers. Before replace krb5.conf take a backup of it. Also we have copied krb5.conf file from Dev server to all
+RND servers in /etc/krb5.conf location.
+
+yum install krb5-workstation
+
+yum install krb5-libs
+
+https://www.cloudera.com/documentation/enterprise/latest/topics/cm_sg_intro_kerb.html
+
+
+
+----------------------------
+
+
+ history
+    1  hdfs fsck / -delete
+    2  hdfs dfs -chmod 777 /hbase
+    3*
+    4  hdfs dfs -ls /
+    5  hdfs fsck / -delete
+    6  hdfs dfs -ls /hbase
+    7  su hdfs
+    8  yum install krb5-workstation
+    9  yum install krb5-libs
+   10  cd /etc
+   11  ll |grep krb5.conf
+   12  cp krb5.conf krb5.conf_bkup
+   13  ll |grep krb5.conf
+   14  cp /home/abaseerm/krb5.conf /etc/
+   15  ll |grep krb5.conf
+   16  sudo -u hdfs hdfs fsck /
+   17  sudo -u hdfs hdfs fsck / -delete
+   18  history
+
+
+=========================================================
+
+
+[root@ITSUSRALSP08774:/usr/java/default/jre/lib/security]#
+#-> scp jssecacerts abaseerm@ITSUSRALSP09394:/home/abaseerm/
+
+
+-------------------------
+
+
+[root@ITSUSRALSP09394:/usr/java/default/jre/lib/security]#
+#-> cp /home/abaseerm/jssecacerts /usr/java/default/jre/lib/security/
+
+--------------------
+
+chmod 775 /usr/java/default/jre/lib/security/jssecacerts
+
+

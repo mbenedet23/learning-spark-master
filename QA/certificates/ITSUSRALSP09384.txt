@@ -1,0 +1,207 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+itsusralsp08774.jnj.com / ITSUSRALSP09384
+
+--------------------------
+Find hostname 
+
+replace with ITSUSRALSP09384
+
+-------------------------------
+Find hostname small letters 
+
+replace with itsusralsp08774
+------------------
+find directory
+
+replace with 774_cert
+------------------
+
+find rnd 
+replace with rnd
+------------------
+find qa
+replace with qa
+-----------------
+
+cd /home/abaseerm
+
+mkdir certs
+
+cd /home/abaseerm/certs 
+chmod 777 /home/abaseerm/certs     
+
+vi openssl.conf 
+
+-->
+
+[ req ]
+default_bits       = 2048
+distinguished_name = req_distinguished_name
+req_extensions     = req_ext
+[ req_distinguished_name ]
+countryName                 = US
+stateOrProvinceName         = NJ
+localityName                = RARITAN
+organizationName            = JNJ
+commonName                  = ITSUSRALSP09384
+[ req_ext ]
+subjectAltName = @alt_names
+[alt_names]
+DNS.1   = ITSUSRALSP09384
+DNS.2   = itsusralsp09384
+DNS.3   = itsusralsp09384.jnj.com
+DNS.4   = rndhiveqa.jnj.com
+DNS.5   = rndsolrqa.jnj.com
+DNS.6   = rndhbaseqa.jnj.com
+DNS.7   = rndoozieqa.jnj.com
+DNS.8   = rndcmqa.jnj.com
+DNS.9   = rndrmsqa.jnj.com
+DNS.10  = rndnavigatorqa.jnj.com
+DNS.11  = rndkuduqa.jnj.com
+DNS.12  = rndjhsqa.jnj.com
+DNS.13  = rndhueqa.jnj.com
+DNS.14  = rndspark2historyqa.jnj.com
+DNS.15  = rndsparkhistoryqa.jnj.com
+DNS.16  = rndimpalaqa.jnj.com
+DNS.17  = rndhbasethriftqa.jnj.com
+DNS.18  = rndhbaserestqa.jnj.com
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-->
+
+
+openssl req -new -newkey rsa:2048 -nodes -out ITSUSRALSP09384_jnj_com.txt -keyout ITSUSRALSP09384_jnj_com.key -subj "/C=US/ST=NJ/L=Raritan/O=JNJ/OU=rnd/CN=ITSUSRALSP09384.jnj.com" -config /home/abaseerm/certs/openssl.conf
+
+-->
+
+
+mv "JNJ 2015 Issuing CA.cer" entrustintermediate.cer
+
+mv  "JNJ 2015 Root CA.cer" entrustroot.cer
+
+-->
+
+edit 2C2ECCA992CA47E1E8D74C1BA2AA7EB1.p7b
+
+
+openssl pkcs7 -in A1DDBF90DC3C78F8DA35C11504571162.p7b  -inform DER -print_certs -out ITSUSRALSP09384.pem
+
+openssl x509 -inform der -in entrustroot.cer -out entrustroot.pem
+
+openssl x509 -inform der -in entrustintermediate.cer -out entrustintermediate.pem
+
+-->
+
+cat ITSUSRALSP09384.pem entrustintermediate.pem entrustroot.pem > cert-chain.pem
+
+openssl pkcs12 -export -inkey ITSUSRALSP09384_jnj_com.key -in cert-chain.pem -out cert-chain.pkcs12
+
+-->
+Enter the password as “Cloudera@6”
+
+Create a keystore from the PKCS12 file. This keystore will have the private key and the 3 certs that are required. 
+Set the PATH for JAVA so that “keytool” is found.
+
+-->
+
+cd /usr/java
+export PATH=/usr/java/1.8.0_181/bin:$PATH
+cd /home/abaseerm/certs
+keytool -importkeystore -srckeystore cert-chain.pkcs12 -srcstoretype PKCS12 -destkeystore keystore.jks
+
+** Enter the destination password as “Cloudera@6” and the source as “Cloudera@6”
+
+
+Create the “security” related folders
+
+-->
+
+mkdir -p /opt/cloudera/security
+cd /opt/cloudera/security
+mkdir CAcerts
+mkdir jks
+mkdir x509
+
+
+
+cd /home/abaseerm/certs
+
+cp ITSUSRALSP09384_jnj_com.key /opt/cloudera/security/x509/server.key
+
+cp ITSUSRALSP09384.pem /opt/cloudera/security/x509/server.pem
+
+cd /opt/cloudera/security/x509/
+
+vi serverkey.pw
+
+-->
+
+Cloudera@6
+
+-->
+
+cat serverkey.pw
+
+cd /home/abaseerm/certs
+
+cat entrustroot.pem > combinedtrust.pem
+
+cat entrustintermediate.pem >> combinedtrust.pem
+
+cp /home/abaseerm/certs/combinedtrust.pem /opt/cloudera/security/CAcerts/
+
+cp /home/abaseerm/certs/keystore.jks /opt/cloudera/security/jks/server.keystore
+
+
+
+SET File Permissions:
+
+-->
+
+cd /opt/cloudera/security
+cd CAcerts
+chmod 644  combinedtrust.pem
+cd ..
+cd jks/
+chmod 666 server.keystore
+
+chown cloudera-scm:cloudera-scm server.keystore
+
+cd ..
+cd x509/
+chmod 440 server.key
+chmod 440  serverkey.pw
+chmod 444 server.pem
+  
+ 
+Copy trustorre file from qa Server on all servers:
+
+-->
+
+
+cp /home/abaseerm/truststore.jks /opt/cloudera/security/jks/
+chown root:root /opt/cloudera/security/jks/truststore.jks 
+chmod 755 /opt/cloudera/security/jks/truststore.jks 
+
+-----------------------------------
+-->
+
+cd /opt/cloudera/security/x509
+cat server.pem ../CAcerts/combinedtrust.pem server.key > impalacombined.cert
+chown impala:impala impalacombined.cert
+chmod a+r impalacombined.cert 

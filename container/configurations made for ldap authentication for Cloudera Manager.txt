@@ -1,0 +1,71 @@
+
+
+Authentication Backend Order
+External then Database
+
+Authorization Backend Order
+Database and External
+
+External Authentication Type
+LDAP
+
+LDAP URL
+ldaps://jnj.com:3269
+
+LDAP Bind User Distinguished Name
+sa-its-dev-edl-ad@NA.JNJ.COM
+
+LDAP Bind Password
+******
+
+Active Directory Domain
+JNJ.COM
+
+LDAP User Groups
+ITS-EDL-DEV-CM-READ-ONLY-USR,ITS-EDL-DEV-CM-FULL-ADMIN-USR,ITS-EDL-DEV-CM-USR-ADMIN-USR,ITS-EDL-DEV-CM-CLSTR-ADMIN-USR,ITS-EDL-DEV-CM-BDR-ADMIN-USR,ITS-EDL-DEV-CM-CONFIGURATOR-USR,ITS-EDL-DEV-CM-NAVIGATOR-ADMIN-USR,ITS-EDL-DEV-CM-OPERATOR-USR,ITS-EDL-DEV-CM-LMTD-OPERATOR-USR,ITS-EDL-DEV-CM-AUDITOR-USR
+
+LDAP User Search Filter
+(samAccountName={0})
+
+LDAP User Search Base
+dc=JNJ,dc=COM
+
+LDAP Group Search Filter
+(member={0})
+
+LDAP Group Search Base
+OU=Groups,DC=jnj,DC=com
+
+SAML Keystore Password
+Alias of SAML Sign/Encrypt Private Key
+
+SAML Sign/Encrypt Private Key Password
+SAML Entity ID
+clouderaManager
+
+SAML Entity Alias
+clouderaManager
+
+SAML Entity Base URL
+Value not set
+
+SAML Response Binding
+HTTP-Artifact
+
+SAML Login URL
+Value not set
+
+Source of User ID in SAML Response
+Attribute
+
+SAML Attribute Identifier for User ID
+urn:oid:0.9.2342.19200300.100.1.1
+
+SAML Role Assignment Mechanism
+Attribute
+
+SAML Attribute Identifier for User Role
+urn:oid:2.5.4.11
+
+Path to SAML Role Assignment Script
+Value not set

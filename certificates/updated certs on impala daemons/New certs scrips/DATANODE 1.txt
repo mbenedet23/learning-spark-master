@@ -1,0 +1,170 @@
+
+
+itsusralsp08797.jnj.com / ITSUSRALSP08797
+
+--------------------------
+Find ITSUSRALSP08797
+
+replace with ITSUSRALSP
+
+-------------------------------
+Find hostname ITSUSRALSP08797  small letters 
+
+replace with itsusralsp
+------------------
+find directory 797_certs
+
+replace with 797_certs
+------------------
+
+
+-----------------
+openssl.conf file info
+
+
+
+[ req ]
+default_bits       = 2048
+distinguished_name = req_distinguished_name
+req_extensions     = req_ext
+[ req_distinguished_name ]
+countryName                 = US
+stateOrProvinceName         = NJ
+localityName                = RARITAN
+organizationName            = JNJ
+commonName                  = ITSUSRALSP08797
+[ req_ext ]
+subjectAltName = @alt_names
+[alt_names]
+DNS.1   = ITSUSRALSP08797
+DNS.2   = ITSUSRALSP08797
+DNS.3   = ITSUSRALSP08797.jnj.com
+DNS.4   = rndhivedev.jnj.com
+DNS.5   = rndsolrdev.jnj.com
+DNS.6   = rndhbasedev.jnj.com
+DNS.7   = rndooziedev.jnj.com
+DNS.8   = rndcmdev.jnj.com
+DNS.9   = rndrmsdev.jnj.com
+DNS.10  = rndnavigatordev.jnj.com
+DNS.11  = rndkududev.jnj.com
+DNS.12  = rndjhsdev.jnj.com
+DNS.13  = rndhuedev.jnj.com
+DNS.14  = rndspark2historydev.jnj.com
+DNS.15  = rndsparkhistorydev.jnj.com
+DNS.16  = rndimpaladev.jnj.com
+DNS.17  = rndhbasethriftdev.jnj.com
+DNS.18  = rndhbaserestdev.jnj.com
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+openssl req -new -newkey rsa:2048 -nodes -out ITSUSRALSP08797_jnj_com.txt -keyout ITSUSRALSP08797_jnj_com.key -subj "/C=US/ST=NJ/L=Raritan/O=JNJ/OU=rnd/CN=ITSUSRALSP08797.jnj.com" -config /home/abaseerm/797_certs/openssl.conf
+
+
+mv  "JNJ 2015 Issuing CA.cer" entrustintermediate.cer
+
+mv  "JNJ 2015 Root CA.cer" entrustroot.cer
+
+
+
+openssl pkcs7 -in 7132249BDD91FF26CE598CD5DFBE61FD.p7b  -inform DER -print_certs -out ITSUSRALSP08797.pem
+openssl x509 -inform der -in entrustroot.cer -out entrustroot.pem
+openssl x509 -inform der -in entrustintermediate.cer -out entrustintermediate.pem
+
+
+cat ITSUSRALSP08797.pem entrustintermediate.pem entrustroot.pem > cert-chain.pem
+
+
+•             Change this PEM certificate into a PKCS12 file
+
+openssl pkcs12 -export -inkey ITSUSRALSP08797_jnj_com.key -in cert-chain.pem -out cert-chain.pkcs12
+
+Enter the password as “Cloudera@6”
+Create a keystore from the PKCS12 file. This keystore will have the private key and the 3 certs that are required. Set the PATH for JAVA so that “keytool” is found.
+
+cd /usr/java
+export PATH=/usr/java/1.8.0_181/bin:$PATH
+
+cd /home/abaseerm/797_certs
+
+keytool -importkeystore -srckeystore cert-chain.pkcs12 -srcstoretype PKCS12 -destkeystore keystore.jks
+
+** Enter the destination password as “Cloudera@6” and the source as “Cloudera@6”
+
+
+
+Create the “security” related folders
+#-> mkdir /opt/cloudera/security
+
+[root@ITSUSRALSP07674:/opt/cloudera]#
+#-> cd /opt/cloudera/security
+[root@ITSUSRALSP07674:/opt/cloudera/security]#
+#-> mkdir CAcerts
+[root@ITSUSRALSP07674:/opt/cloudera/security]#
+#-> mkdir jks
+[root@ITSUSRALSP07674:/opt/cloudera/security]#
+#-> mkdir x509
+[root@ITSUSRALSP07674:/opt/cloudera/security]#
+
+
+•             Copy the generated key as “server.key” and “server.pem”
+to “x509” folder
+
+cp ITSUSRALSP08797_jnj_com.key /opt/cloudera/security/x509/server.key
+cp ITSUSRALSP08797.pem /opt/cloudera/security/x509/server.pem
+
+Create below password file inside x509
+•             Create a password file “serverkey.pw” with content “Cloudera@6”. That’s the password we gave for destination.
+
+cd /opt/cloudera/security/x509/
+vi serverkey.pw
+Cloudera@6
+
+cat serverkey.pw
+Cloudera@6
+
+cd /home/abaseerm/797_certs
+
+•             Create “combinedtrust.pem” 
+
+[root@ITSUSRALSP07674:/home/aomtri/7553_servercert]#
+#-> cat entrustroot.pem > combinedtrust.pem
+[root@ITSUSRALSP07674:/home/aomtri/7553_servercert]#
+#-> cat entrustintermediate.pem >> combinedtrust.pem
+
+•             Copy the “combinedtrust.pem to “CAcerts
+
+cp combinedtrust.pem /opt/cloudera/security/CAcerts/
+
+•             Copy the “server.keystore”
+
+cp keystore.jks /opt/cloudera/security/jks/server.keystore
+
+SET File Permissions:
+
+cd /opt/cloudera/security
+cd CAcerts
+chmod 644  combinedtrust.pem
+cd ..
+cd jks/
+chmod 666 server.keystore
+chown cloudera-scm:cloudera-scm server.keystore
+cd ..
+cd x509/
+chmod 440 server.key
+chmod 440  serverkey.pw
+chmod 444 server.pem
+  
+ Copy trustorre file from DEV Server on all servers:
+scp /opt/cloudera/security/jks/truststore.jks abaseerm@ITSUSRALSP08797:/home/abaseerm/
+cp /home/abaseerm/truststore.jks /opt/cloudera/security/jks/
+chown root:root /opt/cloudera/security/jks/truststore.jks 
+chmod 755 /opt/cloudera/security/jks/truststore.jks 
+
+-----------------------------------
+
+cd /opt/cloudera/security/x509
+cat server.pem ../CAcerts/combinedtrust.pem server.key > impalacombined.cert
+chown impala:impala impalacombined.cert
+chmod a+r impalacombined.cert 
