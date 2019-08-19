@@ -1,0 +1,1 @@
+Need to migrate the folders which are present inside databeat_prod attached in the SR in zip format from QA path /data/data01/dev/edl/sc/fda/appcode/configs/databeat_prod to PROD path /data/data01/qa/edl/sc/fda/appcode/configs/databeat

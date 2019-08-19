@@ -1,0 +1,18 @@
+11/10/18 06:51:26 : sending mail communication
+11/10/18 06:51:26 : cleaning the status check file as it  exists for the configuration file transpose_nts_table.txt
+11/10/18 06:51:26 : Number of tables in config file  : 1
+11/10/18 06:51:26 : ****STARTING THE EXECUTION OF THE INGESTION PROCESS****
+11/10/18 06:51:26 : nohup command: /data/data02/qa/edl/sdl/con/appcode/scripts/transpose_nts_automation_child_script.sh /data/data02/qa/edl/sdl/con/appcode/configs/transpose_env.config nts sku_cd string,prft_ct double,ctry_cd string,nts double,vol_pc double,version string sku_cd,prft_ct,ctry_cd,nts,vol_pc,version,year Y year /data/data02/qa/edl/sdl/con/appcode/logs/TRANSPOSE/transpose_dtv_nts_nts_10112018065126.log 2018-11-10 06:51:26 /data/data02/qa/edl/sdl/con/appcode/logs/STATUS_CHECK/TRANSPOSE/status_check_transpose_nts_table.txt
+11/10/18 06:51:26 : Child script has been invoked for nts
+11/10/18 06:51:26 : Max Ingestion Start Time: 2018-11-10 06:51:26
+11/10/18 06:51:26 : Count of run tables : 0
+11/10/18 06:51:26 : sleeping for 5 minutes
+------------------------------------------------------------------------
+11/10/18 06:51:26 : /data/data02/qa/edl/sdl/con/appcode/logs/TRANSPOSE/transpose_dtv_nts_nts_10112018065126.log
+------------------------------------------------------------------------
+11/10/18 06:56:26 : Number of completed Tables: 0
+11/10/18 06:56:26 : sleeping for 5 minutes
+11/10/18 07:01:26 : Number of completed Tables: 1
+11/10/18 07:01:26 : Number of Failed Tables: 0
+11/10/18 07:01:26 : All child scripts have successfully executed
+11/10/18 07:01:26 : Master script has finished its execution

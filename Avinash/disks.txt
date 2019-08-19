@@ -1,0 +1,44 @@
+[abaseerm@ITSUSRALSP08284 ~]$ df -h
+Filesystem                 Size  Used Avail Use% Mounted on
+/dev/mapper/vg00-lv_root   7.8G  3.4G  4.1G  46% /
+devtmpfs                   1.9G     0  1.9G   0% /dev
+tmpfs                      1.9G  4.0K  1.9G   1% /dev/shm
+tmpfs                      1.9G   12M  1.9G   1% /run
+tmpfs                      1.9G     0  1.9G   0% /sys/fs/cgroup
+/dev/sda1                  488M  182M  281M  40% /boot
+/dev/mapper/vg02-lv00       99G   30G   64G  33% /opt/cloudera
+/dev/mapper/vg00-lv_openv  3.5G  1.8G  1.7G  52% /usr/openv
+/dev/mapper/vg00-lv_home   3.9G  183M  3.5G   5% /home
+/dev/mapper/vg00-lv_tmp    2.0G   13M  1.8G   1% /tmp
+/dev/mapper/vg00-lv_var    3.9G  1.8G  1.9G  49% /var
+/dev/mapper/vg00-lv_log    3.9G   81M  3.6G   3% /var/log
+/dev/mapper/vg00-lv_audit  3.9G  523M  3.2G  15% /var/log/audit
+/dev/mapper/vg01-lv00      296G  590M  280G   1% /apps
+tmpfs                      378M     0  378M   0% /run/user/0
+cm_processes               1.9G     0  1.9G   0% /run/cloudera-scm-agent/proc
+tmpfs                      378M     0  378M   0% /run/user/43045
+tmpfs                      378M     0  378M   0% /run/user/48102
+
+========================================
+
+[abaseerm@ITSUSRALSP08283 ~]$ df -h
+Filesystem                 Size  Used Avail Use% Mounted on
+/dev/mapper/vg00-lv_root   7.8G  3.4G  4.1G  46% /
+devtmpfs                   1.9G     0  1.9G   0% /dev
+tmpfs                      1.9G  4.0K  1.9G   1% /dev/shm
+tmpfs                      1.9G   12M  1.9G   1% /run
+tmpfs                      1.9G     0  1.9G   0% /sys/fs/cgroup
+/dev/sda1                  488M  182M  281M  40% /boot
+/dev/mapper/vg01-lv00      296G  590M  280G   1% /apps
+/dev/mapper/vg00-lv_openv  3.5G  1.8G  1.7G  52% /usr/openv
+/dev/mapper/vg00-lv_home   3.9G  293M  3.4G   8% /home
+/dev/mapper/vg00-lv_tmp     12G   14M   12G   1% /tmp
+/dev/mapper/vg00-lv_var    3.9G  1.8G  1.9G  49% /var
+/dev/mapper/vg00-lv_log    3.9G   82M  3.6G   3% /var/log
+/dev/mapper/vg00-lv_audit  3.9G  520M  3.2G  15% /var/log/audit
+/dev/mapper/vg02-lv00       99G   30G   64G  33% /opt/cloudera
+tmpfs                      378M     0  378M   0% /run/user/0
+cm_processes               1.9G     0  1.9G   0% /run/cloudera-scm-agent/proc
+tmpfs                      378M     0  378M   0% /run/user/43045
+tmpfs                      378M     0  378M   0% /run/user/48102
+

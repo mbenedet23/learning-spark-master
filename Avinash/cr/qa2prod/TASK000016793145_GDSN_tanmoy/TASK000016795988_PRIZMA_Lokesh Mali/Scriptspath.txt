@@ -1,0 +1,22 @@
+#### itsusralsp07956 TO itsusralsp08023  ####
+sourcefile1 =/data/data02/qa/edl/corporate/prizma/appcode/scripts/PRIZMA_FILE_FORMAT.sh
+destfile1 =/data/data02/prod/edl/corporate/prizma/appcode/scripts/PRIZMA_FILE_FORMAT.sh
+
+sourcefile2 =/data/data02/qa/edl/corporate/prizma/appcode/scripts/PRIZMA_FILE_LOAD.sh
+destfile2 =/data/data02/prod/edl/corporate/prizma/appcode/scripts/PRIZMA_FILE_LOAD.sh
+
+sourcefile3 =/data/data02/qa/edl/corporate/prizma/appcode/scripts/PRIZMA_INTGR_STATS_LOAD.sh
+destfile3 =/data/data02/prod/edl/corporate/prizma/appcode/scripts/PRIZMA_INTGR_STATS_LOAD.sh
+
+sourcefile4 =/data/data02/qa/edl/corporate/prizma/appcode/scripts/PRIZMA_SANITY_CHECK.sh
+destfile4 =/data/data02/prod/edl/corporate/prizma/appcode/scripts/PRIZMA_SANITY_CHECK.sh
+
+sourcefile5 =/data/data02/qa/edl/corporate/prizma/appcode/scripts/PRIZMA_HOUSEKEEPING.sh
+destfile5 =/data/data02/prod/edl/corporate/prizma/appcode/scripts/PRIZMA_HOUSEKEEPING.sh
+
+sourcefile6 =/data/data02/qa/edl/corporate/prizma/appcode/scripts/PRIZMA_VAR.sh
+destfile6 =/data/data02/prod/edl/corporate/prizma/appcode/scripts/PRIZMA_VAR.sh
+
+####  itsusraedlp11 TO itsusralsp08023  ####
+sourcefile7 =/home/saprzep/saprzep.keytab
+destfile7 =/data/data02/prod/edl/corporate/prizma/appcode/configs/saprzep.keytab

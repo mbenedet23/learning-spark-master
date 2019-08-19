@@ -1,0 +1,4 @@
+ls: cannot access /data/data02/qa/edl/sdl/con/landing/Transpose/BW/*.xlsx: No such file or directory
+No Files to clean up in /data/data02/qa/edl/sdl/con/landing/Transpose/BW
+Files cleaned up in /data/data02/qa/edl/sdl/con/landing/Transpose/FDW
+Files cleaned up in /data/data02/qa/edl/sdl/con/landing/Transpose/User

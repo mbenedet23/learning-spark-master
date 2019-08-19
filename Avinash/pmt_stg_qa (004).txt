@@ -1,0 +1,84 @@
+ ##########--------------------------------- pmt_stg ------------------------
+
+#######################
+#Create HDFS Directories
+#######################
+
+hdfs dfs -mkdir /qa/edl/infra/pmt
+hdfs dfs -mkdir /qa/edl/infra/pmt/str
+hdfs dfs -mkdir /qa/edl/infra/pmt/str/pmt_stg
+hdfs dfs -chmod -R 771 /qa/edl/infra/pmt
+
+
+################################################
+#Generating Database Creation and Grant commands
+################################################
+
+#Login via HUE to the respective environment and execute the below commands in HIVE
+
+create database pmt_stg location '/qa/edl/infra/pmt/str/pmt_stg';
+
+
+##################################
+#Generating Role Creation commands
+##################################
+
+
+#URI Grants for ETL Role
+
+grant all on uri 'hdfs://nameservice1/qa/edl/infra/pmt/str/pmt_stg' to role itops_proj14_etl_role;
+
+#URI Grants for Support Role
+
+grant select on uri 'hdfs://nameservice1/qa/edl/infra/pmt/str/pmt_stg' to role itops_proj14_supp_role;
+
+#URI Grants for Analyst Role
+
+grant select on uri 'hdfs://nameservice1/qa/edl/infra/pmt/str/pmt_stg' to role itops_proj14_data_analyst_role;
+
+grant select on uri 'hdfs://nameservice1/qa/edl/infra/pmt/str/pmt_stg' to role itops_proj14_rpt_role;
+
+
+######################################
+Grant access to the roles on databases
+######################################
+
+
+grant all on database pmt_stg to role itops_proj14_etl_role;
+
+grant select on database pmt_stg to role itops_proj14_supp_role;
+grant select on database pmt_stg to role itops_proj14_rpt_role;
+
+grant select on database pmt_stg to role itops_proj14_data_analyst_role;
+
+/qa/edl/infra/pmt/str/pmt_stg
+
+
+
+Final Step now done in CM 
+
+go to hdfs -> Configuration and then search /qa 
+
+and then manually add these steps to there
+
+/qa/edl/infra/pmt/str/pmt_stg
+
+go to Hive -> Configuration and then search /qa
+
+and then manually add these steps to there
+
+,/qa/edl/infra/pmt/str/pmt_stg
+
+go to sentry --> Configuration and then search /qa
+
+and then manually add these steps to there
+
+,/qa/edl/infra/pmt/str/pmt_stg
+
+==============================================================================
+
+
+Finally Deploy all the configurations done in the CM and then restart the cluster 
+
+
+

@@ -1,0 +1,261 @@
+
+
+TASK000016790711_PPA
+
+rm -r /data/data01/qa/edl/sc/consumer/lpfg/appcode/scripts/PPA_Deployment/PPA/EDL_QA_CLUSTER_MIGRATION/
+rm -r /data/data01/qa/edl/sc/consumer/lpfg/appcode/scripts/PPA_Deployment/PPA/EDL_QA_CLUSTER_MIGRATION/
+rm -r /qa/edl/sc/consumer/lpfg/appcode/scripts/jars/FlatFileValidation.jar
+rm -r /qa/edl/sc/consumer/lpfg/appcode/scripts/BOMBAY/jars/XMLFileValidation.jar
+
+
+TASK000016790716_Prizma
+rm -r /data/data02/qa/edl/corporate/prizma/appcode/scripts/PRIZMA_FILE_FORMAT.sh
+rm -r /data/data02/qa/edl/corporate/prizma/appcode/scripts/PRIZMA_FILE_LOAD.sh
+rm -r /data/data02/qa/edl/corporate/prizma/appcode/scripts/PRIZMA_INTGR_STATS_LOAD.sh
+rm -r /data/data02/qa/edl/corporate/prizma/appcode/scripts/PRIZMA_SANITY_CHECK.sh
+rm -r /data/data02/qa/edl/corporate/prizma/appcode/scripts/PRIZMA_HOUSEKEEPING.sh
+rm -r /data/data02/qa/edl/corporate/prizma/appcode/scripts/PRIZMA_VAR.sh
+rm -r /data/data02/qa/edl/corporate/prizma/appcode/configs/saprzeq.keytab
+
+
+
+TASK000016792311_SDL
+
+rm -r /data/data02/qa/edl/sdl/md/appcode/scripts/Hurricane_Deployment/HURRICANE/package_0005_2018-10-23_16-10-35/config_prod.properties
+rm -r /data/data02/qa/edl/sdl/md/appcode/scripts/Hurricane_Deployment/HURRICANE/package_0005_2018-10-23_16-10-35/deploy.sh
+
+
+
+TASK000016792334_SCCSMD
+
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/view_export/glac/prod/glac_tms_nw_config.json
+
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/view_export/glac/prod/glac_masterloader.json
+
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/view_export/glac/prod/glac_excel_Export.json
+
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/view_export/glac/prod/glac_csv_Export.json
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/tms/prod/tms_data_export_config.json
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_import/teradata/inv_gsgo_otif/prod/inventory_gogs_ccotif_onemdsupply_masterloader.json
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/view_export/jde_open_orders/prod/inventory_gsgo_ccotif_view_export.json
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_import/modeln/prod/modeln_masterloader_config.json
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/view_export/modeln/prod/Modeln_View_Export.json
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_import/csv_data_ingestion/prod/mfg_plant_master_CSV_Export.json
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_import/csv_data_ingestion/prod/sku_csv_export.json
+
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_import/csv_data_ingestion/prod/xref_csv_export.json
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_import/teradata/inv_gsgo_master/prod/inventory_gogs_onemdsupply_masterloader.json
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_import/esims/prod/esims_masterloader_cust_prd_loc.json
+
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_import/esims/prod/esims_masterloader_order.json
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_import/esims/prod/esims_masterloader_transaction.json
+
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/esims/prod/esims_view_export.json
+/data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/btb_na/prod/btb_na_data_export.json
+
+
+
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/gora/prod
+
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/view_export/jde_open_orders/prod
+
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/view_export
+
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/scripts/onemd_supply/data_import/teradata/inv_gsgo_otif
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_import/teradata/inv_gsgo_otif/prod
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/view_export/jde_open_orders/prod
+
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/GHX_Exception_and_CSV_ingestion/GHX_Exception/prod
+
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/scripts/onemd_supply/data_import/redshift/prod
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_import/redshift/prod/
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/view_export/redShift_data_export/prod
+
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/scripts/onemd_supply/data_import/prod
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_import/prod
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/view_creation/prod
+rm -r /data/data02/qa/edl/sc/md/sccsmd/appcode/configs/onemd_supply/data_export/view_export
+
+
+
+
+TASK000016792543_SADP
+
+rm -r /data/data01/prod/edl/sc/md/sadp/appcode/scripts/HCSOP
+rm -r /data/data01/prod/edl/sc/md/sadp/appcode/configs/HCSOP/
+
+rm -r /data/data01/prod/edl/sc/md/sadp/appcode/scripts/JDES
+rm -r /data/data01/prod/edl/sc/md/sadp/appcode/configs/JDES/
+
+rm -r /data/data01/prod/edl/sc/md/sadp/appcode/configs/CNS/
+rm -r /data/data01/prod/edl/sc/md/sadp/appcode/configs/PRMS/
+
+
+TASK000016793014_EMS
+
+rm -r /data/data01/qa/edl/consumer/ems/appcode/configs/Ems_Oracle/
+rm -r /data/data01/qa/edl/consumer/ems/appcode/scripts/esims/
+rm -r /qa/edl/consumer/ems/appcode/configs/esims/scripts/
+rm -r /data/data01/qa/edl/consumer/ems/appcode/scripts/UPS/
+rm -r /qa/edl/consumer/ems/appcode/configs/UPS_DPS/scripts/
+rm -r /data/data01/qa/edl/consumer/ems/appcode/configs/omp/scripts/
+rm -r /qa/edl/consumer/ems/appcode/configs/omp/scripts/
+rm -r /data/data01/qa/edl/consumer/ems/appcode/configs/BrandInspector/
+rm -r /qa/edl/consumer/ems/appcode/scripts/
+
+
+TASK000016793080_TDL
+
+rm -r /data/data01/qa/edl/sc/transport/tdl/appcode/scripts/SDDC_MIGRATION_SCRIPTS/
+rm -r /data/data01/qa/edl/sc/transport/tdl/appcode/configs/SDDC_MIGRATION_CONFIGS/
+
+
+rm -r /data/data01/qa/edl/sc/transport/tdl/appcode/configs/ProdCluster
+rm -r /qa/edl/sc/transport/tdl/appcode/configs/Prod
+
+
+TASK000016793109_GDSN
+
+rm -r /data/data02/qa/edl/sc/md/gdsn/appcode/scripts/
+
+
+TASK000016793492_CNXA
+
+rm -r /data/data01/qa/edl/consumer/cnxa/appcode/configs/9001_cluster_migration/
+
+
+
+TASK000016794122_p2p
+
+rm -r /data/data01/qa/edl/finance/p2p/appcode/scripts/config/qa.config
+
+
+
+TASK000016794207_GBP
+
+rm -r /data/data02/qa/edl/sc/gbp/appcode/scripts/incdnt/
+rm -r /data/data02/qa/edl/sc/gbp/appcode/configs/incdnt/gbp_incdnt_ingest_lkp_unity/prod/
+rm -r /qa/edl/sc/gbp/appcode/scripts/incdnt/
+rm -r /qa/edl/sc/gbp/appcode/scripts/incdnt/
+
+rm -r /data/data02/qa/edl/sc/gbp/appcode/scripts/incdnt/
+rm -r /data/data02/qa/edl/sc/gbp/appcode/configs/incdnt/gbp_incdnt_ingest_unity/prod/
+
+rm -r /data/data02/qa/edl/sc/gbp/appcode/scripts/mark_monitor/
+rm -r /data/data02/qa/edl/sc/gbp/appcode/configs/mark_monitor/gbp-mk_monitor-ingest_tables/prod/
+rm -r /qa/edl/sc/gbp/appcode/scripts/mark_monitor
+rm -r /qa/edl/sc/gbp/appcode/scripts/mark_monitor
+
+rm -r /data/data02/qa/edl/sc/gbp/appcode/scripts/mark_monitor/
+rm -r /data/data02/qa/edl/sc/gbp/appcode/configs/mark_monitor/gbp-mk_monitor-ingest_tables/prod/
+
+rm -r /data/data02/qa/edl/sc/gbp/appcode/scripts/market_survey/
+rm -r /data/data02/qa/edl/sc/gbp/appcode/configs/market_survey/gbp-mkt_surv-ingest_tables/prod/
+rm -r /qa/edl/sc/gbp/appcode/scripts/market_survey
+rm -r /qa/edl/sc/gbp/appcode/scripts/market_survey
+rm -r /qa/edl/sc/gbp/appcode/scripts/market_survey
+rm -r /qa/edl/sc/gbp/appcode/scripts/market_survey
+rm -r /qa/edl/sc/gbp/appcode/scripts/market_survey
+rm -r /qa/edl/sc/gbp/appcode/scripts/market_survey
+rm -r /qa/edl/sc/gbp/appcode/scripts/market_survey
+rm -r /qa/edl/sc/gbp/appcode/scripts/market_survey
+
+rm -r /data/data02/qa/edl/sc/gbp/appcode/configs/market_survey/gbp-mkt_surv-ingest_images/prod/
+rm -r /data/data02/qa/edl/sc/gbp/appcode/configs/market_survey/gbp-mkt_surv-ingest_images/prod/
+rm -r /data/data02/qa/edl/sc/gbp/appcode/scripts/market_survey/gbp-mkt_surv-ingest_images
+rm -r /data/data02/qa/edl/sc/gbp/appcode/scripts/market_survey/gbp-mkt_surv-ingest_images
+
+rm -r /data/data02/qa/edl/sc/gbp/appcode/configs/mark_monitor/leapfrog/gbp_intrnt_mon_ingest_dw_reporting/prod/
+rm -r /data/data02/qa/edl/sc/gbp/appcode/scripts/mark_monitor/leapfrog
+rm -r /qa/edl/sc/gbp/appcode/scripts/mark_monitor/leapfrog/
+
+
+
+TASK000016794898_PRJPRO
+
+rm -r /data/data02/qa/edl/sc/consumer/prjpro/appcode/configs/qa/qa_2_prod/edgenode_configs/
+rm -r /data/data02/qa/edl/sc/consumer/prjpro/appcode/configs/qa/qa_2_prod/edgenode_scripts/
+rm -r /data/data02/qa/edl/sc/consumer/prjpro/appcode/configs/qa/qa_2_prod/hdfs_configs/
+rm -r /data/data02/qa/edl/sc/consumer/prjpro/appcode/configs/qa/qa_2_prod/hdfs_scripts/
+
+
+
+TASK000016796115_OTIF_LPFG
+
+Overwrite Below files for package_00010_2018-10-11_18-38-55 from Source to Destination: 
+
+rm -r /data/data01/qa/edl/sc/consumer/lpfg/appcode/scripts/OTIF_Deployment/OTIF/package_00010_2018-10-11_18-38-55/config_prod.properties
+rm -r /data/data01/qa/edl/sc/consumer/lpfg/appcode/scripts/OTIF_Deployment/OTIF/package_00010_2018-10-11_18-38-55/deploy.sh
+
+
+
+Overwrite Below files for package_00011_2018-10-29_15-23-58 from Source to Destination: 
+
+rm -r /data/data01/qa/edl/sc/consumer/lpfg/appcode/scripts/OTIF_Deployment/OTIF/package_00011_2018-10-29_15-23-58/config_prod.properties
+rm -r /data/data01/qa/edl/sc/consumer/lpfg/appcode/scripts/OTIF_Deployment/OTIF/package_00011_2018-10-29_15-23-58/deploy.sh
+
+
+
+TASK000016796179_GRM_LPFG
+
+Overwrite Below files for package_00070_2018-10-19_14-09-08 from Source to Destination: 
+
+rm -r /data/data01/qa/edl/sc/consumer/lpfg/appcode/scripts/Data_Int_deployment/Data_Int/package_00013_2018-10-18_23-01-46/config_prod.properties
+rm -r /data/data01/qa/edl/sc/consumer/lpfg/appcode/scripts/Data_Int_deployment/Data_Int/package_00013_2018-10-18_23-01-46/deploy.sh
+
+
+
+TASK000016796225_LPFG
+
+Overwrite Below files for package_00070_2018-10-19_14-09-08 from Source to Destination: 
+
+
+rm -r /data/data01/qa/edl/sc/consumer/lpfg/appcode/scripts/Leapfrog_Deployment/Leapfrog/package_00070_2018-10-19_14-09-08/config_prod.properties
+rm -r /data/data01/qa/edl/sc/consumer/lpfg/appcode/scripts/Leapfrog_Deployment/Leapfrog/package_00070_2018-10-19_14-09-08/deploy.sh
+
+
+Overwrite Below files for package_00071_2018-10-29_18-09-25 from Source to Destination: 
+
+
+rm -r /data/data01/qa/edl/sc/consumer/lpfg/appcode/scripts/Leapfrog_Deployment/Leapfrog/package_00071_2018-10-29_18-09-25/config_prod.properties
+rm -r /data/data01/qa/edl/sc/consumer/lpfg/appcode/scripts/Leapfrog_Deployment/Leapfrog/package_00071_2018-10-29_18-09-25/deploy.sh
+
+
+
+
+TASK000016797370_FDA
+
+rm - r /data/data01/dev/edl/sc/fda/appcode/configs/databeat_prod/
+
+
+
+TASK000016800325_SDL
+
+rm -r /data/data02/qa/edl/sdl/con/appcode/scripts/Pangea/PROD/
+
+
+TASK000016801187_SPTFR
+
+rm -r /data/data01/qa/edl/md/sptfr/appcode/scripts/BWI/PROD/BWI_Deletion.sh
+
+rm -r /data/data01/qa/edl/md/sptfr/appcode/scripts/gsgo/prod/gsgo_data_arch_dataloader_master.sh
+
+rm -r /data/data01/qa/edl/md/sptfr/appcode/scripts/gsgo/prod/gsgo_table_export.sh
+
+rm -r /data/data01/qa/edl/md/sptfr/appcode/configs/gsgo/prod/ingestion/gsgo_master_config.json
+
+rm -r /data/data01/qa/edl/md/sptfr/appcode/configs/gsgo/prod/ingestion/JobStartStop.json
+
+rm -r /data/data01/qa/edl/md/sptfr/appcode/configs/gsgo/prod/ingestion/gsgo_master_failover_config.json
+
+rm -r /data/data01/qa/edl/md/sptfr/appcode/configs/gsgo/prod/recon/gsgo_reconciliation_timebased.json
+
+rm -r /data/data01/qa/edl/md/sptfr/appcode/configs/gsgo/prod/recon/gsgo_reconciliation.json
+
+rm -r /data/data01/qa/edl/md/sptfr/appcode/configs/gsgo/prod/recon/properties/jsonproperties.properties
+
+rm -r /data/data01/qa/edl/md/sptfr/appcode/configs/gsgo/prod/export/gsgo_export_table.json
+
+rm -r /data/data01/qa/edl/md/sptfr/appcode/configs/gsgo/prod/export/properties/JSONProperties.properties
+
+rm -r /data/data01/qa/edl/md/sptfr/appcode/configs/BWI/PROD/BWI_BU_ENLT_Config.cfg

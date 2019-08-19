@@ -1,0 +1,28 @@
+ETL Process Date :20181110044649
+Server Name : qa
+Host Name : ITSUSRALSP07956
+Start loading files from Edge node qa location to HDFS location
+Looping the files to pull from BW FDW USER folder
+------------------------------------------------------------------------------------
+Login to edge node qa for Transpose BW Files
+Edge node file count BW : 0
+------------------------------------------------------------------------------------
+Login to edge node qa for Transpose FDW Files
+Edge node file count FDW : 3
+creating HDFS directory for FDW files and get the files from edge node
+created directory name : /qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/landing/FDW/20181110044649
+files for FDW has been moved to HDFS
+HDFS Files count for FDW : 3
+Files count is matching between Edge count and Hdfs count 
+----------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+Login to edge node qa for Transpose USER Files
+Edge node file count USER : 8
+creating HDFS directory for USER files and get the files from edge node
+created directory name : /qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/landing/USER/20181110044649
+files for USER has been moved to HDFS
+HDFS Files count for USER : 8
+Files count is matching between Edge count and Hdfs count 
+----------------------------------------------------------------------------------------
+All Files from edge node qa location has been copied to HDFS qa location and file qc check passed.
+sending success notification mail to business user

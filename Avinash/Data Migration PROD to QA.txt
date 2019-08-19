@@ -1,0 +1,114 @@
+
+TASK000017005630
+
+
+hadoop distcp swebhdfs://itsusraedlp03.jnj.com:50470/prod/edl/sc/gora/str/gora_stg/sap_btb/LATAM_ECCSLTRLG/VBRP swebhdfs://itsusraedld06.jnj.com:50470/dev/edl/sc/gora/str/gora_stg/sap_btb/LATAM_ECCSLTRLG/VBRP
+P03: name Node- Check in CM. second is destination Name node 
+
+hdfs dfs -du -h -s 
+
+
+Please data copy from PROD to QA for the following tables-
+
+servicenow_stg.sys_user            
+Source Path  -> /prod/edl/infra/servicenow/str/servicenow_stg/sys_user
+Target Path -> /qa/edl/infra/servicenow/str/servicenow_stg/sys_user
+
+hadoop distcp swebhdfs://itsusralsp07967.jnj.com:50470/prod/edl/infra/servicenow/str/servicenow_stg/sys_user swebhdfs://itsusralsp07937.jnj.com:50470/qa/edl/infra/servicenow/str/servicenow_stg/sys_use
+
+source
+
+hdfs dfs -du -h -s /prod/edl/infra/servicenow/str/servicenow_stg/sys_user
+433.2 M  1.3 G  /prod/edl/infra/servicenow/str/servicenow_stg/sys_user
+
+Destination
+
+hdfs dfs -du -h -s /qa/edl/infra/servicenow/str/servicenow_stg/sys_user
+433.2 M  1.3 G  /qa/edl/infra/servicenow/str/servicenow_stg/sys_user
+
+Running
+completed
+
+
+servicenow_stg.sysapproval_group     
+Source Path -> /prod/edl/infra/servicenow/str/servicenow_stg/sysapproval_group
+Target Path -> /qa/edl/infra/servicenow/str/servicenow_stg/sysapproval_group
+
+
+hadoop distcp swebhdfs://itsusralsp07967.jnj.com:50470/prod/edl/infra/servicenow/str/servicenow_stg/sysapproval_group swebhdfs://itsusralsp07937.jnj.com:50470/qa/edl/infra/servicenow/str/servicenow_stg/sysapproval_group
+
+source
+
+ hdfs dfs -du -h -s /prod/edl/infra/servicenow/str/servicenow_stg/sysapproval_group
+270.0 M  810.0 M  /prod/edl/infra/servicenow/str/servicenow_stg/sysapproval_group
+
+destination
+
+hdfs dfs -du -h -s /qa/edl/infra/servicenow/str/servicenow_stg/sysapproval_group
+270.0 M  809.3 M  /qa/edl/infra/servicenow/str/servicenow_stg/sysapproval_group
+
+
+complted
+
+
+servicenow_stg.wf_activity          
+Source Path  -> /prod/edl/infra/servicenow/str/servicenow_stg/wf_activity
+Target Path -> /qa/edl/infra/servicenow/str/servicenow_stg/wf_activity
+
+
+hadoop distcp swebhdfs://itsusralsp07967.jnj.com:50470/prod/edl/infra/servicenow/str/servicenow_stg/wf_activity swebhdfs://itsusralsp07937.jnj.com:50470/qa/edl/infra/servicenow/str/servicenow_stg/wf_activity
+
+source
+
+hdfs dfs -du -h -s /prod/edl/infra/servicenow/str/servicenow_stg/wf_activity
+7.8 M  23.5 M  /prod/edl/infra/servicenow/str/servicenow_stg/wf_activity
+
+destination
+
+ hdfs dfs -du -h -s /qa/edl/infra/servicenow/str/servicenow_stg/wf_activity
+7.8 M  23.3 M  /qa/edl/infra/servicenow/str/servicenow_stg/wf_activity
+
+completed
+
+
+
+servicenow_stg.sysapproval_approver   
+Source Path-> /prod/edl/infra/servicenow/str/servicenow_stg/sysapproval_approver
+Target Path -> /qa/edl/infra/servicenow/str/servicenow_stg/sysapproval_approver
+
+
+hadoop distcp swebhdfs://itsusralsp07967.jnj.com:50470/prod/edl/infra/servicenow/str/servicenow_stg/sysapproval_approver swebhdfs://itsusralsp07937.jnj.com:50470/qa/edl/infra/servicenow/str/servicenow_stg/sysapproval_approver
+
+source
+
+hdfs dfs -du -h -s /prod/edl/infra/servicenow/str/servicenow_stg/sysapproval_approver
+3.5 G  10.6 G  /prod/edl/infra/servicenow/str/servicenow_stg/sysapproval_approver
+
+destination
+
+hdfs dfs -du -h -s /qa/edl/infra/servicenow/str/servicenow_stg/sysapproval_approver
+3.5 G  10.6 G  /qa/edl/infra/servicenow/str/servicenow_stg/sysapproval_approver
+
+completed
+
+
+
+servicenow_stg.change_request      
+Source Path -> /prod/edl/infra/servicenow/str/servicenow_stg/change_request
+Target Path -> /qa/edl/infra/servicenow/str/servicenow_stg/change_request
+
+hadoop distcp swebhdfs://itsusralsp07967.jnj.com:50470/prod/edl/infra/servicenow/str/servicenow_stg/change_request swebhdfs://itsusralsp07937.jnj.com:50470/qa/edl/infra/servicenow/str/servicenow_stg/change_request
+
+source
+
+hdfs dfs -du -h -s /prod/edl/infra/servicenow/str/servicenow_stg/change_request
+1.3 G  4.0 G  /prod/edl/infra/servicenow/str/servicenow_stg/change_request
+
+
+destination
+
+hdfs dfs -du -h -s /qa/edl/infra/servicenow/str/servicenow_stg/change_request
+1.3 G  4.0 G  /qa/edl/infra/servicenow/str/servicenow_stg/change_request
+
+
+completed

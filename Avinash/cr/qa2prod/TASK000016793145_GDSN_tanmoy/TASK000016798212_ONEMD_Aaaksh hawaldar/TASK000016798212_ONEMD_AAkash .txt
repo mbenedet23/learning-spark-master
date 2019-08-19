@@ -1,0 +1,14 @@
+This is for SDDC migration.
+
+Please copy the ENTIRE CONTENTS of the following directories from QA server (ITSUSRALSP07956.jnj.com) to PROD server (ITSUSRALSP08023.jnj.com):
+/data/data02/qa/edl/md/onemd/appcode/scripts/mdrim to /data/data02/prod/edl/md/onemd/appcode/scripts/mdrim
+/data/data02/qa/edl/md/onemd/appcode/scripts/onemd/transformation to /data/data02/prod/edl/md/onemd/appcode/scripts/onemd/transformation
+/data/data02/qa/edl/md/onemd/appcode/configs/mdrim to /data/data02/prod/edl/md/onemd/appcode/configs/mdrim
+/data/data02/qa/edl/md/onemd/landing/USERPRODUCTS/ to /data/data02/prod/edl/md/onemd/landing/USERPRODUCTS/
+/data/data02/qa/edl/md/onemd/landing/MDRIM to /data/data02/prod/edl/md/onemd/landing/MDRIM
+
+Please copy JUST the directory structure and not the contents from QA server QA server (ITSUSRALSP07956.jnj.com) to PROD server (ITSUSRALSP08023.jnj.com):
+/data/data02/qa/edl/md/onemd/appcode/logs to /data/data02/prod/edl/md/onemd/appcode/logs
+/data/data02/qa/edl/md/onemd/appcode/scripts/mdrim/arch to /data/data02/prod/edl/md/onemd/appcode/scripts/mdrim/arch
+
+

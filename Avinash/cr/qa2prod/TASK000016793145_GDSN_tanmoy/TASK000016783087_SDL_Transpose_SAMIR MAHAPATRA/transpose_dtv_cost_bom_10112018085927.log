@@ -1,0 +1,831 @@
+------------------------------------------------------------------------
+11/10/18 08:59:28 : current_year:2018
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : timestamp_folder: 20181110085927
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : stage table column: bom_lv string,matl_desc string,matl_cd string,curr string,qty string,std_cost string,total_cost string,unit string,plnt_cd string,Year string,BOL1 string,BOL2 string,BOL3 string,BOL4 string,BOL5 string,BOL6 string,BOL7 string,BOL8 string,BOL9 string,Lowest_Level string,Direct_Parent string,Cost_of_parent_level string,FG_Total_Cost string,mtype string,pt_cd string,spt_cd string,brnd_cd string,vrnt_cd string,putup_cd string,sku_desc string,franchise string,brnd_desc string,long_text string,vendor_cd string,putup_desc string,Cost_Component_Type string,Origin string,PutUp_Value string,PutUp_Type string,Des_CoCode string,Ori_CoCode string,exrt string,FG_Total_Cost_USD string,Cost_of_parent_level_USD string,FG_Cost_Per_Pc_USD string,Cost_of_parent_level_per_pc_USD string,Total_Cost_per_pc_USD string,Total_USD string,Total_CostperLiter_Kg_Ou_Meter_Pc_USD string,FG_Costper_Liter_Kg_Ou_Meter_Pc_USD string,Cost_of_parentlevelperLiter_Kg_Ou_Meter_Pc_USD string,vrnt_desc string,Is_DC_Cost string,Destination_City string,Destination_Country string,Destination_Country_Name string,Destination_Plant_Name string,Origin_City string,Origin_Country string,Origin_Country_Name string,Origin_Plant_Name string,com_grp string,ingredient_nm string,matl_category string,matl_grp string,matl_nm string,raw_vendor_cd string,rpm_sourcing_loctaion string,typ string,vendor_nm string,RPM_Material_Type string,com_grp_Parent string,ingredient_nm_Parent string,matl_category_Parent string,matl_grp_Parent string,matl_nm_Parent string,plnt_cd_Parent string,raw_vendor_cd_Parent string,rpm_sourcing_loctaion_Parent string,typ_Parent string,vendor_nm_Parent string,RPM_Material_Type_Parent string,SubCon_Cost string,Cost_Type string
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : core table  column: bom_lv int,matl_desc string,matl_cd string,curr string,qty double,std_cost string,total_cost double,unit string,plnt_cd string,BOL1 string,BOL2 string,BOL3 string,BOL4 string,BOL5 string,BOL6 string,BOL7 string,BOL8 string,BOL9 string,Lowest_Level string,Direct_Parent string,Cost_of_parent_level double,FG_Total_Cost double,mtype string,pt_cd string,spt_cd string,brnd_cd string,vrnt_cd string,putup_cd string,sku_desc string,franchise string,brnd_desc string,long_text string,vendor_cd double,putup_desc string,Cost_Component_Type string,Origin string,PutUp_Value double,PutUp_Type string,Des_CoCode string,Ori_CoCode string,exrt double,FG_Total_Cost_USD double,Cost_of_parent_level_USD double,FG_Cost_Per_Pc_USD double,Cost_of_parent_level_per_pc_USD double,Total_Cost_per_pc_USD double,Total_USD double,Total_CostperLiter_Kg_Ou_Meter_Pc_USD double,FG_Costper_Liter_Kg_Ou_Meter_Pc_USD double,Cost_of_parentlevelperLiter_Kg_Ou_Meter_Pc_USD double,vrnt_desc string,Is_DC_Cost string,Destination_City string,Destination_Country string,Destination_Country_Name string,Destination_Plant_Name string,Origin_City string,Origin_Country string,Origin_Country_Name string,Origin_Plant_Name string,com_grp string,ingredient_nm string,matl_category string,matl_grp string,matl_nm string,raw_vendor_cd double,rpm_sourcing_loctaion string,typ string,vendor_nm string,RPM_Material_Type string,com_grp_Parent string,ingredient_nm_Parent string,matl_category_Parent string,matl_grp_Parent string,matl_nm_Parent string,plnt_cd_Parent string,raw_vendor_cd_Parent double,rpm_sourcing_loctaion_Parent string,typ_Parent string,vendor_nm_Parent string,RPM_Material_Type_Parent string,SubCon_Cost double,Cost_Type string
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : table name: cost_bom
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : partition_status: Y
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : partition_col: year
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : full hdfs stage path: /qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/staging/cost_bom/20181110085927
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : full hdfs core path: /qa/edl/sdl/plan/con/str/sc_p_con_core/Transpose/core/cost_bom
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : full bad file path:  /qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/bad_files/11_10_18
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : full managed file path : /qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/Managed/cost_bom
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : Edge node file count COST_BOM : 1
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : COST_BOM output directory is not empty.Hence ingestion process can continue.
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : Creating all the directories in the hdfs path
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:36 : Below directories were created successfully:
+------------------------------------------------------------------------
+1./qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/staging/cost_bom/20181110085927
+2./qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/bad_files/11_10_18
+3./qa/edl/sdl/plan/con/str/sc_p_con_core/Transpose/core/cost_bom
+4./qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/Managed/cost_bom
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:39 : files for COST_BOM has been moved to HDFS
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:41 : HDFS Files count for COST_BOM : 1
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:41 : Files count is matching between Edge count and Hdfs count 
+------------------------------------------------------------------------
+/qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/staging/cost_bom/20181110085927/Cost_Bom_Data.csv
+------------------------------------------------------------------------
+11/10/18 08:59:43 : the extension of the file /qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/staging/cost_bom/20181110085927/Cost_Bom_Data.csv matches with the required extension for processing
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:43 : creating table stg_schema.transpose_dtv'_'cost_bom_stg if it doesnt exist
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:43 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 1ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+No rows affected (0.038 seconds)
+No rows affected (0.004 seconds)
+INFO  : Compiling command(queryId=hive_20181110085959_9d9f326b-495e-4e62-b7b8-6269d26885dc): drop table if exists sc_p_con_stg.transpose_dtv_cost_bom_stg
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110085959_9d9f326b-495e-4e62-b7b8-6269d26885dc); Time taken: 0.123 seconds
+INFO  : Executing command(queryId=hive_20181110085959_9d9f326b-495e-4e62-b7b8-6269d26885dc): drop table if exists sc_p_con_stg.transpose_dtv_cost_bom_stg
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20181110085959_9d9f326b-495e-4e62-b7b8-6269d26885dc); Time taken: 0.025 seconds
+INFO  : OK
+No rows affected (0.214 seconds)
+INFO  : Compiling command(queryId=hive_20181110085959_fc774724-459d-4204-bbe8-a22ebc0e0305): create external table if not exists sc_p_con_stg.transpose_dtv_cost_bom_stg (bom_lv string,matl_desc string,matl_cd string,curr string,qty string,std_cost string,total_cost string,unit string,plnt_cd string,Year string,BOL1 string,BOL2 string,BOL3 string,BOL4 string,BOL5 string,BOL6 string,BOL7 string,BOL8 string,BOL9 string,Lowest_Level string,Direct_Parent string,Cost_of_parent_level string,FG_Total_Cost string,mtype string,pt_cd string,spt_cd string,brnd_cd string,vrnt_cd string,putup_cd string,sku_desc string,franchise string,brnd_desc string,long_text string,vendor_cd string,putup_desc string,Cost_Component_Type string,Origin string,PutUp_Value string,PutUp_Type string,Des_CoCode string,Ori_CoCode string,exrt string,FG_Total_Cost_USD string,Cost_of_parent_level_USD string,FG_Cost_Per_Pc_USD string,Cost_of_parent_level_per_pc_USD string,Total_Cost_per_pc_USD string,Total_USD string,Total_CostperLiter_Kg_Ou_Meter_Pc_USD string,FG_Costper_Liter_Kg_Ou_Meter_Pc_USD string,Cost_of_parentlevelperLiter_Kg_Ou_Meter_Pc_USD string,vrnt_desc string,Is_DC_Cost string,Destination_City string,Destination_Country string,Destination_Country_Name string,Destination_Plant_Name string,Origin_City string,Origin_Country string,Origin_Country_Name string,Origin_Plant_Name string,com_grp string,ingredient_nm string,matl_category string,matl_grp string,matl_nm string,raw_vendor_cd string,rpm_sourcing_loctaion string,typ string,vendor_nm string,RPM_Material_Type string,com_grp_Parent string,ingredient_nm_Parent string,matl_category_Parent string,matl_grp_Parent string,matl_nm_Parent string,plnt_cd_Parent string,raw_vendor_cd_Parent string,rpm_sourcing_loctaion_Parent string,typ_Parent string,vendor_nm_Parent string,RPM_Material_Type_Parent string,SubCon_Cost string,Cost_Type string) ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' WITH SERDEPROPERTIES ('separatorChar' = '|') STORED AS textfile LOCATION '/qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/staging/cost_bom/20181110085927' tblproperties ('skip.header.line.count'='1')
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110085959_fc774724-459d-4204-bbe8-a22ebc0e0305); Time taken: 0.082 seconds
+INFO  : Executing command(queryId=hive_20181110085959_fc774724-459d-4204-bbe8-a22ebc0e0305): create external table if not exists sc_p_con_stg.transpose_dtv_cost_bom_stg (bom_lv string,matl_desc string,matl_cd string,curr string,qty string,std_cost string,total_cost string,unit string,plnt_cd string,Year string,BOL1 string,BOL2 string,BOL3 string,BOL4 string,BOL5 string,BOL6 string,BOL7 string,BOL8 string,BOL9 string,Lowest_Level string,Direct_Parent string,Cost_of_parent_level string,FG_Total_Cost string,mtype string,pt_cd string,spt_cd string,brnd_cd string,vrnt_cd string,putup_cd string,sku_desc string,franchise string,brnd_desc string,long_text string,vendor_cd string,putup_desc string,Cost_Component_Type string,Origin string,PutUp_Value string,PutUp_Type string,Des_CoCode string,Ori_CoCode string,exrt string,FG_Total_Cost_USD string,Cost_of_parent_level_USD string,FG_Cost_Per_Pc_USD string,Cost_of_parent_level_per_pc_USD string,Total_Cost_per_pc_USD string,Total_USD string,Total_CostperLiter_Kg_Ou_Meter_Pc_USD string,FG_Costper_Liter_Kg_Ou_Meter_Pc_USD string,Cost_of_parentlevelperLiter_Kg_Ou_Meter_Pc_USD string,vrnt_desc string,Is_DC_Cost string,Destination_City string,Destination_Country string,Destination_Country_Name string,Destination_Plant_Name string,Origin_City string,Origin_Country string,Origin_Country_Name string,Origin_Plant_Name string,com_grp string,ingredient_nm string,matl_category string,matl_grp string,matl_nm string,raw_vendor_cd string,rpm_sourcing_loctaion string,typ string,vendor_nm string,RPM_Material_Type string,com_grp_Parent string,ingredient_nm_Parent string,matl_category_Parent string,matl_grp_Parent string,matl_nm_Parent string,plnt_cd_Parent string,raw_vendor_cd_Parent string,rpm_sourcing_loctaion_Parent string,typ_Parent string,vendor_nm_Parent string,RPM_Material_Type_Parent string,SubCon_Cost string,Cost_Type string) ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' WITH SERDEPROPERTIES ('separatorChar' = '|') STORED AS textfile LOCATION '/qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/staging/cost_bom/20181110085927' tblproperties ('skip.header.line.count'='1')
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20181110085959_fc774724-459d-4204-bbe8-a22ebc0e0305); Time taken: 0.055 seconds
+INFO  : OK
+No rows affected (0.227 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 08:59:47 : Trying to connect to Impala server for the 0 time
+------------------------------------------------------------------------
+Starting Impala Shell using Kerberos authentication
+Using service name 'impala'
+SSL is enabled
+Connected to edlimpalaqa.jnj.com:21000
+Server version: impalad version 2.8.0-cdh5.11.2 RELEASE (build f89269c4b96da14a841e94bdf6d4d48821b0d658)
+Query: invalidate metadata sc_p_con_stg.transpose_dtv_cost_bom_stg
+Query submitted at: 2018-11-10 08:59:47 (Coordinator: https://ITSUSRALSP07945:25000)
+Query progress can be monitored at: https://ITSUSRALSP07945:25000/query_plan?query_id=6643838f60c0bf69:44516d300000000
+Fetched 0 row(s) in 0.09s
+------------------------------------------------------------------------
+11/10/18 08:59:47 : Table sc_p_con_stg.transpose_dtv_cost_bom_stg created successfully
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:47 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 1ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110085959_6ffcef4a-a780-4fe7-b0bd-8153d0fde35b): select count(*) from sc_p_con_stg.transpose_dtv_cost_bom_stg
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_c0, type:bigint, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110085959_6ffcef4a-a780-4fe7-b0bd-8153d0fde35b); Time taken: 0.113 seconds
+INFO  : Executing command(queryId=hive_20181110085959_6ffcef4a-a780-4fe7-b0bd-8153d0fde35b): select count(*) from sc_p_con_stg.transpose_dtv_cost_bom_stg
+INFO  : Query ID = hive_20181110085959_6ffcef4a-a780-4fe7-b0bd-8153d0fde35b
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:2
+INFO  : Submitting tokens for job: job_1541737235880_6659
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858391438, maxDate=1542463191438, sequenceNumber=134960, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858391501, maxDate=1542463191501, sequenceNumber=134519, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6659/
+INFO  : Starting Job = job_1541737235880_6659, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6659/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6659
+INFO  : Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
+INFO  : 2018-11-10 08:59:58,870 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:00:07,090 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 2.3 sec
+INFO  : 2018-11-10 09:00:10,166 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 9.62 sec
+INFO  : 2018-11-10 09:00:18,374 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 12.11 sec
+INFO  : MapReduce Total cumulative CPU time: 12 seconds 110 msec
+INFO  : Ended Job = job_1541737235880_6659
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 2  Reduce: 1   Cumulative CPU: 12.11 sec   HDFS Read: 136602207 HDFS Write: 7 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 12 seconds 110 msec
+INFO  : Completed executing command(queryId=hive_20181110085959_6ffcef4a-a780-4fe7-b0bd-8153d0fde35b); Time taken: 28.141 seconds
+INFO  : OK
+1 row selected (28.363 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:00:19 : Total stage records: 210614
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:00:19 : call the partition core table creation method
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:00:19 : Fetching the count of years value from stage table
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:00:19 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090000_06f20e68-0a38-4dcc-b9e7-84b04e3396f9): select count(distinct year) from sc_p_con_stg.transpose_dtv_cost_bom_stg
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_c0, type:bigint, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090000_06f20e68-0a38-4dcc-b9e7-84b04e3396f9); Time taken: 0.119 seconds
+INFO  : Executing command(queryId=hive_20181110090000_06f20e68-0a38-4dcc-b9e7-84b04e3396f9): select count(distinct year) from sc_p_con_stg.transpose_dtv_cost_bom_stg
+INFO  : Query ID = hive_20181110090000_06f20e68-0a38-4dcc-b9e7-84b04e3396f9
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:2
+INFO  : Submitting tokens for job: job_1541737235880_6663
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858423377, maxDate=1542463223377, sequenceNumber=134967, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858423388, maxDate=1542463223388, sequenceNumber=134526, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6663/
+INFO  : Starting Job = job_1541737235880_6663, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6663/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6663
+INFO  : Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
+INFO  : 2018-11-10 09:00:31,619 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:00:38,914 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 2.55 sec
+INFO  : 2018-11-10 09:00:42,016 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 10.72 sec
+INFO  : 2018-11-10 09:00:49,215 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 13.51 sec
+INFO  : MapReduce Total cumulative CPU time: 13 seconds 510 msec
+INFO  : Ended Job = job_1541737235880_6663
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 2  Reduce: 1   Cumulative CPU: 13.51 sec   HDFS Read: 136602493 HDFS Write: 2 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 13 seconds 510 msec
+INFO  : Completed executing command(queryId=hive_20181110090000_06f20e68-0a38-4dcc-b9e7-84b04e3396f9); Time taken: 28.05 seconds
+INFO  : OK
+1 row selected (28.276 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:00:51 : Records available for count of Years : 1
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:00:51 : Fetching the year value from stage table
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:00:51 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090000_7f9c3b48-e4ce-4b91-a866-5075a9a60fe6): select distinct year from sc_p_con_stg.transpose_dtv_cost_bom_stg
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:year, type:string, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090000_7f9c3b48-e4ce-4b91-a866-5075a9a60fe6); Time taken: 0.123 seconds
+INFO  : Executing command(queryId=hive_20181110090000_7f9c3b48-e4ce-4b91-a866-5075a9a60fe6): select distinct year from sc_p_con_stg.transpose_dtv_cost_bom_stg
+INFO  : Query ID = hive_20181110090000_7f9c3b48-e4ce-4b91-a866-5075a9a60fe6
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 3
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:2
+INFO  : Submitting tokens for job: job_1541737235880_6673
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858456135, maxDate=1542463256135, sequenceNumber=134979, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858456147, maxDate=1542463256147, sequenceNumber=134538, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6673/
+INFO  : Starting Job = job_1541737235880_6673, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6673/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6673
+INFO  : Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 3
+INFO  : 2018-11-10 09:01:04,616 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:01:11,884 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 2.35 sec
+INFO  : 2018-11-10 09:01:14,961 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 9.65 sec
+INFO  : 2018-11-10 09:01:20,093 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 16.43 sec
+INFO  : MapReduce Total cumulative CPU time: 16 seconds 430 msec
+INFO  : Ended Job = job_1541737235880_6673
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 2  Reduce: 3   Cumulative CPU: 16.43 sec   HDFS Read: 136614669 HDFS Write: 5 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 16 seconds 430 msec
+INFO  : Completed executing command(queryId=hive_20181110090000_7f9c3b48-e4ce-4b91-a866-5075a9a60fe6); Time taken: 25.172 seconds
+INFO  : OK
+1 row selected (25.489 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:01:21 : Records available for Year : 2018
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:21 : Check for the core table exists or not
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:21 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 1ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090101_57909a3f-f0f6-4a80-80fc-bca02c0a5c04): show tables in sc_p_con_core like 'transpose_dtv_cost_bom_core'
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:tab_name, type:string, comment:from deserializer)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090101_57909a3f-f0f6-4a80-80fc-bca02c0a5c04); Time taken: 0.067 seconds
+INFO  : Executing command(queryId=hive_20181110090101_57909a3f-f0f6-4a80-80fc-bca02c0a5c04): show tables in sc_p_con_core like 'transpose_dtv_cost_bom_core'
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20181110090101_57909a3f-f0f6-4a80-80fc-bca02c0a5c04); Time taken: 0.152 seconds
+INFO  : OK
+1 row selected (0.44 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:01:25 : Core table is available, so calling retention method
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:25 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 1ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090101_a5858f9b-fb38-47c9-9d66-a759e2a3d764): select min(year) from sc_p_con_core.transpose_dtv_cost_bom_core
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_c0, type:int, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090101_a5858f9b-fb38-47c9-9d66-a759e2a3d764); Time taken: 0.138 seconds
+INFO  : Executing command(queryId=hive_20181110090101_a5858f9b-fb38-47c9-9d66-a759e2a3d764): select min(year) from sc_p_con_core.transpose_dtv_cost_bom_core
+INFO  : Query ID = hive_20181110090101_a5858f9b-fb38-47c9-9d66-a759e2a3d764
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:2
+INFO  : Submitting tokens for job: job_1541737235880_6680
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858489633, maxDate=1542463289633, sequenceNumber=134989, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858489645, maxDate=1542463289645, sequenceNumber=134548, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6680/
+INFO  : Starting Job = job_1541737235880_6680, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6680/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6680
+INFO  : Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
+INFO  : 2018-11-10 09:01:36,943 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:01:44,301 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 1.75 sec
+INFO  : 2018-11-10 09:01:45,329 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.59 sec
+INFO  : 2018-11-10 09:01:50,472 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 6.14 sec
+INFO  : MapReduce Total cumulative CPU time: 6 seconds 140 msec
+INFO  : Ended Job = job_1541737235880_6680
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 2  Reduce: 1   Cumulative CPU: 6.14 sec   HDFS Read: 31540 HDFS Write: 5 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 6 seconds 140 msec
+INFO  : Completed executing command(queryId=hive_20181110090101_a5858f9b-fb38-47c9-9d66-a759e2a3d764); Time taken: 22.038 seconds
+INFO  : OK
+1 row selected (22.284 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:01:51 : Minimum year value in core table sc_p_con_core.transpose_dtv_cost_bom_core:2017 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:51 : All data in core table is within the retention period
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:51 : Creating the new partitioned based on partition column on core table for loading data from stage table
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:51 : checking the partition is exists or not.If exists drop and recreate it else create the new one
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:51 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090101_f21e45cc-08d2-4ce0-8a0f-3a206f4753df): show partitions sc_p_con_core.transpose_dtv_cost_bom_core
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:partition, type:string, comment:from deserializer)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090101_f21e45cc-08d2-4ce0-8a0f-3a206f4753df); Time taken: 0.103 seconds
+INFO  : Executing command(queryId=hive_20181110090101_f21e45cc-08d2-4ce0-8a0f-3a206f4753df): show partitions sc_p_con_core.transpose_dtv_cost_bom_core
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20181110090101_f21e45cc-08d2-4ce0-8a0f-3a206f4753df); Time taken: 0.013 seconds
+INFO  : OK
+2 rows selected (0.213 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:01:55 : query fetched all the partitions from table sc_p_con_core.transpose_dtv_cost_bom_core 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:55 : Partition exist for 2018 in core table.
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:55 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090101_51abe269-44ac-48a3-b7e2-52f645a18470): ALTER table sc_p_con_core.transpose_dtv_cost_bom_core drop if exists partition(year=2018)
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090101_51abe269-44ac-48a3-b7e2-52f645a18470); Time taken: 0.102 seconds
+INFO  : Executing command(queryId=hive_20181110090101_51abe269-44ac-48a3-b7e2-52f645a18470): ALTER table sc_p_con_core.transpose_dtv_cost_bom_core drop if exists partition(year=2018)
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Dropped the partition year=2018
+INFO  : Completed executing command(queryId=hive_20181110090101_51abe269-44ac-48a3-b7e2-52f645a18470); Time taken: 0.041 seconds
+INFO  : OK
+No rows affected (0.195 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:01:59 : query dropped the existing partitions from table sc_p_con_core.transpose_dtv_cost_bom_core 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:59 : Insert data for new partition 2018 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:59 :  SET mapreduce.reduce.memory.mb=4096;SET mapreduce.reduce.java.opts=-Xmx3072M;SET hive.exec.dynamic.partition=true; SET hive.exec.dynamic.partition.mode=nonstrict;insert into table sc_p_con_core.transpose_dtv_cost_bom_core partition (year) select distinct bom_lv,matl_desc,matl_cd,curr,qty,std_cost,total_cost,unit,plnt_cd,BOL1,BOL2,BOL3,BOL4,BOL5,BOL6,BOL7,BOL8,BOL9,Lowest_Level,Direct_Parent,Cost_of_parent_level,FG_Total_Cost,mtype,pt_cd,spt_cd,brnd_cd,vrnt_cd,putup_cd,sku_desc,franchise,brnd_desc,long_text,vendor_cd,putup_desc,Cost_Component_Type,Origin,PutUp_Value,PutUp_Type,Des_CoCode,Ori_CoCode,exrt,FG_Total_Cost_USD,Cost_of_parent_level_USD,FG_Cost_Per_Pc_USD,Cost_of_parent_level_per_pc_USD,Total_Cost_per_pc_USD,Total_USD,Total_CostperLiter_Kg_Ou_Meter_Pc_USD,FG_Costper_Liter_Kg_Ou_Meter_Pc_USD,Cost_of_parentlevelperLiter_Kg_Ou_Meter_Pc_USD,vrnt_desc,Is_DC_Cost,Destination_City,Destination_Country,Destination_Country_Name,Destination_Plant_Name,Origin_City,Origin_Country,Origin_Country_Name,Origin_Plant_Name,com_grp,ingredient_nm,matl_category,matl_grp,matl_nm,raw_vendor_cd,rpm_sourcing_loctaion,typ,vendor_nm,RPM_Material_Type,com_grp_Parent,ingredient_nm_Parent,matl_category_Parent,matl_grp_Parent,matl_nm_Parent,plnt_cd_Parent,raw_vendor_cd_Parent,rpm_sourcing_loctaion_Parent,typ_Parent,vendor_nm_Parent,RPM_Material_Type_Parent,SubCon_Cost,Cost_Type,year from sc_p_con_stg.transpose_dtv_cost_bom_stg;ANALYZE TABLE sc_p_con_core.transpose_dtv_cost_bom_core PARTITION (year) COMPUTE STATISTICS;
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:59 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 1ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+No rows affected (0.04 seconds)
+No rows affected (0.004 seconds)
+No rows affected (0.004 seconds)
+No rows affected (0.004 seconds)
+INFO  : Compiling command(queryId=hive_20181110090202_35c8afc9-7bfe-45c0-ad54-588e45c71065): insert into table sc_p_con_core.transpose_dtv_cost_bom_core partition (year) select distinct bom_lv,matl_desc,matl_cd,curr,qty,std_cost,total_cost,unit,plnt_cd,BOL1,BOL2,BOL3,BOL4,BOL5,BOL6,BOL7,BOL8,BOL9,Lowest_Level,Direct_Parent,Cost_of_parent_level,FG_Total_Cost,mtype,pt_cd,spt_cd,brnd_cd,vrnt_cd,putup_cd,sku_desc,franchise,brnd_desc,long_text,vendor_cd,putup_desc,Cost_Component_Type,Origin,PutUp_Value,PutUp_Type,Des_CoCode,Ori_CoCode,exrt,FG_Total_Cost_USD,Cost_of_parent_level_USD,FG_Cost_Per_Pc_USD,Cost_of_parent_level_per_pc_USD,Total_Cost_per_pc_USD,Total_USD,Total_CostperLiter_Kg_Ou_Meter_Pc_USD,FG_Costper_Liter_Kg_Ou_Meter_Pc_USD,Cost_of_parentlevelperLiter_Kg_Ou_Meter_Pc_USD,vrnt_desc,Is_DC_Cost,Destination_City,Destination_Country,Destination_Country_Name,Destination_Plant_Name,Origin_City,Origin_Country,Origin_Country_Name,Origin_Plant_Name,com_grp,ingredient_nm,matl_category,matl_grp,matl_nm,raw_vendor_cd,rpm_sourcing_loctaion,typ,vendor_nm,RPM_Material_Type,com_grp_Parent,ingredient_nm_Parent,matl_category_Parent,matl_grp_Parent,matl_nm_Parent,plnt_cd_Parent,raw_vendor_cd_Parent,rpm_sourcing_loctaion_Parent,typ_Parent,vendor_nm_Parent,RPM_Material_Type_Parent,SubCon_Cost,Cost_Type,year from sc_p_con_stg.transpose_dtv_cost_bom_stg
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_col0, type:int, comment:null), FieldSchema(name:_col1, type:string, comment:null), FieldSchema(name:_col2, type:string, comment:null), FieldSchema(name:_col3, type:string, comment:null), FieldSchema(name:_col4, type:double, comment:null), FieldSchema(name:_col5, type:string, comment:null), FieldSchema(name:_col6, type:double, comment:null), FieldSchema(name:_col7, type:string, comment:null), FieldSchema(name:_col8, type:string, comment:null), FieldSchema(name:_col9, type:string, comment:null), FieldSchema(name:_col10, type:string, comment:null), FieldSchema(name:_col11, type:string, comment:null), FieldSchema(name:_col12, type:string, comment:null), FieldSchema(name:_col13, type:string, comment:null), FieldSchema(name:_col14, type:string, comment:null), FieldSchema(name:_col15, type:string, comment:null), FieldSchema(name:_col16, type:string, comment:null), FieldSchema(name:_col17, type:string, comment:null), FieldSchema(name:_col18, type:string, comment:null), FieldSchema(name:_col19, type:string, comment:null), FieldSchema(name:_col20, type:double, comment:null), FieldSchema(name:_col21, type:double, comment:null), FieldSchema(name:_col22, type:string, comment:null), FieldSchema(name:_col23, type:string, comment:null), FieldSchema(name:_col24, type:string, comment:null), FieldSchema(name:_col25, type:string, comment:null), FieldSchema(name:_col26, type:string, comment:null), FieldSchema(name:_col27, type:string, comment:null), FieldSchema(name:_col28, type:string, comment:null), FieldSchema(name:_col29, type:string, comment:null), FieldSchema(name:_col30, type:string, comment:null), FieldSchema(name:_col31, type:string, comment:null), FieldSchema(name:_col32, type:double, comment:null), FieldSchema(name:_col33, type:string, comment:null), FieldSchema(name:_col34, type:string, comment:null), FieldSchema(name:_col35, type:string, comment:null), FieldSchema(name:_col36, type:double, comment:null), FieldSchema(name:_col37, type:string, comment:null), FieldSchema(name:_col38, type:string, comment:null), FieldSchema(name:_col39, type:string, comment:null), FieldSchema(name:_col40, type:double, comment:null), FieldSchema(name:_col41, type:double, comment:null), FieldSchema(name:_col42, type:double, comment:null), FieldSchema(name:_col43, type:double, comment:null), FieldSchema(name:_col44, type:double, comment:null), FieldSchema(name:_col45, type:double, comment:null), FieldSchema(name:_col46, type:double, comment:null), FieldSchema(name:_col47, type:double, comment:null), FieldSchema(name:_col48, type:double, comment:null), FieldSchema(name:_col49, type:double, comment:null), FieldSchema(name:_col50, type:string, comment:null), FieldSchema(name:_col51, type:string, comment:null), FieldSchema(name:_col52, type:string, comment:null), FieldSchema(name:_col53, type:string, comment:null), FieldSchema(name:_col54, type:string, comment:null), FieldSchema(name:_col55, type:string, comment:null), FieldSchema(name:_col56, type:string, comment:null), FieldSchema(name:_col57, type:string, comment:null), FieldSchema(name:_col58, type:string, comment:null), FieldSchema(name:_col59, type:string, comment:null), FieldSchema(name:_col60, type:string, comment:null), FieldSchema(name:_col61, type:string, comment:null), FieldSchema(name:_col62, type:string, comment:null), FieldSchema(name:_col63, type:string, comment:null), FieldSchema(name:_col64, type:string, comment:null), FieldSchema(name:_col65, type:double, comment:null), FieldSchema(name:_col66, type:string, comment:null), FieldSchema(name:_col67, type:string, comment:null), FieldSchema(name:_col68, type:string, comment:null), FieldSchema(name:_col69, type:string, comment:null), FieldSchema(name:_col70, type:string, comment:null), FieldSchema(name:_col71, type:string, comment:null), FieldSchema(name:_col72, type:string, comment:null), FieldSchema(name:_col73, type:string, comment:null), FieldSchema(name:_col74, type:string, comment:null), FieldSchema(name:_col75, type:string, comment:null), FieldSchema(name:_col76, type:double, comment:null), FieldSchema(name:_col77, type:string, comment:null), FieldSchema(name:_col78, type:string, comment:null), FieldSchema(name:_col79, type:string, comment:null), FieldSchema(name:_col80, type:string, comment:null), FieldSchema(name:_col81, type:double, comment:null), FieldSchema(name:_col82, type:string, comment:null), FieldSchema(name:_col83, type:string, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090202_35c8afc9-7bfe-45c0-ad54-588e45c71065); Time taken: 0.141 seconds
+INFO  : Executing command(queryId=hive_20181110090202_35c8afc9-7bfe-45c0-ad54-588e45c71065): insert into table sc_p_con_core.transpose_dtv_cost_bom_core partition (year) select distinct bom_lv,matl_desc,matl_cd,curr,qty,std_cost,total_cost,unit,plnt_cd,BOL1,BOL2,BOL3,BOL4,BOL5,BOL6,BOL7,BOL8,BOL9,Lowest_Level,Direct_Parent,Cost_of_parent_level,FG_Total_Cost,mtype,pt_cd,spt_cd,brnd_cd,vrnt_cd,putup_cd,sku_desc,franchise,brnd_desc,long_text,vendor_cd,putup_desc,Cost_Component_Type,Origin,PutUp_Value,PutUp_Type,Des_CoCode,Ori_CoCode,exrt,FG_Total_Cost_USD,Cost_of_parent_level_USD,FG_Cost_Per_Pc_USD,Cost_of_parent_level_per_pc_USD,Total_Cost_per_pc_USD,Total_USD,Total_CostperLiter_Kg_Ou_Meter_Pc_USD,FG_Costper_Liter_Kg_Ou_Meter_Pc_USD,Cost_of_parentlevelperLiter_Kg_Ou_Meter_Pc_USD,vrnt_desc,Is_DC_Cost,Destination_City,Destination_Country,Destination_Country_Name,Destination_Plant_Name,Origin_City,Origin_Country,Origin_Country_Name,Origin_Plant_Name,com_grp,ingredient_nm,matl_category,matl_grp,matl_nm,raw_vendor_cd,rpm_sourcing_loctaion,typ,vendor_nm,RPM_Material_Type,com_grp_Parent,ingredient_nm_Parent,matl_category_Parent,matl_grp_Parent,matl_nm_Parent,plnt_cd_Parent,raw_vendor_cd_Parent,rpm_sourcing_loctaion_Parent,typ_Parent,vendor_nm_Parent,RPM_Material_Type_Parent,SubCon_Cost,Cost_Type,year from sc_p_con_stg.transpose_dtv_cost_bom_stg
+INFO  : Query ID = hive_20181110090202_35c8afc9-7bfe-45c0-ad54-588e45c71065
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 3
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:2
+INFO  : Submitting tokens for job: job_1541737235880_6683
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858523544, maxDate=1542463323544, sequenceNumber=134995, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858523556, maxDate=1542463323556, sequenceNumber=134554, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6683/
+INFO  : Starting Job = job_1541737235880_6683, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6683/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6683
+INFO  : Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 3
+INFO  : 2018-11-10 09:02:11,804 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:02:19,031 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 3.59 sec
+INFO  : 2018-11-10 09:02:32,423 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 45.76 sec
+INFO  : 2018-11-10 09:02:46,816 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 85.46 sec
+INFO  : MapReduce Total cumulative CPU time: 1 minutes 25 seconds 460 msec
+INFO  : Ended Job = job_1541737235880_6683
+INFO  : Starting task [Stage-0:MOVE] in serial mode
+INFO  : Loading data to table sc_p_con_core.transpose_dtv_cost_bom_core partition (year=null) from hdfs://nameservice1/qa/edl/sdl/plan/con/str/sc_p_con_core/Transpose/core/cost_bom/20181017134937/.hive-staging_hive_2018-11-10_09-02-03_253_5646827099197198943-713/-ext-10000
+INFO  : 	 Time taken for load dynamic partitions : 62
+INFO  : 	Loading partition {year=2018}
+INFO  : 	 Time taken for adding to write entity : 0
+INFO  : Starting task [Stage-2:STATS] in serial mode
+INFO  : Partition sc_p_con_core.transpose_dtv_cost_bom_core{year=2018} stats: [numFiles=3, numRows=210614, totalSize=22649349, rawDataSize=17480962]
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 2  Reduce: 3   Cumulative CPU: 85.46 sec   HDFS Read: 136739458 HDFS Write: 22649694 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 1 minutes 25 seconds 460 msec
+INFO  : Completed executing command(queryId=hive_20181110090202_35c8afc9-7bfe-45c0-ad54-588e45c71065); Time taken: 45.718 seconds
+INFO  : OK
+No rows affected (45.883 seconds)
+INFO  : Compiling command(queryId=hive_20181110090202_c5d8e8b2-3add-4ea3-8fb2-6e60cf5436ce): ANALYZE TABLE sc_p_con_core.transpose_dtv_cost_bom_core PARTITION (year) COMPUTE STATISTICS
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.bom_lv, type:int, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.matl_desc, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.matl_cd, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.curr, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.qty, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.std_cost, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.total_cost, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.unit, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.plnt_cd, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.bol1, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.bol2, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.bol3, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.bol4, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.bol5, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.bol6, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.bol7, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.bol8, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.bol9, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.lowest_level, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.direct_parent, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.cost_of_parent_level, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.fg_total_cost, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.mtype, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.pt_cd, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.spt_cd, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.brnd_cd, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.vrnt_cd, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.putup_cd, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.sku_desc, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.franchise, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.brnd_desc, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.long_text, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.vendor_cd, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.putup_desc, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.cost_component_type, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.origin, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.putup_value, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.putup_type, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.des_cocode, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.ori_cocode, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.exrt, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.fg_total_cost_usd, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.cost_of_parent_level_usd, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.fg_cost_per_pc_usd, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.cost_of_parent_level_per_pc_usd, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.total_cost_per_pc_usd, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.total_usd, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.total_costperliter_kg_ou_meter_pc_usd, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.fg_costper_liter_kg_ou_meter_pc_usd, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.cost_of_parentlevelperliter_kg_ou_meter_pc_usd, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.vrnt_desc, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.is_dc_cost, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.destination_city, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.destination_country, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.destination_country_name, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.destination_plant_name, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.origin_city, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.origin_country, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.origin_country_name, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.origin_plant_name, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.com_grp, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.ingredient_nm, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.matl_category, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.matl_grp, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.matl_nm, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.raw_vendor_cd, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.rpm_sourcing_loctaion, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.typ, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.vendor_nm, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.rpm_material_type, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.com_grp_parent, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.ingredient_nm_parent, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.matl_category_parent, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.matl_grp_parent, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.matl_nm_parent, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.plnt_cd_parent, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.raw_vendor_cd_parent, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.rpm_sourcing_loctaion_parent, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.typ_parent, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.vendor_nm_parent, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.rpm_material_type_parent, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.subcon_cost, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.cost_type, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_cost_bom_core.year, type:int, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090202_c5d8e8b2-3add-4ea3-8fb2-6e60cf5436ce); Time taken: 0.179 seconds
+INFO  : Executing command(queryId=hive_20181110090202_c5d8e8b2-3add-4ea3-8fb2-6e60cf5436ce): ANALYZE TABLE sc_p_con_core.transpose_dtv_cost_bom_core PARTITION (year) COMPUTE STATISTICS
+INFO  : Query ID = hive_20181110090202_c5d8e8b2-3add-4ea3-8fb2-6e60cf5436ce
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-0:MAPRED] in serial mode
+INFO  : Number of reduce tasks is set to 0 since there's no reduce operator
+INFO  : number of splits:4
+INFO  : Submitting tokens for job: job_1541737235880_6693
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858569434, maxDate=1542463369434, sequenceNumber=135003, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858569444, maxDate=1542463369444, sequenceNumber=134562, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6693/
+INFO  : Starting Job = job_1541737235880_6693, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6693/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6693
+INFO  : Hadoop job information for Stage-0: number of mappers: 4; number of reducers: 0
+INFO  : 2018-11-10 09:02:56,692 Stage-0 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:03:05,935 Stage-0 map = 25%,  reduce = 0%, Cumulative CPU 6.02 sec
+INFO  : 2018-11-10 09:03:06,959 Stage-0 map = 100%,  reduce = 0%, Cumulative CPU 29.32 sec
+INFO  : MapReduce Total cumulative CPU time: 29 seconds 320 msec
+INFO  : Ended Job = job_1541737235880_6693
+INFO  : Starting task [Stage-1:STATS] in serial mode
+INFO  : Partition sc_p_con_core.transpose_dtv_cost_bom_core{year=2017} stats: [numFiles=5, numRows=451402, totalSize=32020174, rawDataSize=37917768]
+INFO  : Partition sc_p_con_core.transpose_dtv_cost_bom_core{year=2018} stats: [numFiles=3, numRows=210614, totalSize=22649349, rawDataSize=17691576]
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-0: Map: 4   Cumulative CPU: 29.32 sec   HDFS Read: 54768566 HDFS Write: 620 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 29 seconds 320 msec
+INFO  : Completed executing command(queryId=hive_20181110090202_c5d8e8b2-3add-4ea3-8fb2-6e60cf5436ce); Time taken: 18.72 seconds
+INFO  : OK
+No rows affected (18.921 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:03:08 : query executed to insert data for new partition on table sc_p_con_core.transpose_dtv_cost_bom_core 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:03:08 : Trying to connect to Impala server for the 0 time
+------------------------------------------------------------------------
+Starting Impala Shell using Kerberos authentication
+Using service name 'impala'
+SSL is enabled
+Connected to edlimpalaqa.jnj.com:21000
+Server version: impalad version 2.8.0-cdh5.11.2 RELEASE (build f89269c4b96da14a841e94bdf6d4d48821b0d658)
+Query: invalidate metadata sc_p_con_core.transpose_dtv_cost_bom_core
+Query submitted at: 2018-11-10 09:03:08 (Coordinator: https://ITSUSRALSP07945:25000)
+Query progress can be monitored at: https://ITSUSRALSP07945:25000/query_plan?query_id=e5427290ca7d9c33:9afdcf6a00000000
+Fetched 0 row(s) in 5.25s
+------------------------------------------------------------------------
+11/10/18 09:03:13 : Core table sc_p_con_core.transpose_dtv_cost_bom_core with new partition for file cost_bom created successfully
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:03:13 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 1ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090303_0e434441-bc1a-4536-89ca-dde0fbcda7a2): select count(*) from sc_p_con_core.transpose_dtv_cost_bom_core where year=2018
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_c0, type:bigint, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090303_0e434441-bc1a-4536-89ca-dde0fbcda7a2); Time taken: 0.125 seconds
+INFO  : Executing command(queryId=hive_20181110090303_0e434441-bc1a-4536-89ca-dde0fbcda7a2): select count(*) from sc_p_con_core.transpose_dtv_cost_bom_core where year=2018
+INFO  : Query ID = hive_20181110090303_0e434441-bc1a-4536-89ca-dde0fbcda7a2
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:2
+INFO  : Submitting tokens for job: job_1541737235880_6698
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858597910, maxDate=1542463397910, sequenceNumber=135009, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858597923, maxDate=1542463397923, sequenceNumber=134568, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6698/
+INFO  : Starting Job = job_1541737235880_6698, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6698/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6698
+INFO  : Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
+INFO  : 2018-11-10 09:03:25,164 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:03:33,398 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 11.36 sec
+INFO  : 2018-11-10 09:03:42,626 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 14.17 sec
+INFO  : MapReduce Total cumulative CPU time: 14 seconds 170 msec
+INFO  : Ended Job = job_1541737235880_6698
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 2  Reduce: 1   Cumulative CPU: 14.17 sec   HDFS Read: 22717683 HDFS Write: 7 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 14 seconds 170 msec
+INFO  : Completed executing command(queryId=hive_20181110090303_0e434441-bc1a-4536-89ca-dde0fbcda7a2); Time taken: 25.893 seconds
+INFO  : OK
+1 row selected (26.254 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:03:43 : Total core records: 210614
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:03:43 : Creating managed table to send tableau team to opearate on data
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:03:43 : Two year records to be needed for tableau reporting
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:03:43 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 1ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090303_bcde3924-f9bb-4479-acac-1f3e7a97f0e1): select distinct year from sc_p_con_core.transpose_dtv_cost_bom_core order by year desc limit 2
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:year, type:int, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090303_bcde3924-f9bb-4479-acac-1f3e7a97f0e1); Time taken: 0.18 seconds
+INFO  : Executing command(queryId=hive_20181110090303_bcde3924-f9bb-4479-acac-1f3e7a97f0e1): select distinct year from sc_p_con_core.transpose_dtv_cost_bom_core order by year desc limit 2
+INFO  : Query ID = hive_20181110090303_bcde3924-f9bb-4479-acac-1f3e7a97f0e1
+INFO  : Total jobs = 2
+INFO  : Launching Job 1 out of 2
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:2
+INFO  : Submitting tokens for job: job_1541737235880_6706
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858627865, maxDate=1542463427865, sequenceNumber=135018, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858627876, maxDate=1542463427876, sequenceNumber=134577, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6706/
+INFO  : Starting Job = job_1541737235880_6706, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6706/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6706
+INFO  : Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
+INFO  : 2018-11-10 09:03:56,126 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:04:03,342 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.28 sec
+INFO  : 2018-11-10 09:04:11,621 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.54 sec
+INFO  : MapReduce Total cumulative CPU time: 5 seconds 540 msec
+INFO  : Ended Job = job_1541737235880_6706
+INFO  : Launching Job 2 out of 2
+INFO  : Starting task [Stage-2:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1541737235880_6711
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858652784, maxDate=1542463452784, sequenceNumber=135023, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858652797, maxDate=1542463452797, sequenceNumber=134582, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6711/
+INFO  : Starting Job = job_1541737235880_6711, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6711/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6711
+INFO  : Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+INFO  : 2018-11-10 09:04:20,071 Stage-2 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:04:27,261 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 1.52 sec
+INFO  : 2018-11-10 09:04:35,478 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 3.81 sec
+INFO  : MapReduce Total cumulative CPU time: 3 seconds 810 msec
+INFO  : Ended Job = job_1541737235880_6711
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 2  Reduce: 1   Cumulative CPU: 5.54 sec   HDFS Read: 30054 HDFS Write: 136 SUCCESS
+INFO  : Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 3.81 sec   HDFS Read: 4346 HDFS Write: 10 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 9 seconds 350 msec
+INFO  : Completed executing command(queryId=hive_20181110090303_bcde3924-f9bb-4479-acac-1f3e7a97f0e1); Time taken: 48.824 seconds
+INFO  : OK
+2 rows selected (49.161 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:04:36 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 1ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+No rows affected (0.041 seconds)
+No rows affected (0.004 seconds)
+No rows affected (0.003 seconds)
+No rows affected (0.003 seconds)
+INFO  : Compiling command(queryId=hive_20181110090404_9f5f0c50-db63-4934-b8b7-18a4b6e84e86): drop table if exists sc_p_con_core.transpose_dtv_cost_bom_current_year_core
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090404_9f5f0c50-db63-4934-b8b7-18a4b6e84e86); Time taken: 0.098 seconds
+INFO  : Executing command(queryId=hive_20181110090404_9f5f0c50-db63-4934-b8b7-18a4b6e84e86): drop table if exists sc_p_con_core.transpose_dtv_cost_bom_current_year_core
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20181110090404_9f5f0c50-db63-4934-b8b7-18a4b6e84e86); Time taken: 0.037 seconds
+INFO  : OK
+No rows affected (0.152 seconds)
+INFO  : Compiling command(queryId=hive_20181110090404_513f86d6-2adf-4730-afae-b4d1866f65bd): create table if not exists sc_p_con_core.transpose_dtv_cost_bom_current_year_core  stored as parquet as select distinct bom_lv,matl_desc,matl_cd,curr,qty,std_cost,total_cost,unit,plnt_cd,BOL1,BOL2,BOL3,BOL4,BOL5,BOL6,BOL7,BOL8,BOL9,Lowest_Level,Direct_Parent,Cost_of_parent_level,FG_Total_Cost,mtype,pt_cd,spt_cd,brnd_cd,vrnt_cd,putup_cd,sku_desc,franchise,brnd_desc,long_text,vendor_cd,putup_desc,Cost_Component_Type,Origin,PutUp_Value,PutUp_Type,Des_CoCode,Ori_CoCode,exrt,FG_Total_Cost_USD,Cost_of_parent_level_USD,FG_Cost_Per_Pc_USD,Cost_of_parent_level_per_pc_USD,Total_Cost_per_pc_USD,Total_USD,Total_CostperLiter_Kg_Ou_Meter_Pc_USD,FG_Costper_Liter_Kg_Ou_Meter_Pc_USD,Cost_of_parentlevelperLiter_Kg_Ou_Meter_Pc_USD,vrnt_desc,Is_DC_Cost,Destination_City,Destination_Country,Destination_Country_Name,Destination_Plant_Name,Origin_City,Origin_Country,Origin_Country_Name,Origin_Plant_Name,com_grp,ingredient_nm,matl_category,matl_grp,matl_nm,raw_vendor_cd,rpm_sourcing_loctaion,typ,vendor_nm,RPM_Material_Type,com_grp_Parent,ingredient_nm_Parent,matl_category_Parent,matl_grp_Parent,matl_nm_Parent,plnt_cd_Parent,raw_vendor_cd_Parent,rpm_sourcing_loctaion_Parent,typ_Parent,vendor_nm_Parent,RPM_Material_Type_Parent,SubCon_Cost,Cost_Type,year from sc_p_con_core.transpose_dtv_cost_bom_core where year in (2018,2017)
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:bom_lv, type:int, comment:null), FieldSchema(name:matl_desc, type:string, comment:null), FieldSchema(name:matl_cd, type:string, comment:null), FieldSchema(name:curr, type:string, comment:null), FieldSchema(name:qty, type:double, comment:null), FieldSchema(name:std_cost, type:string, comment:null), FieldSchema(name:total_cost, type:double, comment:null), FieldSchema(name:unit, type:string, comment:null), FieldSchema(name:plnt_cd, type:string, comment:null), FieldSchema(name:bol1, type:string, comment:null), FieldSchema(name:bol2, type:string, comment:null), FieldSchema(name:bol3, type:string, comment:null), FieldSchema(name:bol4, type:string, comment:null), FieldSchema(name:bol5, type:string, comment:null), FieldSchema(name:bol6, type:string, comment:null), FieldSchema(name:bol7, type:string, comment:null), FieldSchema(name:bol8, type:string, comment:null), FieldSchema(name:bol9, type:string, comment:null), FieldSchema(name:lowest_level, type:string, comment:null), FieldSchema(name:direct_parent, type:string, comment:null), FieldSchema(name:cost_of_parent_level, type:double, comment:null), FieldSchema(name:fg_total_cost, type:double, comment:null), FieldSchema(name:mtype, type:string, comment:null), FieldSchema(name:pt_cd, type:string, comment:null), FieldSchema(name:spt_cd, type:string, comment:null), FieldSchema(name:brnd_cd, type:string, comment:null), FieldSchema(name:vrnt_cd, type:string, comment:null), FieldSchema(name:putup_cd, type:string, comment:null), FieldSchema(name:sku_desc, type:string, comment:null), FieldSchema(name:franchise, type:string, comment:null), FieldSchema(name:brnd_desc, type:string, comment:null), FieldSchema(name:long_text, type:string, comment:null), FieldSchema(name:vendor_cd, type:double, comment:null), FieldSchema(name:putup_desc, type:string, comment:null), FieldSchema(name:cost_component_type, type:string, comment:null), FieldSchema(name:origin, type:string, comment:null), FieldSchema(name:putup_value, type:double, comment:null), FieldSchema(name:putup_type, type:string, comment:null), FieldSchema(name:des_cocode, type:string, comment:null), FieldSchema(name:ori_cocode, type:string, comment:null), FieldSchema(name:exrt, type:double, comment:null), FieldSchema(name:fg_total_cost_usd, type:double, comment:null), FieldSchema(name:cost_of_parent_level_usd, type:double, comment:null), FieldSchema(name:fg_cost_per_pc_usd, type:double, comment:null), FieldSchema(name:cost_of_parent_level_per_pc_usd, type:double, comment:null), FieldSchema(name:total_cost_per_pc_usd, type:double, comment:null), FieldSchema(name:total_usd, type:double, comment:null), FieldSchema(name:total_costperliter_kg_ou_meter_pc_usd, type:double, comment:null), FieldSchema(name:fg_costper_liter_kg_ou_meter_pc_usd, type:double, comment:null), FieldSchema(name:cost_of_parentlevelperliter_kg_ou_meter_pc_usd, type:double, comment:null), FieldSchema(name:vrnt_desc, type:string, comment:null), FieldSchema(name:is_dc_cost, type:string, comment:null), FieldSchema(name:destination_city, type:string, comment:null), FieldSchema(name:destination_country, type:string, comment:null), FieldSchema(name:destination_country_name, type:string, comment:null), FieldSchema(name:destination_plant_name, type:string, comment:null), FieldSchema(name:origin_city, type:string, comment:null), FieldSchema(name:origin_country, type:string, comment:null), FieldSchema(name:origin_country_name, type:string, comment:null), FieldSchema(name:origin_plant_name, type:string, comment:null), FieldSchema(name:com_grp, type:string, comment:null), FieldSchema(name:ingredient_nm, type:string, comment:null), FieldSchema(name:matl_category, type:string, comment:null), FieldSchema(name:matl_grp, type:string, comment:null), FieldSchema(name:matl_nm, type:string, comment:null), FieldSchema(name:raw_vendor_cd, type:double, comment:null), FieldSchema(name:rpm_sourcing_loctaion, type:string, comment:null), FieldSchema(name:typ, type:string, comment:null), FieldSchema(name:vendor_nm, type:string, comment:null), FieldSchema(name:rpm_material_type, type:string, comment:null), FieldSchema(name:com_grp_parent, type:string, comment:null), FieldSchema(name:ingredient_nm_parent, type:string, comment:null), FieldSchema(name:matl_category_parent, type:string, comment:null), FieldSchema(name:matl_grp_parent, type:string, comment:null), FieldSchema(name:matl_nm_parent, type:string, comment:null), FieldSchema(name:plnt_cd_parent, type:string, comment:null), FieldSchema(name:raw_vendor_cd_parent, type:double, comment:null), FieldSchema(name:rpm_sourcing_loctaion_parent, type:string, comment:null), FieldSchema(name:typ_parent, type:string, comment:null), FieldSchema(name:vendor_nm_parent, type:string, comment:null), FieldSchema(name:rpm_material_type_parent, type:string, comment:null), FieldSchema(name:subcon_cost, type:double, comment:null), FieldSchema(name:cost_type, type:string, comment:null), FieldSchema(name:year, type:int, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090404_513f86d6-2adf-4730-afae-b4d1866f65bd); Time taken: 0.168 seconds
+INFO  : Executing command(queryId=hive_20181110090404_513f86d6-2adf-4730-afae-b4d1866f65bd): create table if not exists sc_p_con_core.transpose_dtv_cost_bom_current_year_core  stored as parquet as select distinct bom_lv,matl_desc,matl_cd,curr,qty,std_cost,total_cost,unit,plnt_cd,BOL1,BOL2,BOL3,BOL4,BOL5,BOL6,BOL7,BOL8,BOL9,Lowest_Level,Direct_Parent,Cost_of_parent_level,FG_Total_Cost,mtype,pt_cd,spt_cd,brnd_cd,vrnt_cd,putup_cd,sku_desc,franchise,brnd_desc,long_text,vendor_cd,putup_desc,Cost_Component_Type,Origin,PutUp_Value,PutUp_Type,Des_CoCode,Ori_CoCode,exrt,FG_Total_Cost_USD,Cost_of_parent_level_USD,FG_Cost_Per_Pc_USD,Cost_of_parent_level_per_pc_USD,Total_Cost_per_pc_USD,Total_USD,Total_CostperLiter_Kg_Ou_Meter_Pc_USD,FG_Costper_Liter_Kg_Ou_Meter_Pc_USD,Cost_of_parentlevelperLiter_Kg_Ou_Meter_Pc_USD,vrnt_desc,Is_DC_Cost,Destination_City,Destination_Country,Destination_Country_Name,Destination_Plant_Name,Origin_City,Origin_Country,Origin_Country_Name,Origin_Plant_Name,com_grp,ingredient_nm,matl_category,matl_grp,matl_nm,raw_vendor_cd,rpm_sourcing_loctaion,typ,vendor_nm,RPM_Material_Type,com_grp_Parent,ingredient_nm_Parent,matl_category_Parent,matl_grp_Parent,matl_nm_Parent,plnt_cd_Parent,raw_vendor_cd_Parent,rpm_sourcing_loctaion_Parent,typ_Parent,vendor_nm_Parent,RPM_Material_Type_Parent,SubCon_Cost,Cost_Type,year from sc_p_con_core.transpose_dtv_cost_bom_core where year in (2018,2017)
+INFO  : Query ID = hive_20181110090404_513f86d6-2adf-4730-afae-b4d1866f65bd
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:4
+INFO  : Submitting tokens for job: job_1541737235880_6713
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858680856, maxDate=1542463480856, sequenceNumber=135026, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858680868, maxDate=1542463480868, sequenceNumber=134585, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6713/
+INFO  : Starting Job = job_1541737235880_6713, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6713/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6713
+INFO  : Hadoop job information for Stage-1: number of mappers: 4; number of reducers: 1
+INFO  : 2018-11-10 09:04:48,069 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:04:59,367 Stage-1 map = 25%,  reduce = 0%, Cumulative CPU 9.35 sec
+INFO  : 2018-11-10 09:05:02,449 Stage-1 map = 75%,  reduce = 0%, Cumulative CPU 34.78 sec
+INFO  : 2018-11-10 09:05:04,502 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 50.12 sec
+INFO  : 2018-11-10 09:05:24,040 Stage-1 map = 100%,  reduce = 78%, Cumulative CPU 73.34 sec
+INFO  : 2018-11-10 09:05:30,208 Stage-1 map = 100%,  reduce = 86%, Cumulative CPU 79.93 sec
+INFO  : 2018-11-10 09:05:35,403 Stage-1 map = 100%,  reduce = 94%, Cumulative CPU 86.49 sec
+INFO  : 2018-11-10 09:05:40,584 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 92.57 sec
+INFO  : MapReduce Total cumulative CPU time: 1 minutes 32 seconds 570 msec
+INFO  : Ended Job = job_1541737235880_6713
+INFO  : Starting task [Stage-0:MOVE] in serial mode
+INFO  : Moving data to: hdfs://nameservice1/qa/edl/sdl/plan/con/str/sc_p_con_core/transpose_dtv_cost_bom_current_year_core from hdfs://nameservice1/qa/edl/sdl/plan/con/str/sc_p_con_core/.hive-staging_hive_2018-11-10_09-04-40_554_6676999345373123694-750/-ext-10001
+INFO  : Starting task [Stage-3:DDL] in serial mode
+INFO  : Starting task [Stage-2:STATS] in serial mode
+INFO  : Table sc_p_con_core.transpose_dtv_cost_bom_current_year_core stats: [numFiles=1, numRows=662016, totalSize=33614626, rawDataSize=55609344]
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 4  Reduce: 1   Cumulative CPU: 92.57 sec   HDFS Read: 54997647 HDFS Write: 33614746 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 1 minutes 32 seconds 570 msec
+INFO  : Completed executing command(queryId=hive_20181110090404_513f86d6-2adf-4730-afae-b4d1866f65bd); Time taken: 61.095 seconds
+INFO  : OK
+No rows affected (61.29 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:05:41 : Trying to connect to Impala server for the 0 time
+------------------------------------------------------------------------
+Starting Impala Shell using Kerberos authentication
+Using service name 'impala'
+SSL is enabled
+Connected to edlimpalaqa.jnj.com:21000
+Server version: impalad version 2.8.0-cdh5.11.2 RELEASE (build f89269c4b96da14a841e94bdf6d4d48821b0d658)
+Query: invalidate metadata sc_p_con_core.transpose_dtv_cost_bom_current_year_core
+Query submitted at: 2018-11-10 09:05:42 (Coordinator: https://ITSUSRALSP07945:25000)
+Query progress can be monitored at: https://ITSUSRALSP07945:25000/query_plan?query_id=5f49bac68ceeae7a:86a6ab7300000000
+Fetched 0 row(s) in 8.58s
+------------------------------------------------------------------------
+11/10/18 09:05:50 : Core table sc_p_con_core.transpose_dtv_cost_bom_current_year_core with new partition for file cost_bom created successfully
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:05:50 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 1ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090505_b28bf2db-3a75-4ccf-b27a-1692f2706663): select count(*) from sc_p_con_core.transpose_dtv_cost_bom_current_year_core
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_c0, type:bigint, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090505_b28bf2db-3a75-4ccf-b27a-1692f2706663); Time taken: 0.217 seconds
+INFO  : Executing command(queryId=hive_20181110090505_b28bf2db-3a75-4ccf-b27a-1692f2706663): select count(*) from sc_p_con_core.transpose_dtv_cost_bom_current_year_core
+INFO  : Query ID = hive_20181110090505_b28bf2db-3a75-4ccf-b27a-1692f2706663
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1541737235880_6722
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858754573, maxDate=1542463554573, sequenceNumber=135035, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858754627, maxDate=1542463554627, sequenceNumber=134594, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6722/
+INFO  : Starting Job = job_1541737235880_6722, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6722/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6722
+INFO  : Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+INFO  : 2018-11-10 09:06:01,869 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:06:13,229 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 9.65 sec
+INFO  : 2018-11-10 09:06:20,415 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 12.19 sec
+INFO  : MapReduce Total cumulative CPU time: 12 seconds 190 msec
+INFO  : Ended Job = job_1541737235880_6722
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 12.19 sec   HDFS Read: 33647365 HDFS Write: 7 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 12 seconds 190 msec
+INFO  : Completed executing command(queryId=hive_20181110090505_b28bf2db-3a75-4ccf-b27a-1692f2706663); Time taken: 27.024 seconds
+INFO  : OK
+1 row selected (27.335 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:06:21 : Total current year core records: 662016
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:06:21 : Creating an empty file to denote the success status for this table
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:06:21 : Successfully created an empty file for this table
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:06:21 : inserting a record in the log table
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:06:21 : Ingestion process has completed successfully
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:06:21 : Trying to connect to Impala server for the 0 time
+------------------------------------------------------------------------
+Starting Impala Shell using Kerberos authentication
+Using service name 'impala'
+SSL is enabled
+Connected to edlimpalaqa.jnj.com:21000
+Server version: impalad version 2.8.0-cdh5.11.2 RELEASE (build f89269c4b96da14a841e94bdf6d4d48821b0d658)
+Query: insert into sc_p_con_core.transpose_ingestion_log  values('cost_bom','transpose_dtv','','210614','210614','2018-11-10 08:59:27','2018-11-10 09:06:21','SUCCESS','Ingestion process has completed successfully')
+Query submitted at: 2018-11-10 09:06:21 (Coordinator: https://ITSUSRALSP07945:25000)
+Query progress can be monitored at: https://ITSUSRALSP07945:25000/query_plan?query_id=184b32ce95184590:a1002f4500000000
+Modified 1 row(s) in 0.12s
+------------------------------------------------------------------------

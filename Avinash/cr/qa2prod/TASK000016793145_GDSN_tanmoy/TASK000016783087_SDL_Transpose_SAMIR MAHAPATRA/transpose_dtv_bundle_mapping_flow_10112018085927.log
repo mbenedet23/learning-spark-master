@@ -1,0 +1,748 @@
+------------------------------------------------------------------------
+11/10/18 08:59:28 : current_year:2018
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : timestamp_folder: 20181110085927
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : stage table column: index string,year string,Material_Sub string,Material_Dc string,Location_Name string,Origin_Destination string,Path_ID string,Level string,city string,ctry_desc string,Lat string,Lng string,Description_of_Material_at_Sub string,Variant_Description string,Brnd_desc string,Franchise string,Description_of_Material_at_Dc string,end_dc string,End_Market string,Selling_Country string
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : core table  column: index int,Material_Sub string,Material_Dc string,Location_Name string,Origin_Destination string,Path_ID string,Level int,city string,ctry_desc string,Lat double,Lng double,Description_of_Material_at_Sub string,Variant_Description string,Brnd_desc string,Franchise string,Description_of_Material_at_Dc string,end_dc string,End_Market string,Selling_Country string
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : table name: bundle_mapping_flow
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : partition_status: Y
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : partition_col: year
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : full hdfs stage path: /qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/staging/bundle_mapping_flow/20181110085927
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : full hdfs core path: /qa/edl/sdl/plan/con/str/sc_p_con_core/Transpose/core/bundle_mapping_flow
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : full bad file path:  /qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/bad_files/11_10_18
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : full managed file path : /qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/Managed/bundle_mapping_flow
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : Edge node file count BUNDLE_MAPPING_FLOW : 1
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : BUNDLE_MAPPING_FLOW output directory is not empty.Hence ingestion process can continue.
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:28 : Creating all the directories in the hdfs path
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:36 : Below directories were created successfully:
+------------------------------------------------------------------------
+1./qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/staging/bundle_mapping_flow/20181110085927
+2./qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/bad_files/11_10_18
+3./qa/edl/sdl/plan/con/str/sc_p_con_core/Transpose/core/bundle_mapping_flow
+4./qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/Managed/bundle_mapping_flow
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:39 : files for BUNDLE_MAPPING_FLOW has been moved to HDFS
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:41 : HDFS Files count for BUNDLE_MAPPING_FLOW : 1
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:41 : Files count is matching between Edge count and Hdfs count 
+------------------------------------------------------------------------
+/qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/staging/bundle_mapping_flow/20181110085927/Mapping_bundlingflow.csv
+------------------------------------------------------------------------
+11/10/18 08:59:43 : the extension of the file /qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/staging/bundle_mapping_flow/20181110085927/Mapping_bundlingflow.csv matches with the required extension for processing
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:43 : creating table stg_schema.transpose_dtv'_'bundle_mapping_flow_stg if it doesnt exist
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:43 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+No rows affected (0.039 seconds)
+No rows affected (0.006 seconds)
+INFO  : Compiling command(queryId=hive_20181110085959_e46df0a7-2a36-4c41-afb7-d808f42c5220): drop table if exists sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110085959_e46df0a7-2a36-4c41-afb7-d808f42c5220); Time taken: 0.092 seconds
+INFO  : Executing command(queryId=hive_20181110085959_e46df0a7-2a36-4c41-afb7-d808f42c5220): drop table if exists sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20181110085959_e46df0a7-2a36-4c41-afb7-d808f42c5220); Time taken: 0.047 seconds
+INFO  : OK
+No rows affected (0.176 seconds)
+INFO  : Compiling command(queryId=hive_20181110085959_5c3201ad-5594-4290-b554-476f9e84000d): create external table if not exists sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg (index string,year string,Material_Sub string,Material_Dc string,Location_Name string,Origin_Destination string,Path_ID string,Level string,city string,ctry_desc string,Lat string,Lng string,Description_of_Material_at_Sub string,Variant_Description string,Brnd_desc string,Franchise string,Description_of_Material_at_Dc string,end_dc string,End_Market string,Selling_Country string) ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' WITH SERDEPROPERTIES ('separatorChar' = '|') STORED AS textfile LOCATION '/qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/staging/bundle_mapping_flow/20181110085927' tblproperties ('skip.header.line.count'='1')
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110085959_5c3201ad-5594-4290-b554-476f9e84000d); Time taken: 0.079 seconds
+INFO  : Executing command(queryId=hive_20181110085959_5c3201ad-5594-4290-b554-476f9e84000d): create external table if not exists sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg (index string,year string,Material_Sub string,Material_Dc string,Location_Name string,Origin_Destination string,Path_ID string,Level string,city string,ctry_desc string,Lat string,Lng string,Description_of_Material_at_Sub string,Variant_Description string,Brnd_desc string,Franchise string,Description_of_Material_at_Dc string,end_dc string,End_Market string,Selling_Country string) ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' WITH SERDEPROPERTIES ('separatorChar' = '|') STORED AS textfile LOCATION '/qa/edl/sdl/plan/con/str/sc_p_con_stg/Transpose/staging/bundle_mapping_flow/20181110085927' tblproperties ('skip.header.line.count'='1')
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20181110085959_5c3201ad-5594-4290-b554-476f9e84000d); Time taken: 0.022 seconds
+INFO  : OK
+No rows affected (0.112 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 08:59:47 : Trying to connect to Impala server for the 0 time
+------------------------------------------------------------------------
+Starting Impala Shell using Kerberos authentication
+Using service name 'impala'
+SSL is enabled
+Connected to edlimpalaqa.jnj.com:21000
+Server version: impalad version 2.8.0-cdh5.11.2 RELEASE (build f89269c4b96da14a841e94bdf6d4d48821b0d658)
+Query: invalidate metadata sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg
+Query submitted at: 2018-11-10 08:59:47 (Coordinator: https://ITSUSRALSP07945:25000)
+Query progress can be monitored at: https://ITSUSRALSP07945:25000/query_plan?query_id=5b43f846a306550a:a38ffcfd00000000
+Fetched 0 row(s) in 0.07s
+------------------------------------------------------------------------
+11/10/18 08:59:48 : Table sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg created successfully
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 08:59:48 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 1ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110085959_a7401ff6-eac6-4269-b218-f6ebf14c1775): select count(*) from sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_c0, type:bigint, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110085959_a7401ff6-eac6-4269-b218-f6ebf14c1775); Time taken: 0.121 seconds
+INFO  : Executing command(queryId=hive_20181110085959_a7401ff6-eac6-4269-b218-f6ebf14c1775): select count(*) from sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg
+INFO  : Query ID = hive_20181110085959_a7401ff6-eac6-4269-b218-f6ebf14c1775
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1541737235880_6661
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858391785, maxDate=1542463191785, sequenceNumber=134962, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858391796, maxDate=1542463191796, sequenceNumber=134521, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6661/
+INFO  : Starting Job = job_1541737235880_6661, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6661/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6661
+INFO  : Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+INFO  : 2018-11-10 08:59:59,019 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:00:07,229 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.92 sec
+INFO  : 2018-11-10 09:00:15,425 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.45 sec
+INFO  : MapReduce Total cumulative CPU time: 5 seconds 450 msec
+INFO  : Ended Job = job_1541737235880_6661
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 5.45 sec   HDFS Read: 3899429 HDFS Write: 6 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 5 seconds 450 msec
+INFO  : Completed executing command(queryId=hive_20181110085959_a7401ff6-eac6-4269-b218-f6ebf14c1775); Time taken: 24.849 seconds
+INFO  : OK
+1 row selected (25.063 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:00:16 : Total stage records: 15749
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:00:16 : call the partition core table creation method
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:00:16 : Fetching the count of years value from stage table
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:00:16 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090000_9255cad4-3ca3-4593-93fa-af6cd8c9c990): select count(distinct year) from sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_c0, type:bigint, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090000_9255cad4-3ca3-4593-93fa-af6cd8c9c990); Time taken: 0.108 seconds
+INFO  : Executing command(queryId=hive_20181110090000_9255cad4-3ca3-4593-93fa-af6cd8c9c990): select count(distinct year) from sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg
+INFO  : Query ID = hive_20181110090000_9255cad4-3ca3-4593-93fa-af6cd8c9c990
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1541737235880_6662
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858420454, maxDate=1542463220454, sequenceNumber=134965, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858420467, maxDate=1542463220467, sequenceNumber=134524, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6662/
+INFO  : Starting Job = job_1541737235880_6662, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6662/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6662
+INFO  : Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+INFO  : 2018-11-10 09:00:27,756 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:00:34,958 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.75 sec
+INFO  : 2018-11-10 09:00:43,174 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.1 sec
+INFO  : MapReduce Total cumulative CPU time: 5 seconds 100 msec
+INFO  : Ended Job = job_1541737235880_6662
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 5.1 sec   HDFS Read: 3899724 HDFS Write: 2 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 5 seconds 100 msec
+INFO  : Completed executing command(queryId=hive_20181110090000_9255cad4-3ca3-4593-93fa-af6cd8c9c990); Time taken: 23.92 seconds
+INFO  : OK
+1 row selected (24.128 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:00:44 : Records available for count of Years : 1
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:00:44 : Fetching the year value from stage table
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:00:44 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090000_9aa6ee87-2709-468f-8ac1-acb4480eb3f4): select distinct year from sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:year, type:string, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090000_9aa6ee87-2709-468f-8ac1-acb4480eb3f4); Time taken: 0.128 seconds
+INFO  : Executing command(queryId=hive_20181110090000_9aa6ee87-2709-468f-8ac1-acb4480eb3f4): select distinct year from sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg
+INFO  : Query ID = hive_20181110090000_9aa6ee87-2709-468f-8ac1-acb4480eb3f4
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1541737235880_6670
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858448306, maxDate=1542463248306, sequenceNumber=134974, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858448319, maxDate=1542463248319, sequenceNumber=134533, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6670/
+INFO  : Starting Job = job_1541737235880_6670, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6670/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6670
+INFO  : Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+INFO  : 2018-11-10 09:00:56,688 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:01:04,010 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.89 sec
+INFO  : 2018-11-10 09:01:09,164 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.46 sec
+INFO  : MapReduce Total cumulative CPU time: 5 seconds 460 msec
+INFO  : Ended Job = job_1541737235880_6670
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 5.46 sec   HDFS Read: 3899106 HDFS Write: 5 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 5 seconds 460 msec
+INFO  : Completed executing command(queryId=hive_20181110090000_9aa6ee87-2709-468f-8ac1-acb4480eb3f4); Time taken: 22.085 seconds
+INFO  : OK
+1 row selected (22.312 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:01:10 : Records available for Year : 2018
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:10 : Check for the core table exists or not
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:10 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090101_f740cff6-1077-4e32-815f-a403b92f785f): show tables in sc_p_con_core like 'transpose_dtv_bundle_mapping_flow_core'
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:tab_name, type:string, comment:from deserializer)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090101_f740cff6-1077-4e32-815f-a403b92f785f); Time taken: 0.063 seconds
+INFO  : Executing command(queryId=hive_20181110090101_f740cff6-1077-4e32-815f-a403b92f785f): show tables in sc_p_con_core like 'transpose_dtv_bundle_mapping_flow_core'
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20181110090101_f740cff6-1077-4e32-815f-a403b92f785f); Time taken: 0.133 seconds
+INFO  : OK
+1 row selected (0.296 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:01:14 : Core table is available, so calling retention method
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:14 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 1ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090101_49e6fed4-7d7a-47cf-aff1-adeb7f829984): select min(year) from sc_p_con_core.transpose_dtv_bundle_mapping_flow_core
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_c0, type:int, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090101_49e6fed4-7d7a-47cf-aff1-adeb7f829984); Time taken: 0.165 seconds
+INFO  : Executing command(queryId=hive_20181110090101_49e6fed4-7d7a-47cf-aff1-adeb7f829984): select min(year) from sc_p_con_core.transpose_dtv_bundle_mapping_flow_core
+INFO  : Query ID = hive_20181110090101_49e6fed4-7d7a-47cf-aff1-adeb7f829984
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:2
+INFO  : Submitting tokens for job: job_1541737235880_6677
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858478923, maxDate=1542463278923, sequenceNumber=134984, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858478936, maxDate=1542463278936, sequenceNumber=134543, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6677/
+INFO  : Starting Job = job_1541737235880_6677, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6677/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6677
+INFO  : Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
+INFO  : 2018-11-10 09:01:27,210 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:01:35,448 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.49 sec
+INFO  : 2018-11-10 09:01:40,595 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.95 sec
+INFO  : MapReduce Total cumulative CPU time: 5 seconds 950 msec
+INFO  : Ended Job = job_1541737235880_6677
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 2  Reduce: 1   Cumulative CPU: 5.95 sec   HDFS Read: 17905 HDFS Write: 5 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 5 seconds 950 msec
+INFO  : Completed executing command(queryId=hive_20181110090101_49e6fed4-7d7a-47cf-aff1-adeb7f829984); Time taken: 22.885 seconds
+INFO  : OK
+1 row selected (23.234 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:01:41 : Minimum year value in core table sc_p_con_core.transpose_dtv_bundle_mapping_flow_core:2017 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:41 : All data in core table is within the retention period
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:41 : Creating the new partitioned based on partition column on core table for loading data from stage table
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:41 : checking the partition is exists or not.If exists drop and recreate it else create the new one
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:41 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090101_37a918e6-eee7-445c-8625-82519916432d): show partitions sc_p_con_core.transpose_dtv_bundle_mapping_flow_core
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:partition, type:string, comment:from deserializer)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090101_37a918e6-eee7-445c-8625-82519916432d); Time taken: 0.101 seconds
+INFO  : Executing command(queryId=hive_20181110090101_37a918e6-eee7-445c-8625-82519916432d): show partitions sc_p_con_core.transpose_dtv_bundle_mapping_flow_core
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20181110090101_37a918e6-eee7-445c-8625-82519916432d); Time taken: 0.012 seconds
+INFO  : OK
+2 rows selected (0.211 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:01:46 : query fetched all the partitions from table sc_p_con_core.transpose_dtv_bundle_mapping_flow_core 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:46 : Partition exist for 2018 in core table.
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:46 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090101_51bd6d5e-bca6-48e0-884a-1c3c01f23986): ALTER table sc_p_con_core.transpose_dtv_bundle_mapping_flow_core drop if exists partition(year=2018)
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090101_51bd6d5e-bca6-48e0-884a-1c3c01f23986); Time taken: 0.104 seconds
+INFO  : Executing command(queryId=hive_20181110090101_51bd6d5e-bca6-48e0-884a-1c3c01f23986): ALTER table sc_p_con_core.transpose_dtv_bundle_mapping_flow_core drop if exists partition(year=2018)
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Dropped the partition year=2018
+INFO  : Completed executing command(queryId=hive_20181110090101_51bd6d5e-bca6-48e0-884a-1c3c01f23986); Time taken: 0.043 seconds
+INFO  : OK
+No rows affected (0.202 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:01:50 : query dropped the existing partitions from table sc_p_con_core.transpose_dtv_bundle_mapping_flow_core 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:50 : Insert data for new partition 2018 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:50 :  SET mapreduce.reduce.memory.mb=4096;SET mapreduce.reduce.java.opts=-Xmx3072M;SET hive.exec.dynamic.partition=true; SET hive.exec.dynamic.partition.mode=nonstrict;insert into table sc_p_con_core.transpose_dtv_bundle_mapping_flow_core partition (year) select distinct index,Material_Sub,Material_Dc,Location_Name,Origin_Destination,Path_ID,Level,city,ctry_desc,Lat,Lng,Description_of_Material_at_Sub,Variant_Description,Brnd_desc,Franchise,Description_of_Material_at_Dc,end_dc,End_Market,Selling_Country,year from sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg;ANALYZE TABLE sc_p_con_core.transpose_dtv_bundle_mapping_flow_core PARTITION (year) COMPUTE STATISTICS;
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:01:50 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+No rows affected (0.041 seconds)
+No rows affected (0.004 seconds)
+No rows affected (0.004 seconds)
+No rows affected (0.004 seconds)
+INFO  : Compiling command(queryId=hive_20181110090101_f72985f2-35e5-41df-b11b-295b110f41be): insert into table sc_p_con_core.transpose_dtv_bundle_mapping_flow_core partition (year) select distinct index,Material_Sub,Material_Dc,Location_Name,Origin_Destination,Path_ID,Level,city,ctry_desc,Lat,Lng,Description_of_Material_at_Sub,Variant_Description,Brnd_desc,Franchise,Description_of_Material_at_Dc,end_dc,End_Market,Selling_Country,year from sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_col0, type:int, comment:null), FieldSchema(name:_col1, type:string, comment:null), FieldSchema(name:_col2, type:string, comment:null), FieldSchema(name:_col3, type:string, comment:null), FieldSchema(name:_col4, type:string, comment:null), FieldSchema(name:_col5, type:string, comment:null), FieldSchema(name:_col6, type:int, comment:null), FieldSchema(name:_col7, type:string, comment:null), FieldSchema(name:_col8, type:string, comment:null), FieldSchema(name:_col9, type:double, comment:null), FieldSchema(name:_col10, type:double, comment:null), FieldSchema(name:_col11, type:string, comment:null), FieldSchema(name:_col12, type:string, comment:null), FieldSchema(name:_col13, type:string, comment:null), FieldSchema(name:_col14, type:string, comment:null), FieldSchema(name:_col15, type:string, comment:null), FieldSchema(name:_col16, type:string, comment:null), FieldSchema(name:_col17, type:string, comment:null), FieldSchema(name:_col18, type:string, comment:null), FieldSchema(name:_col19, type:string, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090101_f72985f2-35e5-41df-b11b-295b110f41be); Time taken: 0.12 seconds
+INFO  : Executing command(queryId=hive_20181110090101_f72985f2-35e5-41df-b11b-295b110f41be): insert into table sc_p_con_core.transpose_dtv_bundle_mapping_flow_core partition (year) select distinct index,Material_Sub,Material_Dc,Location_Name,Origin_Destination,Path_ID,Level,city,ctry_desc,Lat,Lng,Description_of_Material_at_Sub,Variant_Description,Brnd_desc,Franchise,Description_of_Material_at_Dc,end_dc,End_Market,Selling_Country,year from sc_p_con_stg.transpose_dtv_bundle_mapping_flow_stg
+INFO  : Query ID = hive_20181110090101_f72985f2-35e5-41df-b11b-295b110f41be
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1541737235880_6682
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858514215, maxDate=1542463314215, sequenceNumber=134993, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858514226, maxDate=1542463314226, sequenceNumber=134552, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6682/
+INFO  : Starting Job = job_1541737235880_6682, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6682/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6682
+INFO  : Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+INFO  : 2018-11-10 09:02:02,483 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:02:09,735 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.67 sec
+INFO  : 2018-11-10 09:02:17,972 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 10.35 sec
+INFO  : MapReduce Total cumulative CPU time: 10 seconds 350 msec
+INFO  : Ended Job = job_1541737235880_6682
+INFO  : Starting task [Stage-0:MOVE] in serial mode
+INFO  : Loading data to table sc_p_con_core.transpose_dtv_bundle_mapping_flow_core partition (year=null) from hdfs://nameservice1/qa/edl/sdl/plan/con/str/sc_p_con_core/Transpose/core/bundle_mapping_flow/20181017192212/.hive-staging_hive_2018-11-10_09-01-53_943_6892787611329544403-750/-ext-10000
+INFO  : 	 Time taken for load dynamic partitions : 53
+INFO  : 	Loading partition {year=2018}
+INFO  : 	 Time taken for adding to write entity : 0
+INFO  : Starting task [Stage-2:STATS] in serial mode
+INFO  : Partition sc_p_con_core.transpose_dtv_bundle_mapping_flow_core{year=2018} stats: [numFiles=1, numRows=15749, totalSize=543191, rawDataSize=299231]
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 10.35 sec   HDFS Read: 3910407 HDFS Write: 543316 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 10 seconds 350 msec
+INFO  : Completed executing command(queryId=hive_20181110090101_f72985f2-35e5-41df-b11b-295b110f41be); Time taken: 26.194 seconds
+INFO  : OK
+No rows affected (26.336 seconds)
+INFO  : Compiling command(queryId=hive_20181110090202_6a487454-e060-4031-b689-f8c025b80388): ANALYZE TABLE sc_p_con_core.transpose_dtv_bundle_mapping_flow_core PARTITION (year) COMPUTE STATISTICS
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.index, type:int, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.material_sub, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.material_dc, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.location_name, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.origin_destination, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.path_id, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.level, type:int, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.city, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.ctry_desc, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.lat, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.lng, type:double, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.description_of_material_at_sub, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.variant_description, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.brnd_desc, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.franchise, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.description_of_material_at_dc, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.end_dc, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.end_market, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.selling_country, type:string, comment:null), FieldSchema(name:sc_p_con_core.transpose_dtv_bundle_mapping_flow_core.year, type:int, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090202_6a487454-e060-4031-b689-f8c025b80388); Time taken: 0.164 seconds
+INFO  : Executing command(queryId=hive_20181110090202_6a487454-e060-4031-b689-f8c025b80388): ANALYZE TABLE sc_p_con_core.transpose_dtv_bundle_mapping_flow_core PARTITION (year) COMPUTE STATISTICS
+INFO  : Query ID = hive_20181110090202_6a487454-e060-4031-b689-f8c025b80388
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-0:MAPRED] in serial mode
+INFO  : Number of reduce tasks is set to 0 since there's no reduce operator
+INFO  : number of splits:2
+INFO  : Submitting tokens for job: job_1541737235880_6688
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858540560, maxDate=1542463340560, sequenceNumber=135000, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858540601, maxDate=1542463340601, sequenceNumber=134559, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6688/
+INFO  : Starting Job = job_1541737235880_6688, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6688/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6688
+INFO  : Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
+INFO  : 2018-11-10 09:02:28,793 Stage-0 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:02:39,054 Stage-0 map = 100%,  reduce = 0%, Cumulative CPU 7.45 sec
+INFO  : MapReduce Total cumulative CPU time: 7 seconds 450 msec
+INFO  : Ended Job = job_1541737235880_6688
+INFO  : Starting task [Stage-1:STATS] in serial mode
+INFO  : Partition sc_p_con_core.transpose_dtv_bundle_mapping_flow_core{year=2017} stats: [numFiles=1, numRows=22634, totalSize=600411, rawDataSize=452680]
+INFO  : Partition sc_p_con_core.transpose_dtv_bundle_mapping_flow_core{year=2018} stats: [numFiles=1, numRows=15749, totalSize=543191, rawDataSize=314980]
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-0: Map: 2   Cumulative CPU: 7.45 sec   HDFS Read: 1156843 HDFS Write: 250 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 7 seconds 450 msec
+INFO  : Completed executing command(queryId=hive_20181110090202_6a487454-e060-4031-b689-f8c025b80388); Time taken: 19.691 seconds
+INFO  : OK
+No rows affected (19.881 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:02:40 : query executed to insert data for new partition on table sc_p_con_core.transpose_dtv_bundle_mapping_flow_core 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:02:40 : Trying to connect to Impala server for the 0 time
+------------------------------------------------------------------------
+Starting Impala Shell using Kerberos authentication
+Using service name 'impala'
+SSL is enabled
+Connected to edlimpalaqa.jnj.com:21000
+Server version: impalad version 2.8.0-cdh5.11.2 RELEASE (build f89269c4b96da14a841e94bdf6d4d48821b0d658)
+Query: invalidate metadata sc_p_con_core.transpose_dtv_bundle_mapping_flow_core
+Query submitted at: 2018-11-10 09:02:40 (Coordinator: https://ITSUSRALSP07945:25000)
+Query progress can be monitored at: https://ITSUSRALSP07945:25000/query_plan?query_id=af47eeeb302c7df1:a6833df600000000
+Fetched 0 row(s) in 0.09s
+------------------------------------------------------------------------
+11/10/18 09:02:40 : Core table sc_p_con_core.transpose_dtv_bundle_mapping_flow_core with new partition for file bundle_mapping_flow created successfully
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:02:40 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090202_bbd529fd-2aab-4cfa-9c43-eaac289cfca7): select count(*) from sc_p_con_core.transpose_dtv_bundle_mapping_flow_core where year=2018
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_c0, type:bigint, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090202_bbd529fd-2aab-4cfa-9c43-eaac289cfca7); Time taken: 0.135 seconds
+INFO  : Executing command(queryId=hive_20181110090202_bbd529fd-2aab-4cfa-9c43-eaac289cfca7): select count(*) from sc_p_con_core.transpose_dtv_bundle_mapping_flow_core where year=2018
+INFO  : Query ID = hive_20181110090202_bbd529fd-2aab-4cfa-9c43-eaac289cfca7
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1541737235880_6692
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858565136, maxDate=1542463365136, sequenceNumber=135002, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858565149, maxDate=1542463365149, sequenceNumber=134561, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6692/
+INFO  : Starting Job = job_1541737235880_6692, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6692/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6692
+INFO  : Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+INFO  : 2018-11-10 09:02:52,456 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:03:00,669 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 4.35 sec
+INFO  : 2018-11-10 09:03:05,802 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 6.93 sec
+INFO  : MapReduce Total cumulative CPU time: 6 seconds 930 msec
+INFO  : Ended Job = job_1541737235880_6692
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 6.93 sec   HDFS Read: 560581 HDFS Write: 6 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 6 seconds 930 msec
+INFO  : Completed executing command(queryId=hive_20181110090202_bbd529fd-2aab-4cfa-9c43-eaac289cfca7); Time taken: 21.86 seconds
+INFO  : OK
+1 row selected (22.139 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:03:07 : Total core records: 15749
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:03:07 : Creating managed table to send tableau team to opearate on data
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:03:07 : One year records to be needed for tableau reporting
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:03:07 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+No rows affected (0.04 seconds)
+No rows affected (0.005 seconds)
+No rows affected (0.004 seconds)
+No rows affected (0.004 seconds)
+INFO  : Compiling command(queryId=hive_20181110090303_2a467cac-dd11-4eb9-82e9-f354de421e7a): drop table if exists sc_p_con_core.transpose_dtv_bundle_mapping_flow_current_year_core
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090303_2a467cac-dd11-4eb9-82e9-f354de421e7a); Time taken: 0.097 seconds
+INFO  : Executing command(queryId=hive_20181110090303_2a467cac-dd11-4eb9-82e9-f354de421e7a): drop table if exists sc_p_con_core.transpose_dtv_bundle_mapping_flow_current_year_core
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20181110090303_2a467cac-dd11-4eb9-82e9-f354de421e7a); Time taken: 0.035 seconds
+INFO  : OK
+No rows affected (0.15 seconds)
+INFO  : Compiling command(queryId=hive_20181110090303_4389155f-9b6c-4258-8662-64210b4936a5): create table if not exists sc_p_con_core.transpose_dtv_bundle_mapping_flow_current_year_core stored as parquet as select * from sc_p_con_core.transpose_dtv_bundle_mapping_flow_core where year=2018
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.index, type:int, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.material_sub, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.material_dc, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.location_name, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.origin_destination, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.path_id, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.level, type:int, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.city, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.ctry_desc, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.lat, type:double, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.lng, type:double, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.description_of_material_at_sub, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.variant_description, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.brnd_desc, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.franchise, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.description_of_material_at_dc, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.end_dc, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.end_market, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.selling_country, type:string, comment:null), FieldSchema(name:transpose_dtv_bundle_mapping_flow_core.year, type:int, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090303_4389155f-9b6c-4258-8662-64210b4936a5); Time taken: 0.148 seconds
+INFO  : Executing command(queryId=hive_20181110090303_4389155f-9b6c-4258-8662-64210b4936a5): create table if not exists sc_p_con_core.transpose_dtv_bundle_mapping_flow_current_year_core stored as parquet as select * from sc_p_con_core.transpose_dtv_bundle_mapping_flow_core where year=2018
+INFO  : Query ID = hive_20181110090303_4389155f-9b6c-4258-8662-64210b4936a5
+INFO  : Total jobs = 3
+INFO  : Launching Job 1 out of 3
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks is set to 0 since there's no reduce operator
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1541737235880_6696
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858591204, maxDate=1542463391204, sequenceNumber=135007, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858591216, maxDate=1542463391216, sequenceNumber=134566, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6696/
+INFO  : Starting Job = job_1541737235880_6696, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6696/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6696
+INFO  : Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+INFO  : 2018-11-10 09:03:18,434 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:03:26,654 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 4.74 sec
+INFO  : MapReduce Total cumulative CPU time: 4 seconds 740 msec
+INFO  : Ended Job = job_1541737235880_6696
+INFO  : Starting task [Stage-7:CONDITIONAL] in serial mode
+INFO  : Stage-4 is selected by condition resolver.
+INFO  : Stage-3 is filtered out by condition resolver.
+INFO  : Stage-5 is filtered out by condition resolver.
+INFO  : Starting task [Stage-4:MOVE] in serial mode
+INFO  : Moving data to: hdfs://nameservice1/qa/edl/sdl/plan/con/str/sc_p_con_core/.hive-staging_hive_2018-11-10_09-03-10_937_4996093811037072629-713/-ext-10001 from hdfs://nameservice1/qa/edl/sdl/plan/con/str/sc_p_con_core/.hive-staging_hive_2018-11-10_09-03-10_937_4996093811037072629-713/-ext-10003
+INFO  : Starting task [Stage-0:MOVE] in serial mode
+INFO  : Moving data to: hdfs://nameservice1/qa/edl/sdl/plan/con/str/sc_p_con_core/transpose_dtv_bundle_mapping_flow_current_year_core from hdfs://nameservice1/qa/edl/sdl/plan/con/str/sc_p_con_core/.hive-staging_hive_2018-11-10_09-03-10_937_4996093811037072629-713/-ext-10001
+INFO  : Starting task [Stage-8:DDL] in serial mode
+INFO  : Starting task [Stage-2:STATS] in serial mode
+INFO  : Table sc_p_con_core.transpose_dtv_bundle_mapping_flow_current_year_core stats: [numFiles=1, numRows=15749, totalSize=543319, rawDataSize=314980]
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 1   Cumulative CPU: 4.74 sec   HDFS Read: 552290 HDFS Write: 543449 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 4 seconds 740 msec
+INFO  : Completed executing command(queryId=hive_20181110090303_4389155f-9b6c-4258-8662-64210b4936a5); Time taken: 16.79 seconds
+INFO  : OK
+No rows affected (16.961 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:03:27 : Trying to connect to Impala server for the 0 time
+------------------------------------------------------------------------
+Starting Impala Shell using Kerberos authentication
+Using service name 'impala'
+SSL is enabled
+Connected to edlimpalaqa.jnj.com:21000
+Server version: impalad version 2.8.0-cdh5.11.2 RELEASE (build f89269c4b96da14a841e94bdf6d4d48821b0d658)
+Query: invalidate metadata sc_p_con_core.transpose_dtv_bundle_mapping_flow_current_year_core
+Query submitted at: 2018-11-10 09:03:28 (Coordinator: https://ITSUSRALSP07945:25000)
+Query progress can be monitored at: https://ITSUSRALSP07945:25000/query_plan?query_id=49415f43454b1d1e:75e3776900000000
+Fetched 0 row(s) in 3.74s
+------------------------------------------------------------------------
+11/10/18 09:03:32 : Core table sc_p_con_core.transpose_dtv_bundle_mapping_flow_current_year_core with new partition for file bundle_mapping_flow created successfully
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:03:32 : Trying to connect to HIve beeline server for the 0 time
+------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+scan complete in 2ms
+Connecting to jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+Connected to: Apache Hive (version 1.1.0-cdh5.11.2)
+Driver: Hive JDBC (version 1.1.0-cdh5.11.2)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+INFO  : Compiling command(queryId=hive_20181110090303_0a1b93fc-6cf3-4492-a293-d51c96114138): select count(*) from sc_p_con_core.transpose_dtv_bundle_mapping_flow_current_year_core
+INFO  : Semantic Analysis Completed
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_c0, type:bigint, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20181110090303_0a1b93fc-6cf3-4492-a293-d51c96114138); Time taken: 0.111 seconds
+INFO  : Executing command(queryId=hive_20181110090303_0a1b93fc-6cf3-4492-a293-d51c96114138): select count(*) from sc_p_con_core.transpose_dtv_bundle_mapping_flow_current_year_core
+INFO  : Query ID = hive_20181110090303_0a1b93fc-6cf3-4492-a293-d51c96114138
+INFO  : Total jobs = 1
+INFO  : Launching Job 1 out of 1
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1541737235880_6702
+INFO  : Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:nameservice1, Ident: (token for hive: HDFS_DELEGATION_TOKEN owner=hive/edlhiveqa.jnj.com@JNJ.COM, renewer=yarn, realUser=, issueDate=1541858616038, maxDate=1542463416038, sequenceNumber=135013, masterKeyId=70)
+INFO  : Kind: kms-dt, Service: 10.38.174.101:16000, Ident: (kms-dt owner=hive, renewer=yarn, realUser=, issueDate=1541858616049, maxDate=1542463416049, sequenceNumber=134572, masterKeyId=44)
+INFO  : The url to track the job: https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6702/
+INFO  : Starting Job = job_1541737235880_6702, Tracking URL = https://itsusralsp07937.jnj.com:8090/proxy/application_1541737235880_6702/
+INFO  : Kill Command = /opt/cloudera/parcels/CDH-5.11.2-1.cdh5.11.2.p0.4/lib/hadoop/bin/hadoop job  -kill job_1541737235880_6702
+INFO  : Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+INFO  : 2018-11-10 09:03:43,244 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2018-11-10 09:03:52,515 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.86 sec
+INFO  : 2018-11-10 09:04:00,741 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 6.6 sec
+INFO  : MapReduce Total cumulative CPU time: 6 seconds 600 msec
+INFO  : Ended Job = job_1541737235880_6702
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 6.6 sec   HDFS Read: 559493 HDFS Write: 6 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 6 seconds 600 msec
+INFO  : Completed executing command(queryId=hive_20181110090303_0a1b93fc-6cf3-4492-a293-d51c96114138); Time taken: 26.902 seconds
+INFO  : OK
+1 row selected (27.118 seconds)
+Beeline version 1.1.0-cdh5.11.2 by Apache Hive
+Closing: 0: jdbc:hive2://edlhiveqa.jnj.com:10000/default;principal=hive/edlhiveqa.jnj.com@NA.JNJ.COM
+------------------------------------------------------------------------
+11/10/18 09:04:02 : Total current year core records: 15749
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:04:02 : Creating an empty file to denote the success status for this table
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:04:03 : Successfully created an empty file for this table
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:04:03 : inserting a record in the log table
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:04:03 : Ingestion process has completed successfully
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+11/10/18 09:04:03 : Trying to connect to Impala server for the 0 time
+------------------------------------------------------------------------
+Starting Impala Shell using Kerberos authentication
+Using service name 'impala'
+SSL is enabled
+Connected to edlimpalaqa.jnj.com:21000
+Server version: impalad version 2.8.0-cdh5.11.2 RELEASE (build f89269c4b96da14a841e94bdf6d4d48821b0d658)
+Query: insert into sc_p_con_core.transpose_ingestion_log  values('bundle_mapping_flow','transpose_dtv','','15749','15749','2018-11-10 08:59:27','2018-11-10 09:04:03','SUCCESS','Ingestion process has completed successfully')
+Query submitted at: 2018-11-10 09:04:03 (Coordinator: https://ITSUSRALSP07945:25000)
+Query progress can be monitored at: https://ITSUSRALSP07945:25000/query_plan?query_id=fa405a654ee7e278:70d4297d00000000
+Modified 1 row(s) in 0.12s
+------------------------------------------------------------------------
