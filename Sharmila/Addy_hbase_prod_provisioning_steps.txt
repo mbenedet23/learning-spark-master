@@ -1,0 +1,46 @@
+1. Login on edge node and login to hbase shell and execute below commands :
+
+create_namespace 'addy_core'
+create_namespace 'addy_stg'
+create_namespace 'addy_wrk'
+
+
+--------------------------------------------
+
+user_permission '@addy_core'
+user_permission '@addy_stg'
+user_permission '@addy_wrk'
+
+
+--------------------------------------------
+
+
+grant '@its-app-edl-prod-proj52-supp-usr', 'RX', '@addy_core'
+grant '@its-app-edl-prod-proj52-rpt-sa', 'RX', '@addy_core'
+grant '@its-app-edl-prod-proj52-etl-sa', 'RWXC', '@addy_core'
+
+
+grant '@its-app-edl-prod-proj52-supp-usr', 'RX', '@addy_stg'
+grant '@its-app-edl-prod-proj52-etl-sa', 'RWXC', '@addy_stg'
+
+
+grant '@its-app-edl-prod-proj52-supp-usr', 'RX', '@addy_wrk'
+grant '@its-app-edl-prod-proj52-etl-sa', 'RWXC', '@addy_wrk'
+
+
+
+grant 'hive', 'A', '@addy_core'
+grant 'hive', 'A', '@addy_stg'
+grant 'hive', 'A', '@addy_wrk'
+
+
+
+grant 'hive', 'RWXC', '@addy_wrk'
+grant 'hive', 'RWXC', '@addy_stg'
+grant 'hive', 'RWXC', '@addy_core'
+
+
+
+
+
+

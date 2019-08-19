@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Arguments
+echo "Enter ID to create a keytab for: "
+read USER_ID
+echo "Enter the password for this ID: "
+stty_orig=`stty -g`
+stty -echo
+read PASSWORD
+stty $stty_orig
+
+# Get the CN for this user in case it is different than the SAMAccountName.
+CN=$(adquery user $USER_ID -A | grep canonicalName | awk -F / {'print $(NF)'})
+
+# Create a keytab using Centrify.
+adkeytab -A -u $USER_ID -K $USER_ID.keytab -w $PASSWORD -l -d NA.JNJ.COM -S $USER_ID "$CN" --force <<EOF
+$PASSWORD
+EOF
+
+# Extract the KVNO from the keytab.
+export KVNO=$(klist -kte $USER_ID.keytab | sed -n 4p | awk {'print $1'})
+
+rm $USER_ID.keytab
+
+# Generate a new keytab using the proper principal.
+ktutil <<EOF
+addent -password -p $USER_ID@NA.JNJ.COM -k $KVNO -e arcfour-hmac
+$PASSWORD
+addent -password -p $USER_ID@NA.JNJ.COM -k $KVNO -e des-cbc-md5
+$PASSWORD
+addent -password -p $USER_ID@NA.JNJ.COM -k $KVNO -e des-cbc-crc
+$PASSWORD
+addent -password -p $USER_ID@NA.JNJ.COM -k $KVNO -e aes256-cts
+$PASSWORD
+addent -password -p $USER_ID@NA.JNJ.COM -k $KVNO -e aes128-cts
+$PASSWORD
+wkt $USER_ID.keytab
+exit
+EOF

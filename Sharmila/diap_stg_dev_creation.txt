@@ -1,0 +1,72 @@
+#######################
+#Create HDFS Directories
+#######################
+
+hdfs dfs -mkdir /dev/edl/infra/diap/str/diap_stg
+
+################################################
+#Generating Database Creation and Grant commands
+################################################
+
+#Login via HUE to the respective environment and execute the below commands in HIVE
+
+create database diap_stg location '/dev/edl/infra/diap/str/diap_stg';
+
+
+##################################
+#Generating Role Creation commands
+##################################
+
+
+#URI Grants for Developer Role
+
+grant all on uri 'hdfs://nameservice1/dev/edl/infra/diap/str/diap_stg' to role itops_proj14_dvlpr_role;
+
+#URI Grants for ETL Role
+
+grant all on uri 'hdfs://nameservice1/dev/edl/infra/diap/str/diap_stg' to role itops_proj14_etl_role;
+
+#URI Grants for Support Role
+
+grant select on uri 'hdfs://nameservice1/dev/edl/infra/diap/str/diap_stg' to role itops_proj14_supp_role;
+
+#URI Grants for Analyst Role
+
+grant select on uri 'hdfs://nameservice1/dev/edl/infra/diap/str/diap_core' to role itops_proj14_data_analyst_role;
+
+######################################
+Grant access to the roles on databases
+######################################
+
+grant all on database diap_stg to role itops_proj14_dvlpr_role;
+
+grant all on database diap_stg to role itops_proj14_etl_role;
+
+grant select on database diap_core to role itops_proj14_data_analyst_role;
+
+grant select on database diap_stg to role itops_proj14_supp_role;
+
+
+From CM change configurations in hdfs, hive, senty.
+
+
+
+hdfs :
+
+Sentry Synchronization Path Prefixes
+
++/dev/edl/infra/diap/str/diap_stg
+
+Hive
+
+Hive Metastore Server Advanced Configuration Snippet (Safety Valve) for hive-site.xml
+
+/dev/edl/corporate/hccp/str/hccp_wrk,/dev/edl/infra/diap/str/diap_stg</value>
+
+sentry
+
+Sentry Service Advanced Configuration Snippet (Safety Valve) for sentry-site.xml
+
+/dev/edl/corporate/hccp/str/hccp_wrk,/dev/edl/infra/diap/str/diap_stg</value>
+
+

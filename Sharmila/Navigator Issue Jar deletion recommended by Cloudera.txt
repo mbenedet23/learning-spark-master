@@ -1,0 +1,28 @@
+1. Stop Navigator Metadata Server : 
+Login to QA Cloudera Manager at https://edlcmqa.jnj.com:7183/cmf/home and navigate to 
+Cloudera Management Service-> Instances -> Navigator Metadata Server ->Action ->Stop
+
+2. List the C3p0 jars :
+Login to the Navigator Metadata Server host at ITSUSRALSP07935.jnj.com and sudo as root, and run below commands 
+> cd /usr/share/cmf/cloudera-navigator-server/jars
+> ls c3p0*
+The list should include two jar files:
+c3p0-0.9.1.2.jar
+c3p0-0.9.5.2.jar
+
+3.Move the unwanted jar to Backup area: Execute below commands on ITSUSRALSP07935.jnj.com  as root
+>mkdir /apps/stg_area/nav_jar_bkp
+> cd /usr/share/cmf/cloudera-navigator-server/jars
+>mv c3p0-0.9.5.2.jar /apps/stg_area/nav_jar_bkp
+
+
+4. Change to the Navigator wars directory: Execute below commands on ITSUSRALSP07935.jnj.com  as root
+> cd /usr/share/cmf/cloudera-navigator-server/wars/
+> cp nav-core-webapp-2.14.1.war /apps/stg_area/nav_jar_bkp
+
+5. Delete the file c3p0-0.9.5.2.jar from the nav-core-webapp* war file:Execute below commands on ITSUSRALSP07935.jnj.com  as root
+> zip -d nav-core-webapp-2.14.1.war WEB-INF/lib/c3p0-0.9.5.2.jar
+
+6. Start Navigator Metadata Server :
+Login to QA Cloudera Manager at https://edlcmqa.jnj.com:7183/cmf/home and navigate to 
+Cloudera Management Service-> Instances -> Navigator Metadata Server ->Action ->Start

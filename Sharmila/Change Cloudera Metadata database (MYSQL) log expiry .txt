@@ -1,0 +1,94 @@
+
+
+Description
+
+This Breakfix QA Change Request is raised to update the configuration file in the metadata database 
+of EDL QA Cluster has to be updated in order to overcome the sudden increase of logs generated which 
+requires an emergency restart of the cluster and hence will lead to a downtime. The detailed implementation steps to be carried out are documented in Change Task 300. 
+
+
+Business reason (justification)
+
+Cloudera service Metadata is stored in MySQL database at ITSUSRALSP07938.jnj.com server.
+The MySQL binary logs are filling up all the space in /apps and if the space utilization of this directory reaches 100% this may stop some Cloudera applications installed in this server. 
+Implementation of this change will help in purging all the logs older than 10 Days.
+The utilization of /apps has reached to 90% so implementing so needs to be implemented asap.
+
+Advisory has been sent to all EDL QA users , the same is attached with this CR.
+
+
+Business reason (justification)
+
+Cloudera service Metadata is stored in MySQL database at ITSUSRALSP07938.jnj.com server.
+The MySQL binary logs are filling up all the space in /apps and if the space utilization of this directory reaches 100% this may stop some Cloudera applications installed in this server. 
+Implementation of this change will help in purging all the logs older than 10 Days.
+The utilization of /apps has reached to 90% so implementing so needs to be implemented asap.
+
+Advisory has been sent to all EDL QA users , the same is attached with this CR.
+
+
+Technical impact
+
+This change will help in auto purging of MySQL logs older than 10 days.
+
+The cluster will be unavailable during implementation of this change.
+
+
+Execute all the steps mentioned  below in sequence :
+
+Step : 1
+Stop Cluster services : Login to QA Cloudera Manager at https://edlcmqa.jnj.com:7183/cmf/login and stop the JnJ_EDL_NewQACluster Cluster service
+
+
+Step : 2
+Stop CM server : Login to Cloudera manager server at itsusralsp07935.jnj.com, do sudo as root and execute below command:
+service cloudera-scm-server stop
+
+
+Stop All agents : Login on all the below servers listed at the end of description as EDL QA servers,do sudo as root and execute the below command on each server:
+service cloudera-scm-agent stop
+
+Step : 3
+Stop Mysql Services : Login on ITSUSRALSP07938.jnj.com server,do sudo as root and execute the below command :
+service mysqld stop
+
+Step : 4 
+Change MySQL settings :
+Open file /etc/my.cnf on ITSUSRALSP07938.jnj.com server and edit it to unhash the below lines : 
+#expire_logs_days = 10
+#max_binlog_size = 100M
+Save the changes and exit
+
+Step : 5
+Restart MySQL Services : Execute below command on ITSUSRALSP07938.jnj.com server
+service mysqld  start
+
+Step : 6
+Start CM server : Login on itsusralsp07935.jnj.com, do sudo as root and execute below command :
+service cloudera-scm-server start
+
+Start All agents :  Login on all the below servers listed at the end description as EDL QA servers , do sudo as root  and execute the below command on each server:
+service cloudera-scm-agent start
+
+Step : 7
+Start Cluster from Cloudera Manager : Login to QA Cloudera Manager at https://edlcmqa.jnj.com:7183/cmf/login and start the JnJ_EDL_NewQACluster Cluster service
+
+
+EDL QA servers :
+itsusralsp07935.jnj.com
+itsusralsp07936.jnj.com
+itsusralsp07937.jnj.com
+itsusralsp07938.jnj.com
+itsusralsp07939.jnj.com
+itsusralsp07940.jnj.com
+itsusralsp07941.jnj.com
+itsusralsp07942.jnj.com
+itsusralsp07943.jnj.com
+itsusralsp07944.jnj.com
+itsusralsp07945.jnj.com
+itsusralsp07955.jnj.com
+itsusralsp07956.jnj.com
+itsusralsp07965.jnj.com
+itsusralsp07549.jnj.com
+itsusralsp07550.jnj.com
+
