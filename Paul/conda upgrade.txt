@@ -1,0 +1,133 @@
+
+environment.yml
+
+name: igt_grci
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.6
+- xlrd
+- xlsxwriter
+- pysftp
+
+export PATH=$PATH:/opt/cloudera/parcels/Anaconda
+    2  conda --version
+    3  export PATH=/opt/cloudera/parcels/Anaconda:$PATH
+    4  conda --version
+    5  export PATH=/opt/cloudera/parcels/Anaconda/bin:$PATH
+    6  conda --version
+    7  df -h|grep home
+    8  conda env create
+    9  conda env create testenv
+   10  conda env create test_conda
+   11  conda create -n test_conda
+   12  source activate test_conda
+   13  pip list
+   14  pip list|grep sftp
+   15  pip install pysftp
+   16  pip list|grep sftp
+   17  import pysftp
+   18  conda list
+   19  ls -lrt /home/sbiswa25/.conda/envs/test_conda
+   20  ls -lrt /home/sbiswa25/.conda/envs/test_conda/conda-meta/
+   21  ls -lrt /home/sbiswa25/.conda/envs/test_conda/conda-meta/history
+   22  python --version
+   23  python -c "import pysftp"
+   24  deactivate test_conda
+   25  source deactivate test_conda
+   26  df -h|grep home
+   27  vi environment.yml
+   28  conda env create -f environment.yml
+   29  vi environment.yml
+   30  conda env create -f environment.yml
+   31  conda activate test_conda1
+   32  pip list|grep pysftp
+
+
+
+Steps:
+
+[sbiswa25@ITSUSRALSP07948 ~]$ export PATH=/opt/cloudera/parcels/Anaconda/bin:$PATH
+[sbiswa25@ITSUSRALSP07948 ~]$ conda --version
+conda 4.4.10
+[sbiswa25@ITSUSRALSP07948 ~]$ df -h|grep home
+/dev/mapper/vg00-lv_home   4.8G   11M  4.6G   1% /home
+
+sbiswa25@ITSUSRALSP07948 ~]$ conda create -n test_conda
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.4.10
+  latest version: 4.5.12
+
+Please update conda by running
+
+    $ conda update -n base conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/sbiswa25/.conda/envs/test_conda
+
+
+Proceed ([y]/n)? y
+
+
+
+sbiswa25@ITSUSRALSP07948 ~]$ source activate test_conda
+(test_conda) [sbiswa25@ITSUSRALSP07948 ~]$ pip list
+
+
+[sbiswa25@ITSUSRALSP07948 ~]$ pip list|grep sftp
+
+(test_conda) [sbiswa25@ITSUSRALSP07948 ~]$ conda list
+# packages in environment at /home/sbiswa25/.conda/envs/test_conda:
+#
+# Name                    Version                   Build  Channel
+(test_conda) [sbiswa25@ITSUSRALSP07948 ~]$ ls -lrt /home/sbiswa25/.conda/envs/test_conda
+total 4
+drwx------ 2 sbiswa25 users 4096 Jan  4 14:09 conda-meta
+(test_conda) [sbiswa25@ITSUSRALSP07948 ~]$ ls -lrt /home/sbiswa25/.conda/envs/test_conda/conda-meta/
+total 4
+-rw------- 1 sbiswa25 users 97 Jan  4 14:09 history
+(test_conda) [sbiswa25@ITSUSRALSP07948 ~]$ ls -lrt /home/sbiswa25/.conda/envs/test_conda/conda-meta/history
+-rw------- 1 sbiswa25 users 97 Jan  4 14:09 /home/sbiswa25/.conda/envs/test_conda/conda-meta/history
+(test_conda) [sbiswa25@ITSUSRALSP07948 ~]$ python --version
+Python 3.6.4 :: Anaconda, Inc.
+(test_conda) [sbiswa25@ITSUSRALSP07948 ~]$ python -c "import pysftp"
+
+
+(test_conda) [sbiswa25@ITSUSRALSP07948 ~]$ source deactivate test_conda
+[sbiswa25@ITSUSRALSP07948 ~]$ df -h|grep home
+/dev/mapper/vg00-lv_home   4.8G   42M  4.6G   1% /home
+[sbiswa25@ITSUSRALSP07948 ~]$ vi environment.yml
+[sbiswa25@ITSUSRALSP07948 ~]$ conda env create -f environment.yml
+
+CondaValueError: prefix already exists: /home/sbiswa25/.conda/envs/test_conda
+
+[sbiswa25@ITSUSRALSP07948 ~]$ vi environment.yml
+[sbiswa25@ITSUSRALSP07948 ~]$ conda env create -f environment.yml
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.4.10
+  latest version: 4.5.12
+
+Please update conda by running
+
+    $ conda update -n base conda
+
+
+
+Downloading and Extracting Packages
+
+
+[sbiswa25@ITSUSRALSP07948 ~]$ conda activate test_conda1
+(test_conda1) [sbiswa25@ITSUSRALSP07948 ~]$ pip list|grep pysftp
+
+
+

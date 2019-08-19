@@ -1,0 +1,668 @@
+Dev
+
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/
+0       0       /dev/edl/admin
+12.2 T  24.4 T  /dev/edl/consumer
+1.3 T   2.5 T   /dev/edl/corporate
+1.7 T   3.3 T   /dev/edl/finance
+31.0 G  62.0 G  /dev/edl/gts
+5.1 T   10.2 T  /dev/edl/infra
+4.0 T   8.0 T   /dev/edl/md
+1.1 T   2.3 T   /dev/edl/pharma
+23.5 G  47.0 G  /dev/edl/public
+4.7 T   9.5 T   /dev/edl/rnd
+19.4 T  38.9 T  /dev/edl/sc
+10.3 T  20.9 T  /dev/edl/sdl
+[abaseerm@ITSUSRALSP07814 ~]$   hdfs dfs -du -h /dev/edl/consumer/
+10.8 T   21.6 T   /dev/edl/consumer/cnxa
+39.9 M   79.8 M   /dev/edl/consumer/edge
+1.0 T    2.1 T    /dev/edl/consumer/ems
+20.8 M   41.5 M   /dev/edl/consumer/jjar
+112.7 G  225.5 G  /dev/edl/consumer/jjhws
+0        0        /dev/edl/consumer/solrsrh
+251.6 G  503.2 G  /dev/edl/consumer/vfeth
+[abaseerm@ITSUSRALSP07814 ~]$  hdfs dfs -du -h /dev/edl/consumer/cnxa/
+251.4 K  502.8 K  /dev/edl/consumer/cnxa/appcode
+14.4 G   28.7 G   /dev/edl/consumer/cnxa/cnxaap
+7.1 K    14.2 K   /dev/edl/consumer/cnxa/cnxaco
+280.7 G  561.5 G  /dev/edl/consumer/cnxa/cnxaeu
+10.2 T   20.3 T   /dev/edl/consumer/cnxa/cnxagb
+297.7 G  595.4 G  /dev/edl/consumer/cnxa/cnxala
+2.5 G    4.9 G    /dev/edl/consumer/cnxa/cnxamd
+393.3 M  786.7 M  /dev/edl/consumer/cnxa/cnxana
+7.7 K    15.4 K   /dev/edl/consumer/cnxa/cnxard
+0        0        /dev/edl/consumer/cnxa/cnxarnd
+608.4 M  1.2 G    /dev/edl/consumer/cnxa/cnxasc
+60.4 G   120.7 G  /dev/edl/consumer/cnxa/str
+0        0        /dev/edl/consumer/cnxa/unstr
+[abaseerm@ITSUSRALSP07814 ~]$    hdfs dfs -du -h /dev/edl/consumer/edge/
+0       0       /dev/edl/consumer/edge/appcode
+39.9 M  79.8 M  /dev/edl/consumer/edge/str
+0       0       /dev/edl/consumer/edge/unstr
+[abaseerm@ITSUSRALSP07814 ~]$   hdfs dfs -du -h /dev/edl/corporate/
+170.9 M  341.8 M  /dev/edl/corporate/agp
+37.8 G   75.6 G   /dev/edl/corporate/efm
+85.7 G   176.0 G  /dev/edl/corporate/esp
+70.7 M   141.4 M  /dev/edl/corporate/fin
+0        0        /dev/edl/corporate/hccp
+5.5 G    11.0 G   /dev/edl/corporate/hr
+516.3 G  1.0 T    /dev/edl/corporate/ldwsp
+0        0        /dev/edl/corporate/nta
+3.0 G    6.0 G    /dev/edl/corporate/prizma
+70.7 G   141.5 G  /dev/edl/corporate/tam
+574.5 G  1.1 T    /dev/edl/corporate/tedl
+0        0        /dev/edl/corporate/trdo
+[abaseerm@ITSUSRALSP07814 ~]$  hdfs dfs -du -h /dev/edl/finance
+1.5 G    2.9 G    /dev/edl/finance/emw
+279.9 G  559.8 G  /dev/edl/finance/fpna
+286.4 M  572.9 M  /dev/edl/finance/gsg
+1.4 T    2.8 T    /dev/edl/finance/p2p
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/gts/
+29.5 G  58.9 G  /dev/edl/gts/bicc
+0       0       /dev/edl/gts/cicd
+0       0       /dev/edl/gts/s3bkp
+1.5 G   3.1 G   /dev/edl/gts/tblurepo
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/infra
+1.3 G    2.6 G     /dev/edl/infra/3pi
+4.3 G    8.6 G     /dev/edl/infra/activedirectory
+505.5 M  1011.1 M  /dev/edl/infra/airwatch
+3.0 M    6.0 M     /dev/edl/infra/apexdb
+0        0         /dev/edl/infra/app2app
+148.2 M  296.3 M   /dev/edl/infra/apptio
+1.5 G    2.9 G     /dev/edl/infra/asoe
+402.0 G  804.0 G   /dev/edl/infra/awsbilling
+50.1 G   100.3 G   /dev/edl/infra/awsworkspace
+770.5 M  1.5 G     /dev/edl/infra/bitbucket
+0        0         /dev/edl/infra/bmo
+10.3 G   20.6 G    /dev/edl/infra/boldchat
+371.6 M  743.2 M   /dev/edl/infra/box
+629.0 M  1.2 G     /dev/edl/infra/bravo
+3.2 G    6.3 G     /dev/edl/infra/btwebex
+9.3 M    18.7 M    /dev/edl/infra/callstat
+512.7 M  1.0 G     /dev/edl/infra/cico
+12.6 M   25.2 M    /dev/edl/infra/ctt
+139.8 G  279.7 G   /dev/edl/infra/datamart
+8.8 M    17.6 M    /dev/edl/infra/diap
+39.1 G   78.3 G    /dev/edl/infra/discovery
+55.2 M   110.4 M   /dev/edl/infra/empir
+5.2 M    10.5 M    /dev/edl/infra/flexera
+633.9 K  1.2 M     /dev/edl/infra/genesys
+45.5 M   91.0 M    /dev/edl/infra/grci
+61.5 K   122.9 K   /dev/edl/infra/heatmap
+2.1 G    4.2 G     /dev/edl/infra/hrfeed
+953.8 K  1.9 M     /dev/edl/infra/imp
+47.3 M   94.6 M    /dev/edl/infra/inav
+669.4 M  1.3 G     /dev/edl/infra/infoblox
+583.0 M  1.1 G     /dev/edl/infra/instantis
+2.2 G    4.5 G     /dev/edl/infra/irisdev
+38.5 M   77.1 M    /dev/edl/infra/isrm
+74.6 G   149.1 G   /dev/edl/infra/itins
+20.4 G   40.8 G    /dev/edl/infra/jira
+7.2 G    14.5 G    /dev/edl/infra/jjeds
+17.5 G   34.9 G    /dev/edl/infra/kai
+1.3 G    2.6 G     /dev/edl/infra/leankit
+0        0         /dev/edl/infra/managed_views
+0        0         /dev/edl/infra/mcat
+1.7 G    3.5 G     /dev/edl/infra/mega
+0        0         /dev/edl/infra/mobility
+35.3 G   70.5 G    /dev/edl/infra/mstr
+3.5 G    7.1 G     /dev/edl/infra/netbackup
+27.9 G   55.8 G    /dev/edl/infra/netcool
+774.9 M  1.5 G     /dev/edl/infra/netsrvdelivery
+2.7 G    5.4 G     /dev/edl/infra/nexthink
+0        0         /dev/edl/infra/oem
+91.4 M   182.8 M   /dev/edl/infra/office365
+42.9 G   85.8 G    /dev/edl/infra/ovreporter
+14.2 M   28.4 M    /dev/edl/infra/pmt
+13.5 G   26.9 G    /dev/edl/infra/pmx
+87.3 M   174.6 M   /dev/edl/infra/projactuals
+60.7 M   121.4 M   /dev/edl/infra/qualitysystems
+0        0         /dev/edl/infra/qualys
+380.7 M  761.4 M   /dev/edl/infra/rom
+1.3 T    2.6 T     /dev/edl/infra/sccm
+561.5 G  1.1 T     /dev/edl/infra/scom
+25.0 M   49.9 M    /dev/edl/infra/sdm
+169.5 M  338.9 M   /dev/edl/infra/sem
+2.3 T    4.7 T     /dev/edl/infra/servicenow
+2.7 G    5.4 G     /dev/edl/infra/sessentials
+4.9 M    9.7 M     /dev/edl/infra/sharepoint
+40.8 M   81.6 M    /dev/edl/infra/smit
+2.7 M    5.4 M     /dev/edl/infra/solman
+0        0         /dev/edl/infra/sonarqube
+15.8 G   31.7 G    /dev/edl/infra/srmvar
+4.1 M    8.2 M     /dev/edl/infra/techtraining
+30.6 M   61.3 M    /dev/edl/infra/tidal
+109.0 M  217.9 M   /dev/edl/infra/tlmreliability
+16.8 G   33.6 G    /dev/edl/infra/trendmicro
+1.4 G    2.8 G     /dev/edl/infra/unstr
+2.7 G    5.5 G     /dev/edl/infra/vcops
+0        0         /dev/edl/infra/veracode
+10.9 G   21.8 G    /dev/edl/infra/vrm
+[abaseerm@ITSUSRALSP07814 ~]$    hdfs dfs -du -h /dev/edl/md
+36.8 G   73.5 G   /dev/edl/md/1mdr
+3.0 G    6.0 G    /dev/edl/md/1mdrobo
+1.3 T    2.6 T    /dev/edl/md/addy
+130.6 G  261.1 G  /dev/edl/md/apos
+1.5 T    3.0 T    /dev/edl/md/cli1md
+214.6 G  440.5 G  /dev/edl/md/clsd
+619.9 G  1.3 T    /dev/edl/md/clsdia
+532.2 M  1.0 G    /dev/edl/md/cmet
+45.8 G   91.7 G   /dev/edl/md/core
+237.0 M  473.9 M  /dev/edl/md/crspln
+28       56       /dev/edl/md/mdse
+3.9 G    7.9 G    /dev/edl/md/onemd
+79.6 G   159.2 G  /dev/edl/md/ovfa
+50.5 G   101.1 G  /dev/edl/md/sptfr
+24.0 G   48.1 G   /dev/edl/md/vfcon
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/pharma/
+3.1 M    6.2 M    /dev/edl/pharma/aas
+49.3 G   98.6 G   /dev/edl/pharma/align
+272.2 G  544.4 G  /dev/edl/pharma/cldt
+680.6 G  1.3 T    /dev/edl/pharma/gsdl
+9.6 K    19.2 K   /dev/edl/pharma/jankb
+78.5 G   157.0 G  /dev/edl/pharma/jsdr
+1.5 M    3.1 M    /dev/edl/pharma/paa
+3.1 G    6.3 G    /dev/edl/pharma/plcr
+577.0 M  1.1 G    /dev/edl/pharma/ppmo
+72.7 G   145.4 G  /dev/edl/pharma/rnd
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/pharma/rnd/safety/gsdl
+32.7 M  65.3 M  /dev/edl/pharma/rnd/safety/gsdl/appcode
+46.5 G  93.1 G  /dev/edl/pharma/rnd/safety/gsdl/str
+0       0       /dev/edl/pharma/rnd/safety/gsdl/unstr
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/pharma/rnd
+612.8 M  1.2 G    /dev/edl/pharma/rnd/rgltry
+72.1 G   144.2 G  /dev/edl/pharma/rnd/safety
+[abaseerm@ITSUSRALSP07814 ~]$    hdfs dfs -du -h /dev/edl/pharma/rnd/rgltry
+612.8 M  1.2 G  /dev/edl/pharma/rnd/rgltry/lift
+[abaseerm@ITSUSRALSP07814 ~]$    hdfs dfs -du -h /dev/edl/pharma/rnd/safety
+25.5 G  51.0 G  /dev/edl/pharma/rnd/safety/epiin
+46.6 G  93.2 G  /dev/edl/pharma/rnd/safety/gsdl
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/rnd
+4.7 T  9.5 T  /dev/edl/rnd/jedi
+[abaseerm@ITSUSRALSP07814 ~]$    hdfs dfs -du -h /dev/edl/sc/
+390.4 G  780.9 G  /dev/edl/sc/b2b
+24.5 G   49.1 G   /dev/edl/sc/cmal
+5.5 T    10.9 T   /dev/edl/sc/consumer
+805.9 G  1.6 T    /dev/edl/sc/cts
+840.0 G  1.6 T    /dev/edl/sc/e2emf
+75.6 M   151.1 M  /dev/edl/sc/erica
+28.8 K   57.6 K   /dev/edl/sc/ethmx
+254.0 G  508.0 G  /dev/edl/sc/fda
+25.4 G   50.8 G   /dev/edl/sc/gbp
+2.3 T    4.7 T    /dev/edl/sc/gbt
+1.2 T    2.6 T    /dev/edl/sc/gora
+1.5 G    3.0 G    /dev/edl/sc/ice
+7.3 T    14.5 T   /dev/edl/sc/md
+116.0 M  232.1 M  /dev/edl/sc/pharma
+0        0        /dev/edl/sc/scdsci
+214.7 G  429.3 G  /dev/edl/sc/sce2e
+0        0        /dev/edl/sc/scml
+12.2 G   24.4 G   /dev/edl/sc/slob
+47.8 M   95.7 M   /dev/edl/sc/smbc
+50.1 G   100.3 G  /dev/edl/sc/smf
+571.8 G  1.2 T    /dev/edl/sc/transport
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/sc/consumer/
+5.3 T    10.6 T   /dev/edl/sc/consumer/lpfg
+156.0 G  312.0 G  /dev/edl/sc/consumer/prjpro
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/sc/md/
+4.3 T    8.6 T    /dev/edl/sc/md/atom
+0        0        /dev/edl/sc/md/bwi
+8.3 G    16.6 G   /dev/edl/sc/md/dqts
+34.0 G   67.9 G   /dev/edl/sc/md/fprsc
+403.7 M  807.3 M  /dev/edl/sc/md/gdsn
+0        0        /dev/edl/sc/md/jjmdam
+9.5 G    19.0 G   /dev/edl/sc/md/pdsda
+763.0 G  1.5 T    /dev/edl/sc/md/sadp
+0        0        /dev/edl/sc/md/sc360
+2.2 T    4.3 T    /dev/edl/sc/md/sccsmd
+3.3 G    7.1 G    /dev/edl/sc/md/sfdna
+[abaseerm@ITSUSRALSP07814 ~]$    hdfs dfs -du -h /dev/edl/sc/pharma
+0        0        /dev/edl/sc/pharma/elims
+116.0 M  232.1 M  /dev/edl/sc/pharma/empwr
+[abaseerm@ITSUSRALSP07814 ~]$    hdfs dfs -du -h /dev/edl/sc/transport
+571.8 G  1.2 T  /dev/edl/sc/transport/tdl
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/sdl/
+220.1 K  440.2 K  /dev/edl/sdl/appcode
+4.7 T    9.4 T    /dev/edl/sdl/deliver
+312.9 G  625.7 G  /dev/edl/sdl/global
+1.8 T    3.6 T    /dev/edl/sdl/make
+619.8 G  1.2 T    /dev/edl/sdl/plan
+2.2 T    4.9 T    /dev/edl/sdl/qc
+639.9 G  1.3 T    /dev/edl/sdl/source
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/sdl/deliver
+258.3 G  516.6 G  /dev/edl/sdl/deliver/con
+4.4 T    8.9 T    /dev/edl/sdl/deliver/md
+0        0        /dev/edl/sdl/deliver/pharma
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/sdl/global/
+311.9 G  623.9 G  /dev/edl/sdl/global/edm
+933.0 M  1.8 G    /dev/edl/sdl/global/pmo
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/sdl/make/
+445.6 G  892.2 G  /dev/edl/sdl/make/cmd
+266.7 G  533.3 G  /dev/edl/sdl/make/con
+1.1 T    2.2 T    /dev/edl/sdl/make/md
+40.6 G   81.2 G   /dev/edl/sdl/make/pharma
+[abaseerm@ITSUSRALSP07814 ~]$    hdfs dfs -du -h /dev/edl/sdl/plan/
+107.3 G  214.7 G  /dev/edl/sdl/plan/con
+512.4 G  1.0 T    /dev/edl/sdl/plan/md
+0        0        /dev/edl/sdl/plan/pharma
+[abaseerm@ITSUSRALSP07814 ~]$     hdfs dfs -du -h /dev/edl/sdl/qc/
+2.2 T  4.8 T  /dev/edl/sdl/qc/cmd
+4.2 G  8.5 G  /dev/edl/sdl/qc/con
+3.9 G  7.7 G  /dev/edl/sdl/qc/md
+0      0      /dev/edl/sdl/qc/pharma
+[abaseerm@ITSUSRALSP07814 ~]$    hdfs dfs -du -h /dev/edl/sdl/source/
+38.8 G   77.7 G  /dev/edl/sdl/source/con
+601.1 G  1.2 T   /dev/edl/sdl/source/md
+0        0       /dev/edl/sdl/source/pharma
+[abaseerm@ITSUSRALSP07814 ~]$    hdfs dfs -du -h -s /dev/edl/sdl/
+10.3 T  20.9 T  /dev/edl/sdl
+
+
+QA
+
+bash-4.2$     hdfs dfs -du -h /qa/edl/
+2.8 T    5.7 T    /qa/edl/consumer
+480.9 G  966.1 G  /qa/edl/corporate
+3.5 T    7.1 T    /qa/edl/finance
+5.3 T    10.7 T   /qa/edl/infra
+2.6 T    5.4 T    /qa/edl/md
+50.6 G   101.1 G  /qa/edl/pharma
+24.4 G   48.9 G   /qa/edl/public
+1.3 T    2.7 T    /qa/edl/rnd
+20.8 T   41.7 T   /qa/edl/sc
+2.5 T    5.0 T    /qa/edl/sdl
+-bash-4.2$    hdfs dfs -du -h /qa/edl/consumer/
+1.9 T    3.7 T    /qa/edl/consumer/cnxa
+164.3 G  328.7 G  /qa/edl/consumer/ems
+838.3 G  1.6 T    /qa/edl/consumer/vfeth
+-bash-4.2$    hdfs dfs -du -h /qa/edl/corporate/
+0        0        /qa/edl/corporate/agp
+11.1 G   22.3 G   /qa/edl/corporate/efm
+265.7 G  535.7 G  /qa/edl/corporate/esp
+4.3 G    8.5 G    /qa/edl/corporate/fin
+6.6 G    13.2 G   /qa/edl/corporate/hr
+156.1 G  312.1 G  /qa/edl/corporate/ldwsp
+28.7 G   57.4 G   /qa/edl/corporate/prizma
+1.7 G    3.4 G    /qa/edl/corporate/tam
+6.7 G    13.4 G   /qa/edl/corporate/tedl
+-bash-4.2$    hdfs dfs -du -h /qa/edl/finance
+1.5 G    3.0 G    /qa/edl/finance/emw
+2.8 T    5.6 T    /qa/edl/finance/fpna
+298.1 G  596.2 G  /qa/edl/finance/p2p
+481.9 G  963.8 G  /qa/edl/finance/sdl
+-bash-4.2$    hdfs dfs -du -h /qa/edl/infra
+1.3 G    2.5 G    /qa/edl/infra/3pi
+4.3 G    8.6 G    /qa/edl/infra/activedirectory
+430.2 M  860.4 M  /qa/edl/infra/airwatch
+49.5 K   99.0 K   /qa/edl/infra/apexdb
+0        0        /qa/edl/infra/app2app
+148.2 M  296.3 M  /qa/edl/infra/apptio
+2.0 G    3.9 G    /qa/edl/infra/asoe
+417.3 G  834.5 G  /qa/edl/infra/awsbilling
+42.8 G   85.6 G   /qa/edl/infra/awsworkspace
+0        0        /qa/edl/infra/bitbucket
+0        0        /qa/edl/infra/bmo
+14.2 G   28.3 G   /qa/edl/infra/boldchat
+382.2 M  764.3 M  /qa/edl/infra/box
+2.1 M    4.1 M    /qa/edl/infra/bravo
+448.7 M  897.5 M  /qa/edl/infra/btwebex
+3.1 M    6.1 M    /qa/edl/infra/callstat
+434.1 M  868.3 M  /qa/edl/infra/cico
+19.7 M   39.3 M   /qa/edl/infra/ctt
+99.0 G   200.6 G  /qa/edl/infra/datamart
+8.8 M    17.6 M   /qa/edl/infra/diap
+16.5 G   33.0 G   /qa/edl/infra/discovery
+98.2 M   196.4 M  /qa/edl/infra/empir
+5.3 M    10.7 M   /qa/edl/infra/flexera
+4.9 M    9.8 M    /qa/edl/infra/genesys
+77.0 M   154.0 M  /qa/edl/infra/grci
+57.6 K   115.1 K  /qa/edl/infra/heatmap
+233.3 M  466.6 M  /qa/edl/infra/hrfeed
+953.8 K  1.9 M    /qa/edl/infra/imp
+47.1 M   94.1 M   /qa/edl/infra/inav
+98.9 M   197.7 M  /qa/edl/infra/infoblox
+353.3 M  710.2 M  /qa/edl/infra/instantis
+0        0        /qa/edl/infra/irisdev
+18.2 M   36.4 M   /qa/edl/infra/isrm
+10.7 G   21.5 G   /qa/edl/infra/jira
+860.1 M  1.7 G    /qa/edl/infra/jjeds
+149.5 M  298.9 M  /qa/edl/infra/kai
+897.2 M  1.8 G    /qa/edl/infra/leankit
+0        0        /qa/edl/infra/mcat
+3.3 G    6.6 G    /qa/edl/infra/mega
+0        0        /qa/edl/infra/mobility
+121.0 G  242.6 G  /qa/edl/infra/mstr
+48.1 G   96.2 G   /qa/edl/infra/netbackup
+8.3 G    16.5 G   /qa/edl/infra/netcool
+139.3 M  278.5 M  /qa/edl/infra/netsrvdelivery
+721.4 M  1.4 G    /qa/edl/infra/nexthink
+0        0        /qa/edl/infra/oem
+51.8 M   103.6 M  /qa/edl/infra/office365
+74.0 G   148.0 G  /qa/edl/infra/ovreporter
+79.1 M   158.2 M  /qa/edl/infra/pmt
+38.7 G   77.7 G   /qa/edl/infra/pmx
+9.9 M    19.8 M   /qa/edl/infra/projactuals
+164.1 M  328.2 M  /qa/edl/infra/qualitysystems
+0        0        /qa/edl/infra/qualys
+136.0 M  272.0 M  /qa/edl/infra/rom
+282.9 G  565.8 G  /qa/edl/infra/sccm
+604.6 G  1.2 T    /qa/edl/infra/scom
+5.9 M    11.9 M   /qa/edl/infra/sdm
+7.5 M    15.0 M   /qa/edl/infra/sem
+3.5 T    7.1 T    /qa/edl/infra/servicenow
+777.5 M  1.5 G    /qa/edl/infra/sessentials
+191.5 K  383.1 K  /qa/edl/infra/sharepoint
+0        0        /qa/edl/infra/smit
+0        0        /qa/edl/infra/sonarqube
+0        0        /qa/edl/infra/splists
+1.9 G    3.9 G    /qa/edl/infra/srmvar
+4.9 M    9.8 M    /qa/edl/infra/techtraining
+0        0        /qa/edl/infra/tidal
+133.4 M  266.7 M  /qa/edl/infra/tlmreliability
+22.2 G   44.3 G   /qa/edl/infra/trendmicro
+1.2 G    2.4 G    /qa/edl/infra/unstr
+36.4 G   72.8 G   /qa/edl/infra/vcops
+0        0        /qa/edl/infra/veracode
+0        0        /qa/edl/infra/vrm
+-bash-4.2$     hdfs dfs -du -h /qa/edl/md
+28.5 G   57.0 G   /qa/edl/md/1mdr
+135.5 G  271.1 G  /qa/edl/md/addy
+43.0 G   86.1 G   /qa/edl/md/apos
+462.5 G  925.1 G  /qa/edl/md/cli1md
+1.3 T    2.6 T    /qa/edl/md/clsd
+102.6 G  205.1 G  /qa/edl/md/clsdia
+18.0 G   36.0 G   /qa/edl/md/core
+192.0 M  384.0 M  /qa/edl/md/crspln
+641.7 K  1.3 M    /qa/edl/md/mdse
+33.1 G   66.3 G   /qa/edl/md/onemd
+314.4 G  628.8 G  /qa/edl/md/ovfa
+187.1 G  466.4 G  /qa/edl/md/sptfr
+51.4 G   102.8 G  /qa/edl/md/vfcon
+-bash-4.2$    hdfs dfs -du -h /qa/edl/pharma
+29.7 G   59.5 G  /qa/edl/pharma/align
+0        0       /qa/edl/pharma/paa
+13.4 M   26.9 M  /qa/edl/pharma/plcr
+578.2 M  1.1 G   /qa/edl/pharma/ppmo
+20.2 G   40.5 G  /qa/edl/pharma/rnd
+-bash-4.2$    hdfs dfs -du -h /qa/edl/pharma/rnd
+659.1 M  1.3 G   /qa/edl/pharma/rnd/rgltry
+19.6 G   39.2 G  /qa/edl/pharma/rnd/safety
+-bash-4.2$    hdfs dfs -du -h /qa/edl/pharma/rnd/rgltry/
+659.1 M  1.3 G  /qa/edl/pharma/rnd/rgltry/lift
+-bash-4.2$    hdfs dfs -du -h /qa/edl/pharma/rnd/safety
+983.2 M  1.9 G   /qa/edl/pharma/rnd/safety/epiin
+18.6 G   37.3 G  /qa/edl/pharma/rnd/safety/gsdl
+-bash-4.2$    hdfs dfs -du -h /qa/edl/rnd/jedi
+939.3 M  1.8 G  /qa/edl/rnd/jedi/appcode
+1.3 T    2.7 T  /qa/edl/rnd/jedi/str
+-bash-4.2$     hdfs dfs -du -h /qa/edl/sc/
+1.3 T    2.6 T    /qa/edl/sc/b2b
+17.5 G   34.9 G   /qa/edl/sc/cmal
+3.9 T    7.9 T    /qa/edl/sc/consumer
+430.1 G  860.2 G  /qa/edl/sc/cts
+0        0        /qa/edl/sc/e2emf
+66.5 M   133.0 M  /qa/edl/sc/erica
+140.9 G  281.8 G  /qa/edl/sc/fda
+17.3 G   34.5 G   /qa/edl/sc/gbp
+0        0        /qa/edl/sc/gbt
+12.8 T   25.6 T   /qa/edl/sc/gora
+2.0 T    4.0 T    /qa/edl/sc/md
+0        0        /qa/edl/sc/pharma
+0        0        /qa/edl/sc/sc360
+0        0        /qa/edl/sc/sce2e
+0        0        /qa/edl/sc/slob
+45.2 M   90.4 M   /qa/edl/sc/smbc
+4.0 G    8.0 G    /qa/edl/sc/smf
+213.5 G  427.7 G  /qa/edl/sc/transport
+-bash-4.2$     hdfs dfs -du -h /qa/edl/sc/consumer
+3.4 T    6.9 T  /qa/edl/sc/consumer/lpfg
+506.9 G  1.1 T  /qa/edl/sc/consumer/prjpro
+-bash-4.2$     hdfs dfs -du -h /qa/edl/sc/md
+600.6 G  1.2 T    /qa/edl/sc/md/atom
+2.4 M    4.8 M    /qa/edl/sc/md/dqts
+0        0        /qa/edl/sc/md/fprsc
+80.6 M   161.3 M  /qa/edl/sc/md/gdsn
+94       188      /qa/edl/sc/md/hcsdw
+184.1 K  368.1 K  /qa/edl/sc/md/pdsda
+35.6 G   71.3 G   /qa/edl/sc/md/sadp
+1.4 T    2.7 T    /qa/edl/sc/md/sccsmd
+-bash-4.2$    hdfs dfs -du -h /qa/edl/sc/transport
+213.5 G  427.7 G  /qa/edl/sc/transport/tdl
+-bash-4.2$   hdfs dfs -du -h /qa/edl/sdl
+0        0        /qa/edl/sdl/appcode
+1.1 T    2.3 T    /qa/edl/sdl/deliver
+92.9 G   185.7 G  /qa/edl/sdl/global
+569.3 G  1.1 T    /qa/edl/sdl/make
+298.1 G  596.3 G  /qa/edl/sdl/plan
+236.1 G  477.1 G  /qa/edl/sdl/qc
+205.2 G  410.4 G  /qa/edl/sdl/source
+0        0        /qa/edl/sdl/str
+-bash-4.2$    hdfs dfs -du -h /qa/edl/sdl/deliver
+597.9 G  1.2 T  /qa/edl/sdl/deliver/con
+578.6 G  1.1 T  /qa/edl/sdl/deliver/md
+0        0      /qa/edl/sdl/deliver/pharma
+-bash-4.2$    hdfs dfs -du -h /qa/edl/sdl/make/
+16.2 G   32.5 G    /qa/edl/sdl/make/cmd
+26.9 G   53.9 G    /qa/edl/sdl/make/con
+509.9 G  1019.7 G  /qa/edl/sdl/make/md
+16.3 G   32.6 G    /qa/edl/sdl/make/pharma
+-bash-4.2$    hdfs dfs -du -h /qa/edl/sdl/plan
+0        0        /qa/edl/sdl/plan/cmd
+127.9 G  255.7 G  /qa/edl/sdl/plan/con
+170.3 G  340.6 G  /qa/edl/sdl/plan/md
+0        0        /qa/edl/sdl/plan/pharma
+-bash-4.2$    hdfs dfs -du -h /qa/edl/sdl/qc/
+231.0 G  467.0 G  /qa/edl/sdl/qc/cmd
+4.9 G    9.9 G    /qa/edl/sdl/qc/con
+147.8 M  295.5 M  /qa/edl/sdl/qc/md
+0        0        /qa/edl/sdl/qc/pharma
+-bash-4.2$    hdfs dfs -du -h /qa/edl/sdl/source/
+63.0 G   126.0 G  /qa/edl/sdl/source/con
+142.2 G  284.3 G  /qa/edl/sdl/source/md
+0        0        /qa/edl/sdl/source/pharma
+-bash-4.2$    hdfs dfs -du -h /qa/edl/sdl/str
+0  0  /qa/edl/sdl/str/sdl_core
+0  0  /qa/edl/sdl/str/sdl_stg
+0  0  /qa/edl/sdl/str/sdl_wrk
+-bash-4.2$    hdfs dfs -du -h /qa/edl/rnd/
+1.3 T  2.7 T  /qa/edl/rnd/jedi
+
+
+Prod
+
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/
+4.0 T   12.0 T  /prod/edl/consumer
+1.9 T   5.7 T   /prod/edl/corporate
+6.1 T   18.4 T  /prod/edl/finance
+9.6 T   28.0 T  /prod/edl/infra
+26.8 T  80.3 T  /prod/edl/md
+2.0 G   6.0 G   /prod/edl/pharma
+7.4 G   22.2 G  /prod/edl/public
+3.6 T   10.9 T  /prod/edl/rnd
+27.7 T  82.8 T  /prod/edl/sc
+2.6 T   7.6 T   /prod/edl/sdl
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/consumer/
+3.3 T    9.9 T    /prod/edl/consumer/cnxa
+599.4 G  1.8 T    /prod/edl/consumer/ems
+122.1 G  366.3 G  /prod/edl/consumer/vfeth
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/corporate/
+0        0        /prod/edl/corporate/agp
+12.9 G   38.8 G   /prod/edl/corporate/efm
+604.0 G  1.8 T    /prod/edl/corporate/esp
+4.7 G    14.3 G   /prod/edl/corporate/fin
+7.5 G    22.6 G   /prod/edl/corporate/hr
+942.7 G  2.8 T    /prod/edl/corporate/ldwsp
+31.3 G   93.9 G   /prod/edl/corporate/prizma
+330.3 G  990.9 G  /prod/edl/corporate/tam
+8.6 G    25.8 G   /prod/edl/corporate/tedl
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/finance/
+75.3 G   211.5 G  /prod/edl/finance/emw
+5.9 T    17.8 T   /prod/edl/finance/fpna
+132.0 G  391.9 G  /prod/edl/finance/p2p
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/infra/
+1.4 G    4.2 G    /prod/edl/infra/3pi
+7.1 G    21.3 G   /prod/edl/infra/activedirectory
+874.2 M  2.6 G    /prod/edl/infra/airwatch
+49.3 K   147.8 K  /prod/edl/infra/apexdb
+0        0        /prod/edl/infra/app2app
+148.2 M  444.5 M  /prod/edl/infra/apptio
+6.7 G    20.2 G   /prod/edl/infra/asoe
+1.6 T    4.8 T    /prod/edl/infra/awsbilling
+165.2 G  495.6 G  /prod/edl/infra/awsworkspace
+0        0        /prod/edl/infra/bitbucket
+0        0        /prod/edl/infra/bmo
+26.3 G   79.0 G   /prod/edl/infra/boldchat
+2.3 G    6.8 G    /prod/edl/infra/box
+62.7 M   188.0 M  /prod/edl/infra/bravo
+192.5 G  577.4 G  /prod/edl/infra/btwebex
+17.7 M   53.2 M   /prod/edl/infra/callstat
+822.0 M  2.4 G    /prod/edl/infra/cico
+458.0 M  1.3 G    /prod/edl/infra/ctt
+134.7 G  404.3 G  /prod/edl/infra/datamart
+0        0        /prod/edl/infra/diap
+807.1 G  2.4 T    /prod/edl/infra/discovery
+0        0        /prod/edl/infra/empdir
+148.1 M  444.4 M  /prod/edl/infra/empir
+5.9 M    17.7 M   /prod/edl/infra/flexera
+1.1 G    3.3 G    /prod/edl/infra/genesys
+31.6 M   94.7 M   /prod/edl/infra/grci
+0        0        /prod/edl/infra/heatmap
+235.7 M  707.1 M  /prod/edl/infra/hrfeed
+1.2 M    3.5 M    /prod/edl/infra/imp
+58.6 M   175.8 M  /prod/edl/infra/inav
+5.4 G    16.3 G   /prod/edl/infra/infoblox
+196.0 M  588.0 M  /prod/edl/infra/instantis
+23.9 M   71.7 M   /prod/edl/infra/isrm
+141.0 G  422.9 G  /prod/edl/infra/itins
+9.0 G    27.1 G   /prod/edl/infra/jira
+6.0 G    18.1 G   /prod/edl/infra/jjeds
+1.7 G    5.2 G    /prod/edl/infra/kai
+1.2 G    3.7 G    /prod/edl/infra/leankit
+0        0        /prod/edl/infra/mcat
+4.8 G    14.3 G   /prod/edl/infra/mega
+0        0        /prod/edl/infra/mobility
+62.0 G   184.2 G  /prod/edl/infra/mstr
+71.3 G   214.0 G  /prod/edl/infra/netbackup
+231.8 G  484.7 G  /prod/edl/infra/netcool
+3.1 G    9.3 G    /prod/edl/infra/netsrvdelivery
+851.4 M  2.5 G    /prod/edl/infra/nexthink
+0        0        /prod/edl/infra/oem
+69.2 M   207.5 M  /prod/edl/infra/office365
+9.9 G    29.6 G   /prod/edl/infra/ovreporter
+0        0        /prod/edl/infra/pmt
+268.4 G  804.7 G  /prod/edl/infra/pmx
+9.9 M    29.6 M   /prod/edl/infra/projactuals
+2.0 G    6.0 G    /prod/edl/infra/qualitysystems
+0        0        /prod/edl/infra/qualys
+559.2 M  1.6 G    /prod/edl/infra/rom
+218.2 G  600.7 G  /prod/edl/infra/sccm
+717.1 G  2.1 T    /prod/edl/infra/scom
+31.9 M   95.7 M   /prod/edl/infra/sdm
+7.6 M    22.8 M   /prod/edl/infra/sem
+4.4 T    12.7 T   /prod/edl/infra/servicenow
+1.7 G    5.2 G    /prod/edl/infra/sessentials
+41.2 M   123.7 M  /prod/edl/infra/sharepoint
+0        0        /prod/edl/infra/sonarqube
+0        0        /prod/edl/infra/splists
+2.7 G    8.0 G    /prod/edl/infra/srmvar
+8.0 M    24.1 M   /prod/edl/infra/techtraining
+30.6 M   61.3 M   /prod/edl/infra/tidal
+3.6 G    10.8 G   /prod/edl/infra/tlmreliability
+102.3 G  275.4 G  /prod/edl/infra/trendmicro
+123.5 G  370.6 G  /prod/edl/infra/unstr
+395.3 G  1.2 T    /prod/edl/infra/vcops
+0        0        /prod/edl/infra/veracode
+0        0        /prod/edl/infra/vrm
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/md/
+30.3 G   90.9 G   /prod/edl/md/1mdr
+23.9 G   71.6 G   /prod/edl/md/addy
+156.3 G  468.8 G  /prod/edl/md/apos
+672.5 G  2.0 T    /prod/edl/md/cli1md
+2.1 T    6.4 T    /prod/edl/md/clsd
+17.9 T   53.6 T   /prod/edl/md/clsdia
+97.5 G   292.4 G  /prod/edl/md/core
+324.7 M  974.2 M  /prod/edl/md/crspln
+1.2 M    3.7 M    /prod/edl/md/mdse
+150.2 G  450.7 G  /prod/edl/md/onemd
+220.0 G  660.0 G  /prod/edl/md/ovfa
+5.3 T    15.8 T   /prod/edl/md/sptfr
+192.5 G  577.6 G  /prod/edl/md/vfcon
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/pharma/
+8.6 K    25.8 K  /prod/edl/pharma/align
+0        0       /prod/edl/pharma/paa
+13.8 M   41.5 M  /prod/edl/pharma/plcr
+645.5 M  1.9 G   /prod/edl/pharma/ppmo
+1.4 G    4.1 G   /prod/edl/pharma/rnd
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/rnd/
+3.6 T  10.9 T  /prod/edl/rnd/jedi
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/sc/
+2.3 T    7.0 T    /prod/edl/sc/b2b
+23.5 G   70.4 G   /prod/edl/sc/cmal
+5.2 T    15.5 T   /prod/edl/sc/consumer
+1.4 T    4.2 T    /prod/edl/sc/cts
+66.2 M   198.6 M  /prod/edl/sc/erica
+1.2 T    3.5 T    /prod/edl/sc/fda
+41.1 G   123.1 G  /prod/edl/sc/gbp
+13.5 T   40.2 T   /prod/edl/sc/gora
+3.2 T    9.5 T    /prod/edl/sc/md
+0        0        /prod/edl/sc/pharma
+0        0        /prod/edl/sc/sc360
+0        0        /prod/edl/sc/sce2e
+89.1 M   267.3 M  /prod/edl/sc/smbc
+5.7 G    17.0 G   /prod/edl/sc/smf
+937.7 G  2.7 T    /prod/edl/sc/transport
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/sc/transport
+937.7 G  2.7 T  /prod/edl/sc/transport/tdl
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/sc/consumer
+4.0 T  11.9 T  /prod/edl/sc/consumer/lpfg
+1.2 T  3.7 T   /prod/edl/sc/consumer/prjpro
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/sc/md
+1.1 T    3.4 T    /prod/edl/sc/md/atom
+1.7 M    5.2 M    /prod/edl/sc/md/dqts
+0        0        /prod/edl/sc/md/fprsc
+84.1 M   252.2 M  /prod/edl/sc/md/gdsn
+542.8 K  1.6 M    /prod/edl/sc/md/pdsda
+73.8 G   221.4 G  /prod/edl/sc/md/sadp
+1.9 T    5.8 T    /prod/edl/sc/md/sccsmd
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/sc/pharma/
+0  0  /prod/edl/sc/pharma/elims
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/sdl/
+0        0        /prod/edl/sdl/appcode
+895.2 G  2.5 T    /prod/edl/sdl/deliver
+0        0        /prod/edl/sdl/global
+570.4 G  1.7 T    /prod/edl/sdl/make
+829.9 G  2.4 T    /prod/edl/sdl/plan
+186.6 G  559.8 G  /prod/edl/sdl/qc
+162.8 G  482.5 G  /prod/edl/sdl/source
+0        0        /prod/edl/sdl/str
+[abaseerm@ITSUSRALSP08023 ~]$  hdfs dfs -du -h /prod/edl/sdl/deliver
+347.0 G  1.0 T  /prod/edl/sdl/deliver/con
+548.1 G  1.5 T  /prod/edl/sdl/deliver/md
+0        0      /prod/edl/sdl/deliver/pharma
+[abaseerm@ITSUSRALSP08023 ~]$   hdfs dfs -du -h /prod/edl/sdl/make
+16.9 G   50.7 G   /prod/edl/sdl/make/cmd
+13.8 G   41.5 G   /prod/edl/sdl/make/con
+442.2 G  1.3 T    /prod/edl/sdl/make/md
+97.5 G   292.3 G  /prod/edl/sdl/make/pharma
+[abaseerm@ITSUSRALSP08023 ~]$   hdfs dfs -du -h /prod/edl/sdl/plan
+0        0        /prod/edl/sdl/plan/cmd
+729.7 G  2.1 T    /prod/edl/sdl/plan/con
+100.2 G  271.9 G  /prod/edl/sdl/plan/md
+0        0        /prod/edl/sdl/plan/pharma
+[abaseerm@ITSUSRALSP08023 ~]$   hdfs dfs -du -h /prod/edl/sdl/qc
+182.7 G  548.0 G  /prod/edl/sdl/qc/cmd
+3.9 G    11.6 G   /prod/edl/sdl/qc/con
+67.0 M   201.1 M  /prod/edl/sdl/qc/md
+0        0        /prod/edl/sdl/qc/pharma
+[abaseerm@ITSUSRALSP08023 ~]$   hdfs dfs -du -h /prod/edl/sdl/source
+49.2 G   147.6 G  /prod/edl/sdl/source/con
+113.6 G  334.9 G  /prod/edl/sdl/source/md
+0        0        /prod/edl/sdl/source/pharma
+[abaseerm@ITSUSRALSP08023 ~]$   hdfs dfs -du -h /prod/edl/sdl/source/md
+113.6 G  334.9 G  /prod/edl/sdl/source/md/str
+[abaseerm@ITSUSRALSP08023 ~]$   hdfs dfs -du -h /prod/edl/sdl/str
+0  0  /prod/edl/sdl/str/sdl_core
+0  0  /prod/edl/sdl/str/sdl_stg
+0  0  /prod/edl/sdl/str/sdl_wrk
+[abaseerm@ITSUSRALSP08023 ~]$   hdfs dfs -du -h -s /prod/edl/infra/
+9.6 T  28.0 T  /prod/edl/infra

@@ -1,0 +1,124 @@
+
+
+
+ EDL Sandbox Servers (10)
+
+        itsusralsp07928
+	itsusralsp07929
+	itsusralsp07930
+	itsusralsp07931
+	itsusralsp07932
+	itsusralsp07948
+	itsusralsp08223
+	itsusralsp08224
+	itsusralsp08225
+	itsusralsp08353
+
+
+
+  EDL Dev Servers (25)
+
+	itsusralsp06003
+	itsusralsp06004
+	itsusralsp06005
+	itsusralsp07168
+	itsusralsp07169
+	itsusralsp07170
+	itsusralsp07181
+	itsusralsp07182
+	itsusralsp07552
+	itsusralsp07553
+	itsusralsp07554
+	itsusralsp07805
+	itsusralsp07806
+	itsusralsp07807
+	itsusralsp07808
+	itsusralsp07809
+	itsusralsp07810
+	itsusralsp07811
+	itsusralsp07812
+	itsusralsp07813
+	itsusralsp07814
+	itsusralsp07838
+	itsusralsp07884
+	itsusralsp07885
+	itsusralsp07886
+
+
+
+
+   EDL QA Servers (20)
+ 
+	itsusralsp07549
+	itsusralsp07550
+	itsusralsp07551
+	itsusralsp07749
+	itsusralsp07750
+	itsusralsp07756
+	itsusralsp07935
+	itsusralsp07936
+	itsusralsp07937
+	itsusralsp07938
+	itsusralsp07939
+	itsusralsp07940
+	itsusralsp07941
+	itsusralsp07942
+	itsusralsp07943
+	itsusralsp07944
+	itsusralsp07945
+	itsusralsp07955
+	itsusralsp07956
+	itsusralsp07965
+
+
+
+
+  EDL Prod Servers (41)
+
+	itsusralsp07546
+	itsusralsp07547
+	itsusralsp07548
+	itsusralsp07746
+	itsusralsp07747
+	itsusralsp07748
+	itsusralsp07966
+	itsusralsp07967
+	itsusralsp07968
+	itsusralsp07969
+	itsusralsp07970
+	itsusralsp07971
+	itsusralsp07973
+	itsusralsp07974
+	itsusralsp07975
+	itsusralsp07976
+	itsusralsp07977
+	itsusralsp07978
+	itsusralsp07979
+	itsusralsp07980
+	itsusralsp07981
+	itsusralsp07982
+	itsusralsp07983
+	itsusralsp07984
+	itsusralsp07985
+	itsusralsp07986
+	itsusralsp07987
+	itsusralsp07988
+	itsusralsp07989
+	itsusralsp07990
+	itsusralsp07991
+	itsusralsp08022
+	itsusralsp08023
+	itsusralsp08024
+	itsusralsp08025
+	itsusralsp08026
+	itsusralsp08027
+	itsusralsp08028
+	itsusralsp08030
+	itsusralsp08199
+	itsusralsp08202
+
+
+
+
+
+

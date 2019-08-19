@@ -1,0 +1,32 @@
+Mysql in master node01:
+
+Downloaded mysql57-community-release-el7-10.noarch.rpm from https://dev.mysql.com/downloads/repo/yum/
+rpm -ivh mysql57-community-release-el7-10.noarch.rpm
+yum install mysql-community-server
+systemctl start mysqld.service
+systemctl status mysqld.service
+
+systemctl restart mysqld.service
+
+#-> systemctl status mysqld.service
+? mysqld.service - MySQL Server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2017-04-17 15:39:54 EDT; 2min 8s ago
+     Docs: man:mysqld(8)
+           http://dev.mysql.com/doc/refman/en/using-systemd.html
+  Process: 47203 ExecStart=/usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mysqld.pid $MYSQLD_OPTS (code=exited, status=0/SUCCESS)
+  Process: 47117 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)
+Main PID: 47205 (mysqld)
+   CGroup: /system.slice/mysqld.service
+           +-47205 /usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mysqld.pid
+
+Apr 17 15:39:48 awsayanva1134 systemd[1]: Starting MySQL Server...
+Apr 17 15:39:54 awsayanva1134 systemd[1]: Started MySQL Server.
+
+
+#-> grep 'temporary password' /var/log/mysqld.log
+2017-04-17T19:39:50.422691Z 1 [Note] A temporary password is generated for root@localhost: lqosuzilm3_Y
+
+----
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Newpassword;

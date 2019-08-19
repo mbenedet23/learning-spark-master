@@ -1,0 +1,10 @@
+Linux - Existing and New installations:
+
+ 
+
+Login to system that will be used as Chef Development Workstation
+Change to elevated (root) access -  sudo su -
+Change folder /tmp  - cd /tmp
+Download the workstation setup script - curl -O https://s3.amazonaws.com/jnj-vpcx-scm/packages/chef/jnj_chef_workstation_setup.sh
+Execute the script and follow the interactive menu  -  /bin/bash jnj_chef_workstation_setup.sh
+Exit from elevated (root) access and change folder to SourceCode folder created in users home drive:  exit and cd /home/USER/SourceCode

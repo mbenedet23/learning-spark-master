@@ -1,0 +1,3 @@
+This is a major issue and is slowing down the impala cluster in its entirety. There is a table which leapfrog writes into: lpfg_wrk.PPA_SQOOP_LOG_TABLE. For some reason, it keeps inserting single rows of sqoop logs in them. The table is just 200MB but has 53 thousands files in it. Whenever an impala daemon starts running this query, it slows down which in turn slows down other projects using this same impala daemon. 
+
+I doubt this table is of much use but please confirm. We need to delete this or relocate the data into a different folder immediately. This is causing a big negative impact on the PROD EDL cluster. The support / application team needs to immediately change scripts and stop doing this. 
