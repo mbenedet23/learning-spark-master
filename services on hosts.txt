@@ -1,0 +1,38 @@
+[?5/?2/?2019 6:20 PM]  Ketineni, Madhu [GTSUS NON-J&J]:  
+
+Hbase
+Region server - ALL DNS (778, 792, 793, 776)
+Hbase Rest -  773
+Hbase Thrift - 796
+Hbase Master - 796, 773 (both namenodes)
+Hbase Gateway - 795 (edge node) 
+Hive
+Hive Gateway - ALL Nodes
+Hive Store Metaserver - 777
+Hive Server 2 - 773, 796
+WebHCatalog server - 796
+Hue - 774, 
+Impala
+Oozie
+Sentry
+Solr
+Spark
+Sqoop 1client
+Yarn
+Jobhistory server - 777
+Node manager- all Data Nodes
+RM - 796, 773
+Gateway-  778, 792, 793, 776, 795
+Zookeeper
+796, 773,777
+HDFS
+Namenode: 796 
+second NN- 773
+Balancer - 773
+Httpfs - 796
+Nfs gateway - 795
+Datanode - 778, 792, 793, 776
+Yarn Gateway -  
+ 
+----------------------------------------------------
+

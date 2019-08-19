@@ -1,0 +1,60 @@
+[root@ITSUSRALSP08795:/var/lib]#
+#-> du -hs /var/lib/sdc/data/* | sort -rh | head -5
+2.9G    /var/lib/sdc/data/runInfo
+2.4M    /var/lib/sdc/data/pipelines
+8.0K    /var/lib/sdc/data/blobstore
+4.0K    /var/lib/sdc/data/stats.json-old
+4.0K    /var/lib/sdc/data/sdc.id
+[root@ITSUSRALSP08795:/var/lib]#
+#-> du -hs /var/lib/sdc/data/runInfo/* | sort -rh | head -5
+1.7G    /var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70
+581M    /var/lib/sdc/data/runInfo/aaPhaedraAPIBeerseWellRawDataCellPaintingcopy9df65102-0d7a-4e62-a19c-4cd9a09de068
+462M    /var/lib/sdc/data/runInfo/TestAMREMPOWER3cIEFdatanKuduTables33be754d-fa70-4d68-aebb-a64f1a3a2b91
+157M    /var/lib/sdc/data/runInfo/PhaedraAPIBeerseValidatedPlates02f88562-20b0-4b14-a302-2cb59449f9ed
+17M     /var/lib/sdc/data/runInfo/PhaedraAPIcopy983ac629-bd0e-4532-be91-4cddb0e7043c
+[root@ITSUSRALSP08795:/var/lib]#
+#-> du -hs /var/lib/sdc/data/runInfo/PhaedraAPIBeerseP | sort -rh | head -5
+PhaedraAPIBeersePlate3f824069-4b86-4596-bf87-aa804123799b/
+PhaedraAPIBeersePlateWellProperties5840d93b-7b5f-48f6-9b2c-5a7ff73a9a8a/
+PhaedraAPIBeersePlateWellPropertiesCellPaintingd4fcd8a2-6ec6-44b5-92cc-59ac5dcd482d/
+PhaedraAPIBeerseProtocolClass32815cc5-abcd-4c56-ac8d-b86a7b78839a/
+PhaedraAPIBeerseProtocolClass99543c64-2112-446c-b864-6ab68d0b943a/
+PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70/
+PhaedraAPIBeerseProtocols5290da1a-f9f7-4562-9556-1c4981ca47fb/
+[root@ITSUSRALSP08795:/var/lib]#
+#-> du -hs /var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70 | sort -rh | head -5
+1.7G    /var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70
+[root@ITSUSRALSP08795:/var/lib]#
+#-> cd /var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70
+[root@ITSUSRALSP08795:/var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70]#
+#-> ll
+total 4
+drwxr-xr-x 3 sdc sdc 4096 Jul 16 15:07 0
+[root@ITSUSRALSP08795:/var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70]#
+#-> cd 0
+[root@ITSUSRALSP08795:/var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70/0]#
+#-> ll
+total 16
+-rw-r--r-- 1 sdc sdc   38 Jul 16 11:18 offset.json
+-rw-r--r-- 1 sdc sdc 4077 Jul 16 15:07 pipelineStateHistory.json
+-rw-r--r-- 1 sdc sdc  484 Jul 16 15:07 pipelineState.json
+drwxr-xr-x 3 sdc sdc 4096 Jul 16 11:23 snapshots
+[root@ITSUSRALSP08795:/var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70/0]#
+#-> cd snapshots/
+[root@ITSUSRALSP08795:/var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70/0/snapshots]#
+#-> ll
+total 4
+drwxr-xr-x 2 sdc sdc 4096 Jul 16 11:23 Failure_ab229dc8-1a8d-476f-ae26-76508f224f82
+[root@ITSUSRALSP08795:/var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70/0/snapshots]#
+#-> cd Failure_ab229dc8-1a8d-476f-ae26-76508f224f82/
+[root@ITSUSRALSP08795:/var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70/0/snapshots/Failure_ab229dc8-1a8d-476f-ae26-76508f224f82]#
+#-> ll
+total 1679740
+-rw-r--r-- 1 sdc sdc        326 Jul 16 11:23 info.json
+-rw-r--r-- 1 sdc sdc 1718366208 Jul 16 11:26 snapshot.json-tmp
+[root@ITSUSRALSP08795:/var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70/0/snapshots/Failure_ab229dc8-1a8d-476f-ae26-76508f224f82]#
+#-> ll -h
+total 1.7G
+-rw-r--r-- 1 sdc sdc  326 Jul 16 11:23 info.json
+-rw-r--r-- 1 sdc sdc 1.7G Jul 16 11:26 snapshot.json-tmp
+[root@ITSUSRALSP08795:/var/lib/sdc/data/runInfo/PhaedraAPIBeerseProtocolClasscopybb4610ab-0abd-408f-a51b-0a56840bfb70/0/snapshots/Failure_ab229dc8-1a8d-476f-ae26-76508f224f82]#

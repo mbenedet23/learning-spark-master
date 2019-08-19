@@ -1,0 +1,42 @@
+2019-05-01 12:15:24,876 INFO CommandPusher:com.cloudera.cmf.service.AbstractDbConnectionTestCommand: + '[' dumpdata = is_db_alive ']'
++ '[' syncdb = is_db_alive ']'
++ '[' ldaptest = is_db_alive ']'
++ exec /opt/cloudera/parcels/CDH-6.2.0-1.cdh6.2.0.p0.967373/lib/hue/build/env/bin/hue is_db_alive
+Traceback (most recent call last):
+  File "/opt/cloudera/parcels/CDH-6.2.0-1.cdh6.2.0.p0.967373/lib/hue/build/env/bin/hue", line 9, in <module>
+    from pkg_resources import load_entry_point
+  File "/opt/cloudera/parcels/CDH-6.2.0-1.cdh6.2.0.p0.967373/lib/hue/build/env/lib/python2.7/site-packages/pkg_resources/__init__.py", line 3191, in <m
+odule>
+    @_call_aside
+  File "/opt/cloudera/parcels/CDH-6.2.0-1.cdh6.2.0.p0.967373/lib/hue/build/env/lib/python2.7/site-packages/pkg_resources/__init__.py", line 3175, in _c
+all_aside
+    f(*args, **kwargs)
+  File "/opt/cloudera/parcels/CDH-6.2.0-1.cdh6.2.0.p0.967373/lib/hue/build/env/lib/python2.7/site-packages/pkg_resources/__init__.py", line 3204, in _i
+nitialize_master_working_set
+    working_set = WorkingSet._build_master()
+  File "/opt/cloudera/parcels/CDH-6.2.0-1.cdh6.2.0.p0.967373/lib/hue/build/env/lib/python2.7/site-packages/pkg_resources/__init__.py", line 574, in _bu
+ild_master
+    ws = cls()
+  File "/opt/cloudera/parcels/CDH-6.2.0-1.cdh6.2.0.p0.967373/lib/hue/build/env/lib/python2.7/site-packages/pkg_resources/__init__.py", line 567, in __i
+nit__
+    self.add_entry(entry)
+  File "/opt/cloudera/parcels/CDH-6.2.0-1.cdh6.2.0.p0.967373/lib/hue/build/env/lib/python2.7/site-packages/pkg_resources/__init__.py", line 623, in add
+_entry
+    for dist in find_distributions(entry, True):
+  File "/opt/cloudera/parcels/CDH-6.2.0-1.cdh6.2.0.p0.967373/lib/hue/build/env/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2033, in fi
+nd_on_path
+    for dist in factory(fullpath):
+  File "/opt/cloudera/parcels/CDH-6.2.0-1.cdh6.2.0.p0.967373/lib/hue/build/env/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2095, in di
+stributions_from_metadata
+    if len(os.listdir(path)) == 0:
+OSError: [Errno 13] Permission denied: '/usr/lib/python2.7/site-packages/wheel-0.33.1.dist-info'
+
+2019-05-01 12:15:24,876 ERROR CommandPusher:com.cloudera.cmf.model.DbCommand: Command 105(HueTestDatabaseConnection) has completed. finalstate:FINISHED
+, success:false, msg:Unexpected error. Unable to verify database connection.
+2019-05-01 12:15:25,724 WARN avro-servlet-hb-processor-7:com.cloudera.server.cmf.AgentProtocolImpl: Received Process Heartbeat for unknown (or duplicat
+e) process. Ignoring. This is expected to happen once after old process eviction or process deletion (as happens in restarts). id=54 name=null host=1ee
+3b4c0-40d3-4c64-acef-1b20d7edac04/itsusralsp08777.jnj.com
+2019-05-01 12:15:26,096 INFO scm-web-504:com.cloudera.enterprise.JavaMelodyFacade: Entering HTTP Operation: Method:POST, Path:/dbTestConn/checkConnecti
+onResult
+2019-05-01 12:15:26,103 INFO scm-web-504:com.cloudera.enterprise.JavaMelodyFacade: Exiting HTTP Operation: Method:POST, Path:/dbTestConn/checkConnectio
+nResult, Status:200

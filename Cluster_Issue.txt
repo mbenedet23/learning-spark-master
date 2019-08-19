@@ -1,0 +1,20 @@
++ /usr/java/jdk1.8.0_181/bin/java -Djava.net.preferIPv4Stack=true -cp '/opt/cloudera/cm/lib/*:/usr/share/java/mysql-connector-java.jar:/opt/cloudera/cm/lib/postgresql-42.1.4.jre7.jar:/usr/share/java/oracle-connector-java.jar' com.cloudera.cmf.service.hive.HiveMetastoreDbUtil /var/run/cloudera-scm-agent/process/203-hive-metastore-create-tables/metastore_db_py.properties unused --printTableCount
+Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: com.mysql.jdbc.Driver
+        at com.cloudera.cmf.service.hive.HiveMetastoreDbUtil.countTables(HiveMetastoreDbUtil.java:203)
+        at com.cloudera.cmf.service.hive.HiveMetastoreDbUtil.printTableCount(HiveMetastoreDbUtil.java:284)
+        at com.cloudera.cmf.service.hive.HiveMetastoreDbUtil.main(HiveMetastoreDbUtil.java:334)
+Caused by: java.lang.ClassNotFoundException: com.mysql.jdbc.Driver
+        at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+        at java.lang.Class.forName0(Native Method)
+        at java.lang.Class.forName(Class.java:264)
+        at com.cloudera.enterprise.dbutil.SqlRunner.open(SqlRunner.java:180)
+        at com.cloudera.enterprise.dbutil.SqlRunner.getDatabaseName(SqlRunner.java:264)
+        at com.cloudera.cmf.service.hive.HiveMetastoreDbUtil.countTables(HiveMetastoreDbUtil.java:197)
+        ... 2 more
++ NUM_TABLES='[                          main] SqlRunner                      ERROR Unable to find the MySQL JDBC driver. Please make sure that you have installed it as per instruction in the installation guide.'
++ [[ 1 -ne 0 ]]
++ echo 'Failed to count existing tables.'
++ exit 1

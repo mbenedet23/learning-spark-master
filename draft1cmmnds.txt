@@ -1,0 +1,47 @@
+root@ITSUSRALSP08774:/var/log]#
+#-> ls -l /var/log/cloudera-scm-
+cloudera-scm-agent/          cloudera-scm-eventserver/    cloudera-scm-headlamp/       cloudera-scm-server/
+cloudera-scm-alertpublisher/ cloudera-scm-firehose/       cloudera-scm-navigator/
+[root@ITSUSRALSP08774:/var/log]#
+#-> mv cloudera-scm-eventserver /apps/log/.
+
+ln -s /apps/lib /var/lib
+ln -s /apps/log /var/log
+
+
+mv /var/lib/zookeeper /apps/var/lib/.
+ln -s /apps/var/lib/zookeeper /var/lib/zookeeper
+
+mv /var/log/zookeeper /apps/log/.
+ln -s /apps/log/zookeeper /var/log/zookeeper
+
+
+unlink /var/lib
+unlink /var/log
+
+ls -l /apps/lib
+ls -l /apps/log
+
+
+cd /var/lib
+unlink lib
+
+cd /var/log
+unlink log
+
+
+796 transfer on all other
+
+hdfs keytsotre
+
+[root@ITSUSRALSP08796:/opt/cloudera/security/jks]#
+#-> ll
+total 148
+-rwxrwxr-x 1 root         root           5129 May  6 14:59 hdfs.keystore
+-rwxrwxr-x 1 root         root           5129 May  6 15:01 httpfs.keystore
+-rwxrwxr-x 1 cloudera-scm cloudera-scm   5129 Apr 23 16:46 server.keystore
+-rwxrwxr-x 1 root         root         120116 May  6 14:30 truststore.jks
+[root@ITSUSRALSP08796:/opt/cloudera/security/jks]# 
+
+
+*ITSRNDDEV*

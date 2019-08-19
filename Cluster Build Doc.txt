@@ -1,0 +1,258 @@
+
+Cluster Build Doc:
+
+
+1. Create symlink
+2. install java
+3. place the cloudera.repo on all nodes (6.2)
+4. install krb5-workstation and krb5-libs.
+5. install CM server and CM Agent
+6. install mysql
+7. install jdbc driver
+8. create the databases required for the Cloudera Manager in MySQL
+9. Certs gerneration - Refer SSL Certs generation document of Avinash.
+
+-------------------------------------------------
+
+# Symlink (1)
+mkdir -p /apps/opt/cloudera
+ln -s /apps/opt/cloudera/ /opt/cloudera
+
+# install Java (2)
+mkdir /apps/java
+cd /usr
+ln -s /apps/java /usr/java
+cp /home/asingh57/jdk-8u74-linux-x64.tar.gz /apps/java/.
+cd /usr/java
+tar -xvzf jdk-8u74-linux-x64.tar.gz
+cd /usr/java/jdk1.8.0_74/
+alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_74/bin/java 2
+java -version
+cd ..
+chown root:root jdk-8u74-linux-x64.tar.gz
+chown -R root:root jdk1.8.0_74
+ln -s /apps/java/jdk1.8.0_74/ /usr/java/latest
+ls -al 
+java -version 
+
+
+Step 3 : 
+wget https://archive.cloudera.com/cm6/6.2.0/redhat7/yum/cloudera-manager.repo
+
+
+step 4 : 
+yum install krb5-workstation
+
+yum install krb5-libs  
+
+
+step 5 : 
+y
+yum install cloudera-manager-agent
+yum install cloudera-manager-server
+
+
+Step 6 : 
+
+Go to Mysql node : and place below files in ur home direcory: 
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz 
+ 
+wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm 
+ 
+
+rpm -ivh mysql-community-release-el7-5.noarch.rpm
+
+yum update 
+
+yum install mysql-server 
+----------------------------------------------------------------------
+
+ln -s /var/lib/mysql to /apps/mysql
+
+ln -s /apps/mysql  /var/lib/mysql
+
+
+Bring back deafult my.cnf
+
+All read permssion
+
+Start mysql 
+/usr/bin/mysql_secure_installation 
+Blank
+Set root password
+Cloudera@6
+Remove anaymous users yes
+Everything yes
+
+===============================mysql setup ====================
+
+install mysql
+create symlink for /var/lib/mysql to /app/mysql
+chown mysql:mysql
+chmod 775 -R /app/mysql
+create dir /apps/mysql_tmp
+chown mysql:mysql
+chmod 775 -R /apps/mysql_tmp
+start mysql
+stop mysql
+Move old InnoDB log files /var/lib/mysql/ib_logfile0 and /var/lib/mysql/ib_logfile1 out of /var/lib/mysql/ to a backup location.
+copy /etc/my.cnf from DEV
+run secure mysql
+restart mysql
+
+
+
+-----------------------------------------------------
+rpm -ivh mysql-community-release-el7-5.noarch.rpm
+   11  yum update yum
+   12  yum update
+   13  yum install mysql-server
+   14  history
+[root@ITSUSRALSP08777:/home/asingh57
+---------------------------------------------------------------------------
+
+step - 7
+
+installing jdbc driver :
+
+tar zxvf mysql-connector-java-5.1.46.tar.gz
+mkdir /usr/share/java/
+cd mysql-connector-java-5.1.46
+cp mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar
+chmod 755 /usr/share/java/mysql-connector-java.jar 
+
+
+------------------------------------------------------------------------------
+
+Step - 8 :
+
+-- Create the databases required for the Cloudera Manager in MySQL
+
+create database scm DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on scm.* TO 'scm'@'%' IDENTIFIED BY 'scm_ClouderaEDL_6';
+
+create database amon DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on amon.* TO 'amon'@'%' IDENTIFIED BY 'amon_ClouderaEDL_6';
+
+create database rman DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+grant all on rman.* TO 'rman'@'%' IDENTIFIED BY 'rman_ClouderaEDL_6';
+
+create database nav DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on nav.* TO 'nav'@'%' IDENTIFIED BY 'nav_ClouderaEDL_6';
+
+create database metastore DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on metastore.* TO 'hive'@'%' IDENTIFIED BY 'metastore_ClouderaEDL_6';
+
+create database sentry DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on sentry.* TO 'sentry'@'%' IDENTIFIED BY 'sentry_ClouderaEDL_6';
+
+create database navms DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on navms.* TO 'navms'@'%' IDENTIFIED BY 'navms_ClouderaEDL_6';
+
+create database hue DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on hue.* to 'hue'@'%' identified by 'hue_ClouderaEDL_6';
+
+create database oozie DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+grant all on oozie.* to 'oozie'@'%' identified by 'oozie_ClouderaEDL_6';
+
+-- Run the script to create the tables required for CM
+-- This command needs to be run from the Cloudera Manager Server
+-- we need to install the MySQL JDBC driver on the CM server node. Use the below commands to install on the CM server node. 
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz
+tar zxvf mysql-connector-java-5.1.46.tar.gz
+mkdir -p /usr/share/java/
+cd mysql-connector-java-5.1.46
+cp mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar
+chmod 755 -R /usr/share/java
+-- Copy the /etc/cloudera-scm-server/db.properties from the DEV server and change the connection options to the mysql server. 
+EXAMPLE:
+
+#-> cat /etc/cloudera-scm-server/db.properties
+# Auto-generated by scm_prepare_database.sh on Mon Apr 29 23:15:09 EDT 2019
+#
+# For information describing how to configure the Cloudera Manager Server
+# to connect to databases, see the "Cloudera Manager Installation Guide."
+#
+com.cloudera.cmf.db.type=mysql
+com.cloudera.cmf.db.host=ITSUSRALSP08777.jnj.com   <----------- change this hostname to the Mysql hostname
+com.cloudera.cmf.db.name=scm
+com.cloudera.cmf.db.user=scm
+com.cloudera.cmf.db.setupType=EXTERNAL
+com.cloudera.cmf.db.password=scm_ClouderaEDL_6
+[root@ITSUSRALSP08774:/usr/share]#
+
+-----------------------------------
+-- Now run the below command on the Cloudera manager server to create the tables in the scm database. this script will run
+-- from cloudera scm server and connect to the mysql server using the db.properties
+
+/opt/cloudera/cm/schema/scm_prepare_database.sh -h ITSUSRALSP08777.jnj.com  mysql scm scm scm_ClouderaEDL_6
+
+--Make sure all the Cloudera manager agent config.ini files are pointing to the right cloudera manager server
+-- verify whether the certificates mentioned in the config.ini file for cloudera mangaer agent is right
+
+=============================
+
+JCE - 
+
+-- Install JCE
+-- download, unzip and upload the US_export_policy.jar files to all the servers from https://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
+cp /home/asingh57/US_export_policy.jar /apps/java/jdk1.8.0_181/jre/lib/security/US_export_policy.jar
+cp /home/asingh57/local_policy.jar /apps/java/jdk1.8.0_181/jre/lib/security/local_policy.jar
+chmod 775 /apps/java/jdk1.8.0_181/jre/lib/security/US_export_policy.jar
+chmod 775 /apps/java/jdk1.8.0_181/jre/lib/security/local_policy.jar
+
+
+
+cp /home/asingh57/jdk-8u181-linux-x64.tar.gz /usr/java/
+cd /usr/java/
+tar -xvf jdk-8u181-linux-x64.tar.gz
+chmod -R 775 /apps/java
+chmod -R 775 /usr/java/jdk1.8.0_181
+ln -s /apps/java/jdk1.8.0_181/ /usr/java/latest
+ln -s /apps/java/jdk1.8.0_181/ /usr/java/default
+alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_181/bin/java 2
+update-alternatives --config java 
+
+
+
+
+export JAVA_HOME="/usr/java/latest"
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+CM is up and running, working on CDH install and security setup.
+Updated Java version in all nodes.
+Created databases required for the Cloudera Manager in Mysql.
+
+
+
+===========================hbase
+
+  187  hdfs dfs -ls /
+  188  hdfs dfs -mkdir /hbase
+  189  hdfs dfs -chown hbase:hbase /hbase
+  190  hdfs dfs -ls /
+  191  hdfs dfs -chmod 700 /hbase
+  192  hdfs dfs -ls /
+
+
+
+==========================
+
+ainstall mysql
+create symlink for /var/lib/mysql to /app/mysql
+chown mysql:mysql
+chmod 775 -R /app/mysql
+create dir /apps/mysql_tmp
+chown mysql:mysql
+chmod 775 -R /apps/mysql_tmp
+start mysql
+stop mysql
+Move old InnoDB log files /var/lib/mysql/ib_logfile0 and /var/lib/mysql/ib_logfile1 out of /var/lib/mysql/ to a backup location.
+copy /etc/my.cnf from DEV
+run secure mysql
+restart mysql

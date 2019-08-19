@@ -1,0 +1,170 @@
+
+
+
+[ req ]
+default_bits       = 2048
+distinguished_name = req_distinguished_name
+req_extensions     = req_ext
+[ req_distinguished_name ]
+countryName                 = US
+stateOrProvinceName         = NJ
+localityName                = RARITAN
+organizationName            = JNJ
+commonName                  = ITSUSRALSP08793
+[ req_ext ]
+subjectAltName = @alt_names
+[alt_names]
+DNS.1   = ITSUSRALSP08793
+DNS.2   = ITSUSRALSP08793.jnj.com
+DNS.3   = ITSUSRALSP08793.jnj.com
+
+
+
+openssl req -new -newkey rsa:2048 -nodes -out ITSUSRALSP08793_jnj_com.txt -keyout ITSUSRALSP08793_jnj_com.key -subj "/C=US/ST=NJ/L=Raritan/O=JNJ/OU=EDL/CN=ITSUSRALSP08793.jnj.com" -config /home/abaseerm/793_cert/openssl.conf
+
+
+
+openssl pkcs7 -in 665EDBC1E2A5E7F7112E134ACF6E64B1.p7b -inform DER -print_certs -out ITSUSRALSP08793.pem
+
+
+cp ITSUSRALSP08793_jnj_com.key /opt/cloudera/security/x509/server.key
+cp ITSUSRALSP08793.pem /opt/cloudera/security/x509/server.pem
+
+
+
+chmod 751 /opt/cloudera/security
+chown root:root /opt/cloudera/security
+
+
+chmod 644  combinedtrust_chrome.pem
+chmod 644  combinedtrust.pem
+
+chmod 444 ldapcertsha2.pem
+
+chmod 440 server.key
+chmod 440  serverkey.pw
+chmod 444 server.pem
+
+
+/opt/cloudera/security/jks
+
+chmod 666 server.keystore
+chown cloudera-scm:cloudera-scm server.keystore
+
+chmod 644 truststore.jks
+
+
+
+   
+cd /opt/cloudera/security
+cd CAcerts
+chmod 644  combinedtrust.pem
+
+
+
+0. Get preapproved root access to all the nodes in the cluster using link https://myapps.psso.its.jnj.com/myapps/
+ Process request category: Elevated Permissions
+ Select 'Exercise Pre-Approved Resource Access'
+ Account type: Primary
+ Select each node one by one and 
+ Reason for request: To install CDH
+ Submit the request
+ You should get access in the next 15 mins. It is pre-approved.
+
+1.Create a script file named runall.sh. Paste these contents. Do this user root user
+
+#!/bin/bash
+CMD=$1
+# Read hosts from file.declare -a hosts
+readarray -t hosts < hosts.txt
+let i=0
+while (( ${#hosts[@]} > i )); do
+HOST="${hosts[i++]}"
+ssh -q $HOST "$CMD" 
+done
+
+2. Create a hosts.txt file which will have all the host names in the cluster. Do this using root user.
+itsusmpl00509.jnj.com
+itsusmpl00510.jnj.com
+itsusmpl00511.jnj.com
+itsusmpl00645.jnj.com
+
+3. Login as root and go into the .ssh folder and give this command
+
+cd .ssh
+ssh-keygen -t rsa -b 2048 
+cp id_rsa.pub /home/pthomas1
+
+3.1 Logout of root use the below scp command using your own user id.
+
+4. Once the id_rsa.pub file is generated. Copy it into the other nodes in the cluster. 
+First copy the file into your working directory and then move it into the root ssh dir.
+
+scp /home/pthomas1/id_rsa.pub itsusmpl00510.jnj.com:.
+scp /home/pthomas1/id_rsa.pub itsusmpl00511.jnj.com:.
+scp /home/pthomas1/id_rsa.pub itsusmpl00645.jnj.com:.
+
+5. Then put these files in /root/.ssh in each of the nodes
+
+mv /home/pthomas1/id_rsa.pub /root/.ssh/.
+
+6. Copy the key into the authorized_keys file in /root/.ssh in each node. The key will be in the pub file which was scp'ed from node 509 earlier.
+
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+7. /etc/ssh/sshd_config needs to be modified to enable root login without the password.
+
+vi /etc/ssh/sshd_config
+make the below changes 
+
+PermitRootLogin without-password
+
+8. ssh deamon needs to be restarted
+
+
+
+service sshd restart
+cd ..
+cd jks/
+chmod 666 server.keystore
+chown cloudera-scm:cloudera-scm server.keystore
+cd ..
+cd x509/
+chmod 440 server.key
+chmod 440  serverkey.pw
+chmod 444 server.pem
+   
+cp /home/abaseerm/id_rsa.pub /root/.ssh/.
+
+ history
+
+chmod 444 sdc.keystore
+chown sdc:sdc sdc.keystore
+
+
+rm id_rsa.pub
+
+ls -l .
+
+
+ln -s /apps/java /usr/java
+
+
+ln -s /var/lib/ /apps/lib
+ln -s /var/log /apps/log
+
+
+
+
+4.	Create symlinks for all /var/lib/ and /var/log folders related to the cluster to /apps/lib and /apps/log
+
+
+
+chown mysql:mysql /var/lib/mysql
+chmod 700 /var/lib/mysql
+chkconfig --level 345 mysql on
+service mysqld start
+
+touch /var/lib/mysql/mysql.sockchown mysql:mysql /var/lib/mysql/mysql.sockchmod 4777 /var/lib/mysql/mysql.sock
+
+systemctl enable mysqld

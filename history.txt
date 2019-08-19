@@ -1,0 +1,106 @@
+[root@ITSUSRALSP08796:/usr/lib/python2.7/site-packages]#
+#-> history
+    1  cd /usr/lib/python2.7/site-packages/
+    2  ll
+    3  chmod 755 -R virtualenv-16.4.3.dist-info
+    4  chmod 755 -R virtualenv_support
+    5  history
+--------------------
+
+[root@ITSUSRALSP08773:/data]#
+#-> history
+    1  java -version
+    2  cd /data/data01/dfs/
+    3  cd /data/data01
+    4  ll
+    5  cd dfs
+    6  ll
+    7  pwd
+    8  cd ../..
+    9  pwd
+   10  lsb_release
+   11  lsb-release
+   12  lsb_release
+   13  lsb_release -a
+   14  ln -s /apps/lib 
+   15  ln -s /apps/log /var/log
+unlink /var/lib
+   16  history
+
+-------------------------------
+[root@ITSUSRALSP08777:/root]#
+#-> history
+    1  java -version
+    2  ln -s /apps/lib /var/lib
+    3  ln -s /apps/log /var/log
+    4  history
+-----------------------------------
+
+[root@ITSUSRALSP08795:/root]#
+#-> history
+    1  java -version
+    2  ln -s /apps/lib /var/lib
+    3  ln -s /apps/log /var/log
+    4  history
+
+--------------------------
+
+
+#-> history
+    1  java -version
+    2  ln -s /apps/lib /var/lib
+    3  ln -s /apps/log /var/log
+    4  history
+---------------
+
+[root@ITSUSRALSP08778:/root]#
+#-> history
+    1  java -version
+    2  ln -s /apps/lib /var/lib
+    3  ln -s /apps/log /var/log
+    4  history
+
+----------------
+
+[root@ITSUSRALSP08792:/root]#
+#-> history
+    1  java -version
+    2  ln -s /apps/lib /var/lib
+    3  ln -s /apps/log /var/log
+    4  history
+
+---------------------
+
+#-> history
+    1  java -version
+    2  ln -s /apps/lib /var/lib
+    3  ln -s /apps/log /var/log
+    4  cd /var
+    5  ll
+    6  ln -s /apps/lib /var/lib/
+    7  ln -s /apps/lib /var/lib
+    8  cd var
+    9  cd lib
+   10  ll
+   11  rm -rf lib
+   12  ln -s /apps/lib /var/lib
+   13  ll
+   14  rm -rf lib
+   15  ll
+   16  cd /apps/lib
+   17  history
+
+------------------
+drwx------   2 root root   4096 Mar 13 02:44 virtualenv_support
+drwxrwxr-x   3 root root   4096 Mar 13 02:44 wheel
+drwxrwxr-x   2 root root   4096 May  3 17:52 wheel-0.33.1.dist-info
+drwx------   2 root root   4096 Mar 13 02:44 virtualenv-16.4.3.dist-info
+
+cd /usr/lib/python2.7/site-packages
+chmod 755 -R pip*
+chmod 755 -R virtualenv_support
+chmod 755 -R wheel
+chmod 755 -R wheel-0.33.1.dist-info
+chmod 755 -R virtualenv-16.4.3.dist-info
+
+
