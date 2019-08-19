@@ -1,0 +1,48 @@
+-----------------------------------------------------------------
+--- 			Creating a Kudu table in Impala 			---
+-----------------------------------------------------------------
+
+CREATE TABLE cldt_core.kudu_testing
+(
+aer_id	decimal(12,0),
+seq_narrative	decimal(12,0),
+field_id	decimal(6,0),
+record_id	decimal(16,0),
+user_id	string,
+date_created	timestamp,
+date_modified	timestamp,
+narrative_native_language	string,
+PRIMARY KEY(aer_id,seq_narrative,field_id)
+)
+PARTITION BY HASH PARTITIONS 2
+STORED AS KUDU
+TBLPROPERTIES ('kudu.num_tablet_replicas' = '1')
+;
+
+-----------------------------------------------------------------
+--- 				Launching Spark - Shell					---
+-----------------------------------------------------------------
+
+spark2-shell \
+--jars /home/akonda1/jars/kudu-spark2_2.11-1.7.0.jar \
+--driver-class-path  /home/akonda1/jars/kudu-spark2_2.11-1.7.0.jar \
+--conf spark.ui.port=5453
+
+-----------------------------------------------------------------
+--- 				Spark - Shell Commands					---
+-----------------------------------------------------------------
+
+
+import org.apache.kudu.spark.kudu._
+
+val kuduContext =  new KuduContext("itsusralsp07168.jnj.com:7051", spark.sparkContext)
+
+val kuduTable = "impala::cldt_core.kudu_testing"
+
+val kuduDF = spark.sqlContext.read.options(Map("kudu.master" -> "itsusralsp07168.jnj.com:7051", "kudu.table" -> kuduTable)).kudu
+
+val df = spark.read.table("cldt_wrk.aer_narrative")
+val HDFSdf = df.drop("etl_day").drop("etl_month").drop("etl_year").drop("etl_processing_time")
+
+kuduContext.upsertRows(HDFSdf,kuduTable)
+

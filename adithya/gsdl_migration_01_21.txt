@@ -1,0 +1,15 @@
+Step 1:- Remove files from Local Directory in QA
+
+Command :- rm /data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc/*
+
+Step 2:- Copy the files from DEV Local to QA Local
+
+Command :- cp /data/data02/dev/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc_qa/* /data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc/
+
+Step 3:- Change Directory to scripts path 
+
+cd /data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc/
+
+Step 4:- Run the shell Script
+
+Command:- nohup sh /data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc/gsdl_patch.sh  < /dev/null > /data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc/myprogram2.log 2>&1	

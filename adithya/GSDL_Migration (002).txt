@@ -1,0 +1,45 @@
+Step 1 :- 
+
+cp /data/data02/dev/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc_qa/insert_kudu.sql /data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc
+
+
+Step 2:- 
+
+cp /data/data02/dev/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc_qa/gsdl_full_load.sh /data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc
+
+
+Step 3:- 
+
+cp /data/data02/dev/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc_qa/view_kudu.sql /data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc
+
+#################Run after the Script gets completed
+
+Step 4:- 
+
+nohup sh /data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc/gsdl_full_load.sh  < /dev/null > /data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc/myprogram.log 2>&1
+
+
+
+scp -r /local/directory/ username@to_host:/remote/directory/
+
+
+
+
+scp /data/data02/dev/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc_qa/insert_kudu.sql sagsdled@ITSUSRALSP07956:/data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc/
+
+
+
+
+
+scp /data/data02/dev/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc_qa/insert_kudu.sql abaseerm@ITSUSRALSP07956:/data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc
+
+
+
+scp /data/data02/dev/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc_qa/gsdl_full_load.sh abaseerm@ITSUSRALSP07956:/data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc
+
+
+
+scp /data/data02/dev/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc_qa/view_kudu.sql abaseerm@ITSUSRALSP07956:/data/data02/qa/edl/pharma/rnd/safety/gsdl/appcode/scripts/gsdl_resource_loc
+
+
+
