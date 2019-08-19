@@ -1,0 +1,97 @@
+RND 
+
+hbase
+
+ssl.server.keystore.password
+ssl.server.keystore.keypassword
+hbase.thrift.ssl.keystore.password
+
+HDFS
+
+ssl.server.keystore.password
+ssl.server.keystore.keypassword
+ssl.client.truststore.password
+hdfs.httpfs.signature.secret
+
+HttpFS TLS/SSL Server JKS Keystore File Password
+HttpFS TLS/SSL Client Trust Store Password
+
+
+Hive
+
+javax.jdo.option.ConnectionPassword
+HiveServer2 TLS/SSL Client Trust Store Password
+hive.server2.authentication.ldap.url
+hive.server2.webui.keystore.password
+
+HUE
+
+secret_key
+
+Hue Service Advanced Configuration Snippet (Safety Valve) for hue_safety_valve.ini
+
+Hue Database Password
+password
+
+LDAP URL
+ldap_url
+bind_password
+
+
+IMPALA
+
+LDAP URL
+ldap_uri
+
+LDAP Server CA Certificate
+ldap_ca_certificate
+Edit Individual Values
+
+KAFKA
+
+ssl.keystore.password.generator
+ssl.key.password.generator
+ssl.truststore.password.generator
+
+
+oozie
+
+oozie.service.JPAService.jdbc.password
+oozie.https.keystore.pass,
+oozie.https.truststore.pass,
+
+sentry
+
+sentry.store.jdbc.password
+
+
+solr:
+
+solr.jetty.keystore.password,
+solr.jetty.truststore.password,
+
+spark
+
+History Server TLS/SSL Server JKS Keystore File Password
+
+oozie
+
+https.keystore.password
+https.cluster.keystore.password
+ldap.bindPassword
+
+
+yarn
+
+ssl.server.keystore.password
+ssl.server.keystore.keypassword
+ssl.client.truststore.password
+
+zookeeper
+
+Password of User with Read-Only Access to the JMX agent
+
+Password of user with read-write access to the JMX agent
+
+
+

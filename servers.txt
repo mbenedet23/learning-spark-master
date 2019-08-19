@@ -1,0 +1,303 @@
+
+Can you please centrify below server to ITSRNDDEVEDGE-LINUX-NA
+zone.
+
+ITSUSRALSP08776  synced
+
+[abaseerm@ITSUSRALSP08776 ~]$ lsblk
+NAME                MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                   8:0    0   45G  0 disk
++-sda1                8:1    0  512M  0 part /boot
++-sda2                8:2    0 44.5G  0 part
+  +-vg00-lv_root    253:0    0    8G  0 lvm  /
+  +-vg00-swap       253:1    0    4G  0 lvm  [SWAP]
+  +-vg00-lv_home    253:2    0    4G  0 lvm  /home
+  +-vg00-lv_audit   253:3    0    4G  0 lvm  /var/log/audit
+  +-vg00-lv_log     253:4    0    4G  0 lvm  /var/log
+  +-vg00-lv_var     253:5    0    4G  0 lvm  /var
+  +-vg00-lv_tmp     253:6    0    2G  0 lvm  /var/tmp
+  +-vg00-lv_openv   253:7    0  3.6G  0 lvm  /usr/openv
+sdb                   8:16   0  300G  0 disk
++-vg01-lv00         253:9    0  300G  0 lvm  /apps
+sdc                   8:32   0  100G  0 disk
++-vg02-lv00         253:8    0  100G  0 lvm  /opt/cloudera
+sdd                   8:48   0  1.6T  0 disk
++-vgdata01-lvdata01 253:10   0  1.6T  0 lvm  /data/data01
+sde                   8:64   0  1.6T  0 disk
++-vgdata02-lvdata02 253:11   0  1.6T  0 lvm  /data/data02
+sdf                   8:80   0  1.6T  0 disk
++-vgdata03-lvdata03 253:12   0  1.6T  0 lvm  /data/data03
+sdg                   8:96   0  1.6T  0 disk
++-vgdata04-lvdata04 253:13   0  1.6T  0 lvm  /data/data04
+sr0                  11:0    1 1024M  0 rom
+
+
+
+Also, can you please centrify below servers to ITSRNDDEV-LINUX-NA
+zone.
+
+ITSUSRALSP08796  synced
+
+[abaseerm@ITSUSRALSP08796 ~]$ lsblk
+NAME                MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                   8:0    0   45G  0 disk
++-sda1                8:1    0  512M  0 part /boot
++-sda2                8:2    0 44.5G  0 part
+  +-vg00-lv_root    253:0    0    8G  0 lvm  /
+  +-vg00-swap       253:1    0    4G  0 lvm  [SWAP]
+  +-vg00-lv_home    253:2    0    4G  0 lvm  /home
+  +-vg00-lv_audit   253:3    0    4G  0 lvm  /var/log/audit
+  +-vg00-lv_log     253:4    0    4G  0 lvm  /var/log
+  +-vg00-lv_var     253:5    0    4G  0 lvm  /var
+  +-vg00-lv_tmp     253:6    0    2G  0 lvm  /var/tmp
+  +-vg00-lv_openv   253:7    0  3.6G  0 lvm  /usr/openv
+sdb                   8:16   0  300G  0 disk
++-vg01-lv00         253:9    0  300G  0 lvm  /apps
+sdc                   8:32   0  100G  0 disk
++-vg02-lv00         253:8    0  100G  0 lvm  /opt/cloudera
+sdd                   8:48   0  1.6T  0 disk
++-vgdata01-lvdata01 253:10   0  1.6T  0 lvm  /data/data01
+sde                   8:64   0  1.6T  0 disk
++-vgdata02-lvdata02 253:11   0  1.6T  0 lvm  /data/data02
+sdf                   8:80   0  1.6T  0 disk
++-vgdata03-lvdata03 253:12   0  1.6T  0 lvm  /data/data03
+sr0                  11:0    1 1024M  0 rom
+
+ITSUSRALSP08773 synced
+
+[abaseerm@ITSUSRALSP08773 ~]$ lsblk
+NAME                MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                   8:0    0   45G  0 disk
++-sda1                8:1    0  512M  0 part /boot
++-sda2                8:2    0 44.5G  0 part
+  +-vg00-lv_root    253:0    0    8G  0 lvm  /
+  +-vg00-swap       253:1    0    4G  0 lvm  [SWAP]
+  +-vg00-lv_home    253:3    0    4G  0 lvm  /home
+  +-vg00-lv_audit   253:4    0    4G  0 lvm  /var/log/audit
+  +-vg00-lv_log     253:5    0    4G  0 lvm  /var/log
+  +-vg00-lv_var     253:6    0    4G  0 lvm  /var
+  +-vg00-lv_tmp     253:7    0    2G  0 lvm  /var/tmp
+  +-vg00-lv_openv   253:8    0  3.6G  0 lvm  /usr/openv
+sdb                   8:16   0  300G  0 disk
++-vg01-lv00         253:2    0  300G  0 lvm  /apps
+sdc                   8:32   0  100G  0 disk
++-vg02-lv00         253:9    0  100G  0 lvm  /opt/cloudera
+sdd                   8:48   0  1.6T  0 disk
++-vgdata01-lvdata01 253:10   0  1.6T  0 lvm  /data/data01
+sde                   8:64   0  1.6T  0 disk
++-vgdata02-lvdata02 253:11   0  1.6T  0 lvm  /data/data02
+sdf                   8:80   0  1.6T  0 disk
++-vgdata03-lvdata03 253:12   0  1.6T  0 lvm  /data/data03
+sdg                   8:96   0  1.6T  0 disk
++-vgdata04-lvdata04 253:13   0  1.6T  0 lvm  /data/data04
+
+ITSUSRALSP08774  synced
+
+[abaseerm@ITSUSRALSP08774 ~]$ lsblk
+NAME                MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                   8:0    0   45G  0 disk
++-sda1                8:1    0  512M  0 part /boot
++-sda2                8:2    0 44.5G  0 part
+  +-vg00-lv_root    253:0    0    8G  0 lvm  /
+  +-vg00-swap       253:1    0    4G  0 lvm  [SWAP]
+  +-vg00-lv_home    253:2    0    4G  0 lvm  /home
+  +-vg00-lv_audit   253:3    0    4G  0 lvm  /var/log/audit
+  +-vg00-lv_log     253:4    0    4G  0 lvm  /var/log
+  +-vg00-lv_var     253:5    0    4G  0 lvm  /var
+  +-vg00-lv_tmp     253:6    0    2G  0 lvm  /var/tmp
+  +-vg00-lv_openv   253:7    0  3.6G  0 lvm  /usr/openv
+sdb                   8:16   0  300G  0 disk
++-vg01-lv00         253:9    0  300G  0 lvm  /apps
+sdc                   8:32   0  100G  0 disk
++-vg02-lv00         253:8    0  100G  0 lvm  /opt/cloudera
+sdd                   8:48   0  1.6T  0 disk
++-vgdata01-lvdata01 253:10   0  1.6T  0 lvm  /data/data01
+sde                   8:64   0  1.6T  0 disk
++-vgdata02-lvdata02 253:11   0  1.6T  0 lvm  /data/data02
+sdf                   8:80   0  1.6T  0 disk
++-vgdata03-lvdata03 253:12   0  1.6T  0 lvm  /data/data03
+sdg                   8:96   0  1.6T  0 disk
++-vgdata04-lvdata04 253:13   0  1.6T  0 lvm  /data/data04
+sr0                  11:0    1 1024M  0 rom
+
+
+ITSUSRALSP08777 synced
+
+[abaseerm@ITSUSRALSP08777 ~]$ lsblk
+NAME                MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                   8:0    0   45G  0 disk
++-sda1                8:1    0  512M  0 part /boot
++-sda2                8:2    0 44.5G  0 part
+  +-vg00-lv_root    253:0    0    8G  0 lvm  /
+  +-vg00-swap       253:1    0    4G  0 lvm  [SWAP]
+  +-vg00-lv_home    253:4    0    4G  0 lvm  /home
+  +-vg00-lv_audit   253:5    0    4G  0 lvm  /var/log/audit
+  +-vg00-lv_log     253:6    0    4G  0 lvm  /var/log
+  +-vg00-lv_var     253:7    0    4G  0 lvm  /var
+  +-vg00-lv_tmp     253:8    0    2G  0 lvm  /var/tmp
+  +-vg00-lv_openv   253:9    0  3.6G  0 lvm  /usr/openv
+sdb                   8:16   0  300G  0 disk
++-vg01-lv00         253:2    0  300G  0 lvm  /apps
+sdc                   8:32   0  100G  0 disk
++-vg02-lv00         253:3    0  100G  0 lvm  /opt/cloudera
+sdd                   8:48   0  1.6T  0 disk
++-vgdata01-lvdata01 253:10   0  1.6T  0 lvm  /data/data01
+sde                   8:64   0  1.6T  0 disk
++-vgdata02-lvdata02 253:11   0  1.6T  0 lvm  /data/data02
+sdf                   8:80   0  1.6T  0 disk
++-vgdata03-lvdata03 253:12   0  1.6T  0 lvm  /data/data03
+sdg                   8:96   0  1.6T  0 disk
++-vgdata04-lvdata04 253:13   0  1.6T  0 lvm  /data/data04
+sdh                   8:112  0  1.6T  0 disk
++-vgdata05-lvdata05 253:14   0  1.6T  0 lvm  /data/data05
+sdi                   8:128  0  1.6T  0 disk
++-vgdata06-lvdata06 253:15   0  1.6T  0 lvm  /data/data06
+sdj                   8:144  0  1.6T  0 disk
++-vgdata07-lvdata07 253:16   0  1.6T  0 lvm  /data/data07
+sdk                   8:160  0  1.6T  0 disk
++-vgdata08-lvdata08 253:17   0  1.6T  0 lvm  /data/data08
+sdl                   8:176  0  1.6T  0 disk
++-vgdata09-lvdata09 253:18   0  1.6T  0 lvm  /data/data09
+sdm                   8:192  0  1.6T  0 disk
++-vgdata10-lvdata10 253:19   0  1.6T  0 lvm  /data/data10
+sdn                   8:208  0  1.6T  0 disk
++-vgdata11-lvdata11 253:20   0  1.6T  0 lvm  /data/data11
+sdo                   8:224  0  1.6T  0 disk
++-vgdata12-lvdata12 253:21   0  1.6T  0 lvm  /data/data12
+sr0                  11:0    1 1024M  0 rom
+
+ITSUSRALSP08778  synced
+
+[abaseerm@ITSUSRALSP08778 ~]$ lsblk
+NAME                MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                   8:0    0   45G  0 disk
++-sda1                8:1    0  512M  0 part /boot
++-sda2                8:2    0 44.5G  0 part
+  +-vg00-lv_root    253:0    0    8G  0 lvm  /
+  +-vg00-swap       253:1    0    4G  0 lvm  [SWAP]
+  +-vg00-lv_home    253:4    0    4G  0 lvm  /home
+  +-vg00-lv_audit   253:5    0    4G  0 lvm  /var/log/audit
+  +-vg00-lv_log     253:6    0    4G  0 lvm  /var/log
+  +-vg00-lv_var     253:7    0    4G  0 lvm  /var
+  +-vg00-lv_tmp     253:8    0    2G  0 lvm  /var/tmp
+  +-vg00-lv_openv   253:9    0  3.6G  0 lvm  /usr/openv
+sdb                   8:16   0  300G  0 disk
++-vg01-lv00         253:3    0  300G  0 lvm  /apps
+sdc                   8:32   0  100G  0 disk
++-vg02-lv00         253:2    0  100G  0 lvm  /opt/cloudera
+sdd                   8:48   0  1.6T  0 disk
++-vgdata01-lvdata01 253:10   0  1.6T  0 lvm  /data/data01
+sde                   8:64   0  1.6T  0 disk
++-vgdata02-lvdata02 253:11   0  1.6T  0 lvm  /data/data02
+sdf                   8:80   0  1.6T  0 disk
++-vgdata03-lvdata03 253:12   0  1.6T  0 lvm  /data/data03
+sdg                   8:96   0  1.6T  0 disk
++-vgdata04-lvdata04 253:13   0  1.6T  0 lvm  /data/data04
+sdh                   8:112  0  1.6T  0 disk
++-vgdata05-lvdata05 253:14   0  1.6T  0 lvm  /data/data05
+sdi                   8:128  0  1.6T  0 disk
++-vgdata06-lvdata06 253:15   0  1.6T  0 lvm  /data/data06
+sdj                   8:144  0  1.6T  0 disk
++-vgdata07-lvdata07 253:16   0  1.6T  0 lvm  /data/data07
+sdk                   8:160  0  1.6T  0 disk
++-vgdata08-lvdata08 253:17   0  1.6T  0 lvm  /data/data08
+sdl                   8:176  0  1.6T  0 disk
++-vgdata09-lvdata09 253:18   0  1.6T  0 lvm  /data/data09
+sdm                   8:192  0  1.6T  0 disk
++-vgdata10-lvdata10 253:19   0  1.6T  0 lvm  /data/data10
+sdn                   8:208  0  1.6T  0 disk
++-vgdata11-lvdata11 253:20   0  1.6T  0 lvm  /data/data11
+sdo                   8:224  0  1.6T  0 disk
++-vgdata12-lvdata12 253:21   0  1.6T  0 lvm  /data/data12
+sr0                  11:0    1 1024M  0 rom
+
+ITSUSRALSP08792  synced
+
+[abaseerm@ITSUSRALSP08792 ~]$ lsblk
+NAME                MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                   8:0    0   45G  0 disk
++-sda1                8:1    0  512M  0 part /boot
++-sda2                8:2    0 44.5G  0 part
+  +-vg00-lv_root    253:0    0    8G  0 lvm  /
+  +-vg00-swap       253:1    0    4G  0 lvm  [SWAP]
+  +-vg00-lv_home    253:2    0    4G  0 lvm  /home
+  +-vg00-lv_audit   253:3    0    4G  0 lvm  /var/log/audit
+  +-vg00-lv_log     253:4    0    4G  0 lvm  /var/log
+  +-vg00-lv_var     253:5    0    4G  0 lvm  /var
+  +-vg00-lv_tmp     253:6    0    2G  0 lvm  /var/tmp
+  +-vg00-lv_openv   253:7    0  3.6G  0 lvm  /usr/openv
+sdb                   8:16   0  300G  0 disk
++-vg01-lv00         253:8    0  300G  0 lvm  /apps
+sdc                   8:32   0  100G  0 disk
++-vg02-lv00         253:9    0  100G  0 lvm  /opt/cloudera
+sdd                   8:48   0  1.6T  0 disk
++-vgdata01-lvdata01 253:10   0  1.6T  0 lvm  /data/data01
+sde                   8:64   0  1.6T  0 disk
++-vgdata02-lvdata02 253:11   0  1.6T  0 lvm  /data/data02
+sdf                   8:80   0  1.6T  0 disk
++-vgdata03-lvdata03 253:12   0  1.6T  0 lvm  /data/data03
+sdg                   8:96   0  1.6T  0 disk
++-vgdata04-lvdata04 253:13   0  1.6T  0 lvm  /data/data04
+sdh                   8:112  0  1.6T  0 disk
++-vgdata05-lvdata05 253:14   0  1.6T  0 lvm  /data/data05
+sdi                   8:128  0  1.6T  0 disk
++-vgdata06-lvdata06 253:15   0  1.6T  0 lvm  /data/data06
+sdj                   8:144  0  1.6T  0 disk
++-vgdata07-lvdata07 253:16   0  1.6T  0 lvm  /data/data07
+sdk                   8:160  0  1.6T  0 disk
++-vgdata08-lvdata08 253:17   0  1.6T  0 lvm  /data/data08
+sdl                   8:176  0  1.6T  0 disk
++-vgdata09-lvdata09 253:18   0  1.6T  0 lvm  /data/data09
+sdm                   8:192  0  1.6T  0 disk
++-vgdata10-lvdata10 253:19   0  1.6T  0 lvm  /data/data10
+sdn                   8:208  0  1.6T  0 disk
++-vgdata11-lvdata11 253:20   0  1.6T  0 lvm  /data/data11
+sdo                   8:224  0  1.6T  0 disk
++-vgdata12-lvdata12 253:21   0  1.6T  0 lvm  /data/data12
+sr0                  11:0    1 1024M  0 rom
+
+
+ITSUSRALSP08793  synced	
+	
+[abaseerm@ITSUSRALSP08793 ~]$ lsblk
+NAME                MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                   8:0    0   45G  0 disk
++-sda1                8:1    0  512M  0 part /boot
++-sda2                8:2    0 44.5G  0 part
+  +-vg00-lv_root    253:0    0    8G  0 lvm  /
+  +-vg00-swap       253:1    0    4G  0 lvm  [SWAP]
+  +-vg00-lv_home    253:2    0    4G  0 lvm  /home
+  +-vg00-lv_audit   253:3    0    4G  0 lvm  /var/log/audit
+  +-vg00-lv_log     253:4    0    4G  0 lvm  /var/log
+  +-vg00-lv_var     253:5    0    4G  0 lvm  /var
+  +-vg00-lv_tmp     253:6    0    2G  0 lvm  /var/tmp
+  +-vg00-lv_openv   253:7    0  3.6G  0 lvm  /usr/openv
+sdb                   8:16   0  300G  0 disk
++-vg01-lv00         253:8    0  300G  0 lvm  /apps
+sdc                   8:32   0  100G  0 disk
++-vg02-lv00         253:9    0  100G  0 lvm  /opt/cloudera
+sdd                   8:48   0  1.6T  0 disk
++-vgdata01-lvdata01 253:10   0  1.6T  0 lvm  /data/data01
+sde                   8:64   0  1.6T  0 disk
++-vgdata02-lvdata02 253:11   0  1.6T  0 lvm  /data/data02
+sdf                   8:80   0  1.6T  0 disk
++-vgdata03-lvdata03 253:12   0  1.6T  0 lvm  /data/data03
+sdg                   8:96   0  1.6T  0 disk
++-vgdata04-lvdata04 253:13   0  1.6T  0 lvm  /data/data04
+sdh                   8:112  0  1.6T  0 disk
++-vgdata05-lvdata05 253:14   0  1.6T  0 lvm  /data/data05
+sdi                   8:128  0  1.6T  0 disk
++-vgdata06-lvdata06 253:15   0  1.6T  0 lvm  /data/data06
+sdj                   8:144  0  1.6T  0 disk
++-vgdata07-lvdata07 253:16   0  1.6T  0 lvm  /data/data07
+sdk                   8:160  0  1.6T  0 disk
++-vgdata08-lvdata08 253:17   0  1.6T  0 lvm  /data/data08
+sdl                   8:176  0  1.6T  0 disk
++-vgdata09-lvdata09 253:18   0  1.6T  0 lvm  /data/data09
+sdm                   8:192  0  1.6T  0 disk
++-vgdata10-lvdata10 253:19   0  1.6T  0 lvm  /data/data10
+sdn                   8:208  0  1.6T  0 disk
++-vgdata11-lvdata11 253:20   0  1.6T  0 lvm  /data/data11
+sdo                   8:224  0  1.6T  0 disk
++-vgdata12-lvdata12 253:21   0  1.6T  0 lvm  /data/data12
+sr0                  11:0    1 1024M  0 rom

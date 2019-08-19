@@ -1,0 +1,53 @@
+
+
+Logs:
+[root@ITSUSRALSP08023:/root]#
+#-> df -h /home
+Filesystem                Size  Used Avail Use% Mounted on
+/dev/mapper/vg00-lv_home  3.9G  3.7G  1.2M 100% /home
+[root@ITSUSRALSP08023:/root]#
+#-> find /home -type f -size +50M -exec ls -lrth {} \;
+---------- 1 saiipirp users 564M Feb  1 04:12 /home/saiipirp/JJEDS/sedK2KfRU
+-rw-r--r-- 1 saiipirp users 922M Feb  1 04:11 /home/saiipirp/JJEDS/JJEDS_INFO.CSV
+-rw-r--r-- 1 saliftep users 151M Feb  1 11:17 /home/saliftep/Logs1stFeb.log
+-rw-r--r-- 1 saclsdep users 152M Dec 27 09:15 /home/saclsdep/files/ControlPay_201810.csv
+-rw-r--r-- 1 saclsdep users 241M Feb  2 18:24 /home/saclsdep/xps/XPS_20190130_154636.zip
+-rw-r--r-- 1 samdrdep users 66M Dec  7 17:42 /home/samdrdep/License_Product.csv
+[root@ITSUSRALSP08023:/root]#
+#->
+[root@ITSUSRALSP08023:/root]#
+#-> find /home -type f -size +10M -exec ls -lrth {} \;
+-rw-rw-rw- 1 saclsaep users 29M Jan 28 23:15 /home/saclsaep/likp/000000_0
+-rw-rw-rw- 1 saclsaep users 29M Jan 28 23:15 /home/saclsaep/likp/000008_0
+-rw-rw-rw- 1 saclsaep users 29M Jan 28 23:15 /home/saclsaep/likp/000005_0
+-rw-rw-rw- 1 saclsaep users 29M Jan 28 23:15 /home/saclsaep/likp/000009_0
+-rw-rw-rw- 1 saclsaep users 29M Jan 28 23:15 /home/saclsaep/likp/000001_0
+-rw-rw-rw- 1 saclsaep users 29M Jan 28 23:15 /home/saclsaep/likp/000006_0
+-rw-rw-rw- 1 saclsaep users 29M Jan 28 23:15 /home/saclsaep/likp/000004_0
+-rw-rw-rw- 1 saclsaep users 29M Jan 28 23:15 /home/saclsaep/likp/000002_0
+-rw-rw-rw- 1 saclsaep users 29M Jan 28 23:15 /home/saclsaep/likp/000007_0
+-rw-rw-rw- 1 saclsaep users 29M Jan 28 23:15 /home/saclsaep/likp/000003_0
+-rwxrwxrwx 1 smalde users 49M Jan 16 06:23 /home/smalde/CLSPhoenix/Views_check/mars_vbap_20190115-99.json
+-rw-rw-rw- 1 smalde users 12M Jan 18 04:02 /home/smalde/CLSPhoenix/mars_mara_1.parquet
+---------- 1 saiipirp users 564M Feb  1 04:12 /home/saiipirp/JJEDS/sedK2KfRU
+-rw-r--r-- 1 saiipirp users 922M Feb  1 04:11 /home/saiipirp/JJEDS/JJEDS_INFO.CSV
+-rw-r--r-- 1 saliftep users 151M Feb  1 11:17 /home/saliftep/Logs1stFeb.log
+-rwx------ 1 asingh57 users 17M Nov 16 18:21 /home/asingh57/tedl/datalake/tedl-artifacts/tedl-reports-2.4.5.tar.gz
+-rwx------ 1 asingh57 users 17M Nov 16 18:21 /home/asingh57/tedl/datalake/tedl-artifacts/tedl-reports-2.5.0.tar.gz
+-rw-rw-rw- 1 lroshith users 11M Nov 28 17:02 /home/lroshith/EDL_Elementum_Goods_Issued_Data_SAP_ROTC_20181128095508_00.txt
+-rw-r--r-- 1 safcstep users 12M Nov 10 09:03 /home/safcstep/FA/jars/exceltocsv.jar
+-rw------- 1 saedlmia users 12M Nov  1 22:49 /home/saedlmia/ATOM_HIVE/jars/exceltocsv.jar
+-rw-r--r-- 1 saclsdep users 152M Dec 27 09:15 /home/saclsdep/files/ControlPay_201810.csv
+-rw-r--r-- 1 saclsdep users 12M Feb  2 18:24 /home/saclsdep/xps/XPS_20190102_015131.zip
+-rw-r--r-- 1 saclsdep users 241M Feb  2 18:24 /home/saclsdep/xps/XPS_20190130_154636.zip
+-rw-r--r-- 1 saclsdep users 23M Feb  2 18:24 /home/saclsdep/xps/XPS_20190103_023645.zip
+-rw-r--r-- 1 pthomas1 users 35M Feb  2 16:40 /home/pthomas1/.conda/pkgs/python-3.6.8-h0371630_0.tar.bz2
+-rwxrwxr-x 1 pthomas1 users 12M Dec 29 20:28 /home/pthomas1/.conda/pkgs/python-3.6.8-h0371630_0/bin/python3.6
+-rwxrwxr-x 1 pthomas1 users 23M Dec 29 20:27 /home/pthomas1/.conda/pkgs/python-3.6.8-h0371630_0/lib/libpython3.6m.a
+-rw-r--r-- 1 pthomas1 users 29M Feb  2 16:40 /home/pthomas1/.conda/pkgs/cache/497deca9.q
+-rw-r--r-- 1 pthomas1 users 32M Feb  2 16:39 /home/pthomas1/.conda/pkgs/cache/497deca9.json
+-rwxrwxr-x 1 pthomas1 users 12M Feb  2 16:40 /home/pthomas1/.conda/envs/conda2/bin/python3.6
+-rwxrwxr-x 1 pthomas1 users 23M Feb  2 16:40 /home/pthomas1/.conda/envs/conda2/lib/libpython3.6m.a
+-rw------- 1 saaporep users 20M Oct 29 03:57 /home/saaporep/APO_bckp/APO_PHASE3_PROD/JAR_FILES/MailReader.jar
+-rw-r--r-- 1 saaporep users 20M Nov  5 02:38 /home/saaporep/APO_PHASE3_PROD/JAR_FILES/MailReader.jar
+-rw-r--r-- 1 samdrdep users 66M Dec  7 17:42 /home/samdrdep/License_Product.csv

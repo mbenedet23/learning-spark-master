@@ -1,0 +1,71 @@
+To update via email, add your response at the top (not inline).
+
+Case#: 273899
+Associated Asset: JnJ_EDL_NewProdCluster Comment From: Ramandeep Arora 
+
+Hello Sharmila,
+
+Thanks for allowing us time to review the bundle and logs. Here is the analysis.
+
+1. We checked DN logs for possible notifications of performance hindrance and found the below mentioned messages. The number in front of every message is the count of its occurrence in the DN logs.
+~~~
+itsusralsp07974.jnj.com.log.out
+
+     14 Slow BlockReceiver write data to disk cost
+    391 Slow BlockReceiver write packet to mirror took
+      1 Slow flushOrSync took
+      1 Slow manageWriterOsCache took
+~~~
+
+
+For explanation purposes, I have only posted the logs from just one DN above. Although, DNs that had above messages in the logs were:
+~~~
+itsusralsp[07970, 07971, 07973, 07974, 07975, 07976, 07977, 07978, 07979, 07980, 07981, 07982, 07983].jnj.com ~~~
+
+All of them had the same pattern of occurrence in the logs.
+
+Explanations about what these messages are:
+
+"Slow BlockReceiver write packet to mirror": 
+This indicates that there was a delay in writing the block across the network
+
+"Slow BlockReceiver write data to disk cost": 
+This indicates that there was a delay in writing the block to the OS cache or disk
+
+"Slow flushOrSync": 
+This indicates that there was a delay in writing the block to the OS cache or disk
+
+"Slow manageWriterOsCache": 
+This indicates that there was a delay in writing the block to the OS cache or disk
+
+If you notice there are 391 “Slow BlockReceiver write packet to mirror” messages. This is an indication for network problem. When DN was trying to contact other DN for replicating the blocks via network, there was delay observed, this is what this means. Though, there are 14 “Slow BlockReceiver write data to disk cost” indicating problem with I/O to disk, I’d first try to solve network problem.
+
+To confirm more about the issue with network, I then checked the SAR reports from DN itsusralsp07976 whose system stats were collected in the bundle and I found network drops. Similar drops were observed in DN itsusralsp07977 as well.
+~~~
+12:00:01 AM     IFACE   rxdrop/s
+01:10:01 AM    ens192      0.14
+01:10:01 AM    ens224      0.02
+06:50:01 AM    ens192      0.14
+06:50:01 AM    ens224      0.14
+~~~
+
+Note, since no other DNs host stats were collected, I could not check other DNs network problems. But given the fact that the messages are there, network problems should be there in those DNs too.
+
+2. We saw in the validation violation in the bundle that some of the hosts are using Transparent Huge Pages, The DNs using THPs are:
+
+itsusralsp[07971, 07973, 07975, 07976, 07977, 07978, 07980, 07982].jnj.com
+
+THPs can cause significant performance issues on the OS, in turn, affecting DNs performance as well.
+
+
+Action Plan:
+==========
+
+1. Engage your OS and network team to check the network issues and possible slow disk I/O as highlighted above because these should be causing slowness in the jobs, as reported by you.
+
+2. Disable THPs from the nodes that are using it. OS team can help with this. As far as I can remember, no restart of any service or server will be required for this step.
+
+Kindly get back to us with your update on this.
+
+Regards
+Raman

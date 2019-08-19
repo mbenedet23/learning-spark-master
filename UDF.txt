@@ -1,0 +1,25 @@
+Team,
+
+Please create UDFs for PROD beeline similar to QA request( RITM000015951124 )
+
+Steps:
+
+1) copy the attached UDF jar files to HDFS  location
+                               
+
+hadoop fs -put NumericToGregorianTimestamp.jar JulianToGregorianTimestamp.jar /prod/edl/sc/md/sccsmd/appcode/configs/udf
+
+2) execute the create function statements
+
+use sccsmd_wrk;
+
+create function sccsmd_wrk.toGregorianTimestamp as 'com.jnj.hive.udf.numericToTimestamp.GregorianUDFTimestamp' using jar 'hdfs://nameservice1/prod/edl/sc/md/sccsmd/appcode/configs/udf/NumericToGregorianTimestamp.jar';
+
+create function sccsmd_wrk.juliantoGregorian as 'com.jnj.hive.julianToGreg.JulianToGregCal' using jar 'hdfs://nameservice1/prod/edl/sc/md/sccsmd/appcode/configs/udf/JulianToGregorianTimestamp.jar';
+
+3) sample test query to check the UDFs after deployment.
+
+select order_date, cast(sccsmd_wrk.toGregorianTimestamp(cast(order_date as string))as timestamp) from gora_stg.e_enablement_prms_sales_info limit 10;
+
+select SDTRDJ ,cast(sccsmd_wrk.juliantoGregorian(cast(SDTRDJ as string))as timestamp) as converteddate FROM gora_stg.e_enablement_jde_sales_F42119  limit 10;
+
