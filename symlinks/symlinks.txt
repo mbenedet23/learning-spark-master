@@ -1,0 +1,184 @@
+eg:
+
+mv /var/lib/zookeeper /apps/var/lib/.
+ln -s /apps/var/lib/zookeeper /var/lib/zookeeper
+
+mv /var/log/zookeeper /apps/log/.
+ln -s /apps/log/zookeeper /var/log/zookeeper
+
+missed
+
+cloudera management service
+
+mv /var/lib/cloudera-scm-headlamp /apps/var/lib/.
+ln -s /apps/var/lib/cloudera-scm-headlamp /var/lib/cloudera-scm-headlamp
+
+zookeeper:
+
+/var/log/zookeeper
+/var/lib/zookeeper
+
+mv /var/lib/zookeeper /apps/var/lib/.
+ln -s /apps/var/lib/zookeeper /var/lib/zookeeper
+
+mv /var/log/zookeeper /apps/log/.
+ln -s /apps/log/zookeeper /var/log/zookeeper
+
+
+
+yarn/jobhistory server:
+
+/var/log/hadoop-mapreduce
+
+mv /var/log/hadoop-mapreduce /apps/log/.
+ln -s /apps/log/hadoop-mapreduce /var/log/hadoop-mapreduce
+
+
+yarn/nodemanager:
+
+/var/log/hadoop-yarn
+
+mv /var/log/hadoop-yarn /apps/log/.
+ln -s /apps/log/hadoop-yarn /var/log/hadoop-yarn
+
+
+NodeManager Recovery Directory Free Space
+
+/var/lib/hadoop-yarn/yarn-nm-recovery
+
+mv /var/lib/hadoop-yarn/yarn-nm-recovery /apps/var/lib/.
+ln -s /apps/var/lib/yarn-nm-recovery /var/lib/hadoop-yarn/yarn-nm-recovery
+
+Resource Manager:
+
+/var/log/hadoop-yarn
+
+mv /var/log/hadoop-yarn /apps/log/.
+ln -s /apps/log/hadoop-yarn /var/log/hadoop-yarn
+
+
+/var/log/hbase
+
+mv /var/log/hbase /apps/log/.
+ln -s /apps/log/hbase /var/log/hbase
+
+
+spark
+
+/var/log/spark
+
+mv /var/log/spark /apps/log/.
+ln -s /apps/log/spark /var/log/spark
+
+
+solr:
+
+/var/log/solr 
+
+mv /var/log/solr /apps/log/.
+ln -s /apps/log/solr /var/log/solr
+
+
+
+oozie
+
+/var/log/oozie 
+
+mv /var/log/oozie /apps/log/.
+ln -s /apps/log/oozie /var/log/oozie
+
+
+
+impala
+
+/var/log/statestore
+
+mv /var/log/statestore /apps/log/.
+ln -s /apps/log/statestore /var/log/statestore
+
+
+/var/log/catalogd
+
+mv /var/log/catalogd /apps/log/.
+ln -s /apps/log/catalogd /var/log/catalogd
+
+
+/var/log/impalad 
+
+mv /var/log/impalad  /apps/log/.
+ln -s /apps/log/impalad /var/log/impalad 
+
+Hue
+ /var/log/hue 
+
+mv /var/log/hue /apps/log/.
+ln -s /apps/log/hue /var/log/hue 
+
+
+Hive
+Hive metstore
+
+/var/log/hive 
+
+
+mv /var/log/hive /apps/log/.
+ln -s /apps/log/hive /var/log/hive
+
+
+webhccat itsusralsp08796
+
+ /var/log/hcatalog 
+
+mv /var/log/hcatalog /apps/log/.
+ln -s /apps/log/hcatalog  /var/log/hcatalog
+
+
+HDFS
+
+/var/log/hadoop-hdfs
+
+mv /var/log/hadoop-hdfs /apps/log/.
+ln -s /apps/log/hadoop-hdfs/var/log/hadoop-hdfs
+
+var/log/hadoop-httpfs 
+
+mv var/log/hadoop-httpfs /apps/log/.
+ln -s /apps/log/hadoop-httpfs /var/log/hadoop-httpfs 
+
+
+HBASE
+
+ itsusralsp08773, 796, 778, 793, 792, 776
+   
+/var/log/hbase
+
+mv /var/log/hbase /apps/log/.
+ln -s /apps/log/hbase /var/log/hbase 
+
+/var/log/hadoop-hdfs
+
+mv /var/log/hadoop-hdfs /apps/log/.
+ln -s /apps/log/hadoop-hdfs /var/log/hadoop-hdfs
+
+
+
+/var/log/hadoop-yarn
+
+mv /var/log/hadoop-yarn /apps/log/.
+ln -s /apps/log/hadoop-yarn /var/log/hadoop-yarn
+
+
+ /var/lib/hadoop-yarn/yarn-nm-recovery
+
+mv /var/lib/hadoop-yarn/yarn-nm-recovery /apps/var/lib/.
+ln -s /apps/var/lib/hadoop-yarn/yarn-nm-recovery /var/lib/hadoop-yarn/yarn-nm-recovery
+
+
+
+cd /usr/lib/python2.7/site-packages
+chmod 755 -R pip*
+chmod 755 -R virtualenv_support
+chmod 755 -R wheel
+chmod 755 -R wheel-0.33.1.dist-info
+chmod 755 -R virtualenv-16.4.3.dist-info
+
